@@ -11,7 +11,7 @@ function MyStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Login" component={Login_screen}/>
-      {/* <Stack.Screen name="Home" component={Home_screen}/> */}
+      <Stack.Screen name="Home" component={Home_screen}/>
     </Stack.Navigator>
   );
 }

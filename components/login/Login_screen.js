@@ -2,19 +2,17 @@ import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, Vi
 import React, { useState } from 'react'
 import { Component } from 'react/cjs/react.production.min'
 import Home_screen from './Home_screen'
+import { useNavigation } from '@react-navigation/native';
 
-const Login_screen = () => {
+
+
+
+const Login_screen = ({navigation}) => {
 const [email,setEmail] = useState('')
 const [password,setPassword] = useState('')
 
-const handleLogin = ({navigation}) => {
-        navigation.navigate('Home')
 
-        
-    
-}
 
-// const handleSignUp = async () =>{
 // await auth
 // .createUserWithEmailAndPassword(email, password)
 // .then((userDetail) => {
@@ -59,7 +57,10 @@ const handleLogin = ({navigation}) => {
      </View>
      <View style={styles.buttonContainer}>
         <TouchableOpacity
-        onPress={handleLogin}
+        onPress={() =>{
+            if(email == 'sourabh@gmail.com' && password == '12345')
+                navigation.navigate('Home')
+        }}
         style={styles.button}
         >
             <Text style={styles.buttonText}>
