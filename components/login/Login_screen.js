@@ -1,9 +1,18 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
+import { Component } from 'react/cjs/react.production.min'
+import Home_screen from './Home_screen'
 
 const Login_screen = () => {
-// const [email,setEmail] = useState('')
-// const [password,setPassword] = useState('')
+const [email,setEmail] = useState('')
+const [password,setPassword] = useState('')
+
+const handleLogin = ({navigation}) => {
+        navigation.navigate('Home')
+
+        
+    
+}
 
 // const handleSignUp = async () =>{
 // await auth
@@ -28,18 +37,21 @@ const Login_screen = () => {
 // }
 
   return (
-    <KeyboardAvoidingView
+    <View
     style={styles.container}
     behavior="padding"
     >
      <View style={styles.inputContainer}>
         <TextInput
+        value={email}
         placeholder="Email"
+        onChangeText={text =>setEmail(text)}
         style={styles.input}
 
         />
          <TextInput
         placeholder="Password"
+        onChangeText={text =>setPassword(text)}
         style={styles.input}
         secureTextEntry
 
@@ -47,6 +59,7 @@ const Login_screen = () => {
      </View>
      <View style={styles.buttonContainer}>
         <TouchableOpacity
+        onPress={handleLogin}
         style={styles.button}
         >
             <Text style={styles.buttonText}>
@@ -61,7 +74,7 @@ const Login_screen = () => {
             </Text>
         </TouchableOpacity>
      </View>
-    </KeyboardAvoidingView>
+    </View>
   )
 }
 
