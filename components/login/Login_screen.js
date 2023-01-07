@@ -58,8 +58,9 @@ const [password,setPassword] = useState('')
      <View style={styles.buttonContainer}>
         <TouchableOpacity
         onPress={() =>{
-            if(email == 'sourabh@gmail.com' && password == '12345')
-                navigation.navigate('Home')
+            navigation.navigate('DrawerNav')
+            // if(email == 'sourabh@gmail.com' && password == '12345')
+                
         }}
         style={styles.button}
         >
