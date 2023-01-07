@@ -1,11 +1,18 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
+import { Component } from 'react/cjs/react.production.min'
+import Home_screen from './Home_screen'
+import { useNavigation } from '@react-navigation/native';
 
-const Login_screen = () => {
-// const [email,setEmail] = useState('')
-// const [password,setPassword] = useState('')
 
-// const handleSignUp = async () =>{
+
+
+const Login_screen = ({navigation}) => {
+const [email,setEmail] = useState('')
+const [password,setPassword] = useState('')
+
+
+
 // await auth
 // .createUserWithEmailAndPassword(email, password)
 // .then((userDetail) => {
@@ -28,18 +35,21 @@ const Login_screen = () => {
 // }
 
   return (
-    <KeyboardAvoidingView
+    <View
     style={styles.container}
     behavior="padding"
     >
      <View style={styles.inputContainer}>
         <TextInput
+        value={email}
         placeholder="Email"
+        onChangeText={text =>setEmail(text)}
         style={styles.input}
 
         />
          <TextInput
         placeholder="Password"
+        onChangeText={text =>setPassword(text)}
         style={styles.input}
         secureTextEntry
 
@@ -47,6 +57,10 @@ const Login_screen = () => {
      </View>
      <View style={styles.buttonContainer}>
         <TouchableOpacity
+        onPress={() =>{
+            if(email == 'sourabh@gmail.com' && password == '12345')
+                navigation.navigate('Home')
+        }}
         style={styles.button}
         >
             <Text style={styles.buttonText}>
@@ -61,7 +75,7 @@ const Login_screen = () => {
             </Text>
         </TouchableOpacity>
      </View>
-    </KeyboardAvoidingView>
+    </View>
   )
 }
 
