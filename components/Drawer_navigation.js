@@ -33,8 +33,8 @@ const CustomerDrawer = (props) => {
 function MyDrawer() {
   return (
     <Drawer.Navigator drawerContent={props => <CustomerDrawer {...props}/>}>
-      <Drawer.Screen name="Home" component={Home_screen} options={{headerTitle: 'Texephyr'}}/> 
-      <Drawer.Screen name="Reset Password" component={Reset} options={{headerTitle: 'Texephyr'}}/>
+      <Drawer.Screen name="Home" component={Home_screen} options={{headerTitle: 'Texephyr',headerTitleStyle: {color:'#0782F9'}}}/> 
+      <Drawer.Screen name="Reset Password" component={Reset} options={{headerTitle: 'Texephyr',headerTitleStyle: {color:'#0782F9'}}}/>
     </Drawer.Navigator>
     
   );

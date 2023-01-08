@@ -9,8 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const Login_screen = ({navigation}) => {
 const [email,setEmail] = useState('')
-const [password,setPassword] = useState('')
-
+const [password, setPassword] = useState('')
 
 
 // await auth

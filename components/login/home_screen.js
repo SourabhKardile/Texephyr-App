@@ -32,10 +32,10 @@ const Home_screen = () => {
         })}
     >
 
-    <Stack.Screen name="Event" component={EventList}  />
-    <Stack.Screen name="Register" component={EventRegisteration} />
-    <Stack.Screen name="My Status" component={MyStatus} />
-    <Stack.Screen name="stats" component={Stats} />
+    <Stack.Screen name="Event" component={EventList} options={{headerTitle: 'Event',headerTitleStyle: {color:'#0782F9'}}} />
+    <Stack.Screen name="Register" component={EventRegisteration} options={{headerTitle: 'Register',headerTitleStyle: {color:'#0782F9'}}}/>
+    <Stack.Screen name="My Status" component={MyStatus} options={{headerTitle: 'My Status',headerTitleStyle: {color:'#0782F9'}}}/>
+    <Stack.Screen name="stats" component={Stats} options={{headerTitle: 'Stats',headerTitleStyle: {color:'#0782F9'}}}/>
   </Stack.Navigator>
     </View>
   )
