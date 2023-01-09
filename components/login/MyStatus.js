@@ -10,15 +10,21 @@ import EventList from './Event';
 import Records from './Records';
 
 const Item = ({ name }) => (
-    <View style={styles.Item}>
+    <View style={styles.item}>
       <Text style={styles.name}>{name}</Text>
     </View>
 );
 
+const displayString = 'Hello ' + 'Sourabh' + ' SK1070'
+var toBeSubmitted = 'Money to be submitted\n\n' + 1000;
+var moneySubmitted = 'Money submitted\n\n' + 5000;
+
 const MyStatus = () =>{
     return(
-        <View>
-           <Item name='Hello'/> 
+        <View style={{alignSelf:'center', padding:'5%'}}>
+           <Item name={displayString}/>
+           <Item name={toBeSubmitted}/>
+           <Item name={moneySubmitted}/>
         </View>
     )
 }
@@ -28,10 +34,9 @@ export default MyStatus
 const styles = StyleSheet.create({
     item: {
         backgroundColor: '#fff',
-        padding: 20,
+        padding: '5%',
         borderRadius:7,
-        marginVertical: 8,
-        marginHorizontal: 16,
+        marginVertical: '5%'
       },
       name: {
         fontSize: 32,

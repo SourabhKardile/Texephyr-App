@@ -8,6 +8,7 @@ import EventRegisteration from './EventRegisteration';
 import { element } from 'prop-types';
 import EventList from './Event';
 import Records from './Records';
+import MyStatus from './MyStatus';
 
 const Home_screen = () => {
   return (
@@ -43,12 +44,6 @@ const Home_screen = () => {
 }
 
 export default Home_screen
-
-const MyStatus = () => (
-  <View style={styles.layout}>
-    <Text style={styles.title}>My Status</Text>
-  </View>
-);
 
 
 const Stack = createBottomTabNavigator();
