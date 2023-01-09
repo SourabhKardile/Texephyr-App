@@ -8,6 +8,7 @@ import EventRegisteration from './EventRegisteration';
 import { element } from 'prop-types';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import styles from './LoginStyle'
 
 const Tab = createMaterialTopTabNavigator();
 const events = [
@@ -125,67 +126,3 @@ function Civil(){
 
   export default EventList
 
-  const styles = StyleSheet.create({
-    layout: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    title: {
-      fontSize: 32,
-      marginBottom: 16,
-    },
-    container: {
-      flex: 1,
-      marginTop: StatusBar.currentHeight || 0,
-    },
-    eventListItem: {
-      backgroundColor: '#fff',
-      padding: 20,
-      borderRadius:7,
-      marginVertical: 8,
-      marginHorizontal: 16,
-    },
-    branchItem: {
-      backgroundColor: '#0782F9',
-      padding: 2,
-      marginVertical: 5,
-      marginHorizontal: 30,
-      borderRadius:7,
-      width:'70%',
-      alignItems: 'center'
-    },
-    name: {
-      fontSize: 32,
-      color: '#0782F9'
-    },
-    branchname: {
-      fontSize: 25,
-      color: 'white'
-    },
-    centeredView: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 22,
-        width: '100%',
-        height: '100%'
-      },
-      modalView: {
-        width: '90%',
-        height: '80%',
-        margin: 20,
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5
-      },
-  });

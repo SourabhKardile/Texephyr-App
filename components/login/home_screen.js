@@ -8,6 +8,7 @@ import EventRegisteration from './EventRegisteration';
 import { element } from 'prop-types';
 import EventList from './Event';
 import Records from './Records';
+import styles from './LoginStyle'
 
 const Home_screen = () => {
   return (
@@ -46,30 +47,3 @@ export default Home_screen
 
 
 const Stack = createBottomTabNavigator();
-
-
-const styles = StyleSheet.create({
-  layout: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 32,
-    marginBottom: 16,
-  },
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-  item: {
-    backgroundColor: '#0782F9',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
-  name: {
-    fontSize: 32,
-    color: 'white'
-  },
-});
