@@ -7,6 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import EventRegisteration from './EventRegisteration';
 import { element } from 'prop-types';
 import EventList from './Event';
+import Records from './Records';
 
 const Home_screen = () => {
   return (
@@ -35,7 +36,7 @@ const Home_screen = () => {
     <Stack.Screen name="Event" component={EventList} options={{headerTitle: 'Event',headerTitleStyle: {color:'#0782F9'}}} />
     <Stack.Screen name="Register" component={EventRegisteration} options={{headerTitle: 'Register',headerTitleStyle: {color:'#0782F9'}}}/>
     <Stack.Screen name="My Status" component={MyStatus} options={{headerTitle: 'My Status',headerTitleStyle: {color:'#0782F9'}}}/>
-    <Stack.Screen name="stats" component={Stats} options={{headerTitle: 'Stats',headerTitleStyle: {color:'#0782F9'}}}/>
+    <Stack.Screen name="Records" component={Records} options={{headerTitle: 'Records',headerTitleStyle: {color:'#0782F9'}}}/>
   </Stack.Navigator>
     </View>
   )
@@ -49,11 +50,7 @@ const MyStatus = () => (
   </View>
 );
 
-const Stats = () => (
-  <View style={styles.layout}>
-    <Text style={styles.title}>Stats</Text>
-  </View>
-);
+
 const Stack = createBottomTabNavigator();
 
 

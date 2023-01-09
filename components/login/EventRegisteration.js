@@ -1,7 +1,8 @@
-import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Button, FlatList, Modal } from 'react-native'
+import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Button, FlatList } from 'react-native'
 import React, { useState } from 'react'
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import UserRegistration from './UserRegistration';
+import Modal from "react-native-modal";
 
 
 const TexId = () =>{
@@ -33,8 +34,9 @@ const TexId = () =>{
         transparent={true}
         visible={modalRegistrationVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
+          
+
+          setRegistrationtModalVisible(!modalRegistrationVisible);
         }}
         >
             <View style={styles.centeredView}>
@@ -79,8 +81,7 @@ const EventRegisteration = () => {
         transparent={true}
         visible={modalAccountVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalAccountVisible);
+          setAccountModalVisible(!modalAccountVisible);
         }}
         >
             <View style={styles.centeredView}>
@@ -100,6 +101,7 @@ const EventRegisteration = () => {
             </View>
             </View>
         </Modal>
+        
         <FlatList
         data={events}
         renderItem={({ item }) => (
@@ -112,7 +114,8 @@ const EventRegisteration = () => {
       />
         <Text style={styles.finalPrice}>Final Price</Text>
         <Button title="Next"
-            onPress={() => Alert.alert('Simple Button pressed')}/>
+            // 
+            />
        </View>
   )
 }

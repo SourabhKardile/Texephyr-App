@@ -7,6 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import EventRegisteration from './EventRegisteration';
 import { element } from 'prop-types';
 import EventList from './Event';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const UserRegisteration = () => {
     const [email,setEmail] = useState('')
@@ -16,6 +17,7 @@ const UserRegisteration = () => {
     const [verCode, setVerCode] = useState('');
     const [collegeId, setCollegeId] = useState('');
     return(
+        <ScrollView>
         <View style={styles.container}
         behavior="padding">
             <View style={styles.inputContainer}>
@@ -68,6 +70,7 @@ const UserRegisteration = () => {
             <Button title='Create'/>
           </View>
         </View>
+        </ScrollView>
     )
 }
 
