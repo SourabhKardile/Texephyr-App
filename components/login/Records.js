@@ -2,12 +2,14 @@ import { View, Text, Button , StyleSheet, TouchableOpacity} from 'react-native'
 import React from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 
-export default function Records() {
+export default function Records({navigation}) {
   return (
     <View style={{flex:1, flexDirection:'row'}}>
     <ScrollView>
     <View style={{width:'100%', justifyContent:'flex-start'}}>
-<TouchableOpacity style={styles.box}>
+<TouchableOpacity style={styles.box} onPress={() => {
+    navigation.navigate('Update')
+}}>
     <Text style={{color:'white', fontSize:25,padding:17, fontWeight:'bold'}}>UPDATE</Text>
 </TouchableOpacity>
 <TouchableOpacity style={[styles.box, {backgroundColor:'green'}]}>

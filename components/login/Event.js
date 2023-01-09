@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, StatusBar, Modal,Button, Alert} from 'react-native'
 import React, { useState } from 'react'
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import EventRegisteration from './EventRegisteration';
 import { element } from 'prop-types';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-
-
+const Tab = createMaterialTopTabNavigator();
 const events = [
     {name: 'codestorm', description: 'For all the codeers Texephyr brings code storm. Write out the optimized and most efficient code to prove your coding prowess. This event will not only test your coding but also evaluate your debugging. Event format: 1) Minor (Diploma and FE and SE), 2) Major (TE and BE), Prizes for both tracks are different',branch: 0},
     {name: 'algoholics', description: 'Algoholics, as the name suggests, is an algorithm-based event which tests your logical thinking rather than testing your coding abilities. The motto of the event is Think efficient, build efficient.', branch: 0},
@@ -22,13 +22,37 @@ const EventListItem = ({ name }) => (
       <Text style={styles.name}>{name}</Text>
     </View>
 );
-
 const BranchItem = ({ name }) => (
   <View style={styles.branchItem}>
     <Text style={styles.branchname}>{name}</Text>
-  </View>
+  </View>
 );
 
+function CSE() {
+  return (
+    <View style={[{alignSelf:'center', padding: 10,
+            flexDirection: "row"
+          }]}>
+            
+    </View>
+  );
+}
+
+function MECH() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>MECH!</Text>
+    </View>
+  );
+}
+
+function Civil(){
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Civil!</Text>
+    </View>
+  )
+}
   const EventList = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [description, setDescription] = useState('');
@@ -73,6 +97,14 @@ const BranchItem = ({ name }) => (
         {/* <Stack.Navigator>
         <Stack.Screen name="Event" component={EventList} options={{headerShown:false}} />
         </Stack.Navigator> */}
+        
+      <Tab.Navigator>
+        <Tab.Screen name="CSE" component={CSE} />
+        <Tab.Screen name="MECH" component={MECH} />
+        <Tab.Screen name="Civil" component={Civil} />
+      </Tab.Navigator>
+      
+    
         <FlatList
         data={events}
         renderItem={({ item }) => (
