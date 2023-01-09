@@ -7,7 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import EventRegisteration from './EventRegisteration';
 import { element } from 'prop-types';
 import EventList from './Event';
-import Records from './Records';
+import Records from './MainRecord';
 
 const Home_screen = () => {
   return (
