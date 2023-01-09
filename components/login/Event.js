@@ -28,10 +28,12 @@ const BranchItem = ({ name }) => (
   </View>
 );
 
-function SettingsScreen() {
+function CSE() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
+    <View style={[{alignSelf:'center', padding: 10,
+            flexDirection: "row"
+          }]}>
+            
     </View>
   );
 }
@@ -42,6 +44,14 @@ function MECH() {
       <Text>MECH!</Text>
     </View>
   );
+}
+
+function Civil(){
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Civil!</Text>
+    </View>
+  )
 }
   const EventList = () => {
     const [modalVisible, setModalVisible] = useState(false);
@@ -89,9 +99,9 @@ function MECH() {
         </Stack.Navigator> */}
         
       <Tab.Navigator>
-        <Tab.Screen name="CSE" component={SettingsScreen} />
+        <Tab.Screen name="CSE" component={CSE} />
         <Tab.Screen name="MECH" component={MECH} />
-
+        <Tab.Screen name="Civil" component={Civil} />
       </Tab.Navigator>
       
     

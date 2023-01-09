@@ -8,6 +8,7 @@ import EventRegisteration from './EventRegisteration';
 import { element } from 'prop-types';
 import EventList from './Event';
 import Records from './Records';
+import MainRecord from './MainRecord';
 
 const Home_screen = () => {
   return (
@@ -36,7 +37,7 @@ const Home_screen = () => {
     <Stack.Screen name="Event" component={EventList} options={{headerShown:false}} />
     <Stack.Screen name="Register" component={EventRegisteration} options={{headerShown:false}}/>
     <Stack.Screen name="My Status" component={MyStatus} options={{headerShown:false}}/>
-    <Stack.Screen name="Records" component={Records} options={{headerShown:false}}/>
+    <Stack.Screen name="Records" component={MainRecord} options={{headerShown:false}}/>
   </Stack.Navigator>
     </View>
   )
