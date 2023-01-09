@@ -9,6 +9,7 @@ import { element } from 'prop-types';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 
+
 const events = [
     {name: 'codestorm', description: 'For all the codeers Texephyr brings code storm. Write out the optimized and most efficient code to prove your coding prowess. This event will not only test your coding but also evaluate your debugging. Event format: 1) Minor (Diploma and FE and SE), 2) Major (TE and BE), Prizes for both tracks are different',branch: 0},
     {name: 'algoholics', description: 'Algoholics, as the name suggests, is an algorithm-based event which tests your logical thinking rather than testing your coding abilities. The motto of the event is Think efficient, build efficient.', branch: 0},
@@ -50,7 +51,7 @@ const BranchItem = ({ name }) => (
             </View>
             </View>
         </Modal>
-        <View style={[{alignSelf:'center', padding: 10,
+        {/* <View style={[{alignSelf:'center', padding: 10,
             flexDirection: "row"
           }]}>
             <TouchableWithoutFeedback onPress={() => {
@@ -68,7 +69,10 @@ const BranchItem = ({ name }) => (
             }}>
             <BranchItem style={styles.eventListItem} name='Civil'/>
             </TouchableWithoutFeedback>
-        </View>
+        </View> */}
+        {/* <Stack.Navigator>
+        <Stack.Screen name="Event" component={EventList} options={{headerShown:false}} />
+        </Stack.Navigator> */}
         <FlatList
         data={events}
         renderItem={({ item }) => (
