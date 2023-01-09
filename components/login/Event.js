@@ -28,38 +28,10 @@ const BranchItem = ({ name }) => (
   </View>
 );
 
-function CSE() {
-  return (
-    <View style={[{alignSelf:'center', padding: 10,
-            flexDirection: "row"
-          }]}>
-            
-    </View>
-  );
-}
-
-function MECH() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>MECH!</Text>
-    </View>
-  );
-}
-
-function Civil(){
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Civil!</Text>
-    </View>
-  )
-}
-  const EventList = () => {
-    const [modalVisible, setModalVisible] = useState(false);
-    const [description, setDescription] = useState('');
-    const [branch, setBranch] = useState(0);
-    return (
-      <View style={{width: '100%', height: '100%'}}>
-        <Modal
+const DescriptionModal = (...props) =>{
+  const [modalVisible, setModalVisible] = useState(false);
+  return(
+    <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
@@ -70,11 +42,90 @@ function Civil(){
         >
             <View style={styles.centeredView}>
             <View style={styles.modalView}>
-                <Text style={{padding:25}}>{description}</Text>
+                <Text style={{padding:25}}>{props.description}</Text>
                 <Button title='close' onPress={()=>setModalVisible(!modalVisible)}></Button>
             </View>
             </View>
         </Modal>
+  )
+}
+
+function CSE() {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [description, setDescription] = useState('');
+  return (
+    <View style={[{alignSelf:'center', padding: 10
+          }]}>
+      <DescriptionModal/>
+      <FlatList
+        data={events}
+        renderItem={({ item }) => (
+          item.branch == 0 ?
+            <TouchableWithoutFeedback onPress={() => {
+              setModalVisible(!modalVisible);
+              setDescription(item.description);
+            }}>
+          <EventListItem name={item.name}/>
+          </TouchableWithoutFeedback>
+          :null
+        )}
+        keyExtractor={item => item.name}
+      />
+    </View>
+  );
+}
+
+function MECH() {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [description, setDescription] = useState('');
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <DescriptionModal description={description}/>
+      <FlatList
+        data={events}
+        renderItem={({ item }) => (
+          item.branch == 1 ?
+            <TouchableWithoutFeedback onPress={() => {
+              setModalVisible(!modalVisible);
+              setDescription(item.description);
+            }}>
+          <EventListItem name={item.name}/>
+          </TouchableWithoutFeedback>
+          :null
+        )}
+        keyExtractor={item => item.name}
+      />
+    </View>
+  );
+}
+
+function Civil(){
+  const [modalVisible, setModalVisible] = useState(false);
+  const [description, setDescription] = useState('');
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <DescriptionModal description={description}/>
+      <FlatList
+        data={events}
+        renderItem={({ item }) => (
+          item.branch == 2 ?
+            <TouchableWithoutFeedback onPress={() => {
+              setModalVisible(!modalVisible);
+              setDescription(item.description);
+            }}>
+          <EventListItem name={item.name}/>
+          </TouchableWithoutFeedback>
+          :null
+        )}
+        keyExtractor={item => item.name}
+      />
+    </View>
+  )
+}
+  const EventList = () => {
+    const [branch, setBranch] = useState(0);
+    return (
+      <View style={{width: '100%', height: '100%'}}>
         {/* <View style={[{alignSelf:'center', padding: 10,
             flexDirection: "row"
           }]}>
@@ -99,26 +150,10 @@ function Civil(){
         </Stack.Navigator> */}
         
       <Tab.Navigator>
-        <Tab.Screen name="CSE" component={CSE} />
-        <Tab.Screen name="MECH" component={MECH} />
-        <Tab.Screen name="Civil" component={Civil} />
+        <Tab.Screen name="CSE" component={CSE}/>
+        <Tab.Screen name="MECH" component={MECH}/>
+        <Tab.Screen name="Civil" component={Civil}/>
       </Tab.Navigator>
-      
-    
-        <FlatList
-        data={events}
-        renderItem={({ item }) => (
-          item.branch == branch ?
-            <TouchableWithoutFeedback onPress={() => {
-              setModalVisible(!modalVisible);
-              setDescription(item.description);
-            }}>
-          <EventListItem name={item.name}/>
-          </TouchableWithoutFeedback>
-          :null
-        )}
-        keyExtractor={item => item.name}
-      />
       </View>
     )
   }

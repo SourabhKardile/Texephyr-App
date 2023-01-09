@@ -10,6 +10,7 @@ import EventList from './Event';
 import Records from './Records';
 import MainRecord from './MainRecord';
 
+
 const Home_screen = () => {
   return (
     <View style={{width: '100%', height: '100%'}}>
