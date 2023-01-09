@@ -9,8 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const Login_screen = ({navigation}) => {
 const [email,setEmail] = useState('')
-const [password,setPassword] = useState('')
-
+const [password, setPassword] = useState('')
 
 
 // await auth
@@ -58,8 +57,9 @@ const [password,setPassword] = useState('')
      <View style={styles.buttonContainer}>
         <TouchableOpacity
         onPress={() =>{
-            if(email == 'creepymarshmallow117@gmail.com' && password == '12345')
-                navigation.navigate('Home')
+            navigation.navigate('DrawerNav')
+            // if(email == 'sourabh@gmail.com' && password == '12345')
+                
         }}
         style={styles.button}
         >
