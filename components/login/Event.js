@@ -33,6 +33,7 @@ const DescriptionModal = (...props) =>{
   const [modalVisible, setModalVisible] = useState(false);
   return(
     <Modal
+        style={styles.modalView}
         animationType="slide"
         transparent={true}
         visible={modalVisible}
@@ -55,7 +56,6 @@ function CSE() {
   const [modalVisible, setModalVisible] = useState(false);
   const [description, setDescription] = useState('');
   return (
-<<<<<<< Updated upstream
     <View style={[{alignSelf:'center', padding: 10
           }]}>
       <DescriptionModal/>
@@ -73,10 +73,6 @@ function CSE() {
         )}
         keyExtractor={item => item.name}
       />
-=======
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>MECH!</Text>
->>>>>>> Stashed changes
     </View>
   );
 }
