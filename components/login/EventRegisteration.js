@@ -41,8 +41,10 @@ const TexId = () =>{
         >
             <View style={styles.centeredView}>
             <View style={styles.modalView}>
+              <ScrollView>
                 <UserRegistration/>
                 <Button title='close' onPress={()=>setRegistrationtModalVisible(!modalRegistrationVisible)}></Button>
+              </ScrollView>
             </View>
             </View>
         </Modal>
@@ -205,7 +207,7 @@ const styles = StyleSheet.create({
         height: '100%'
       },
       modalView: {
-        width: '80%',
+        width: '90%',
         height: '70%',
         margin: 20,
         backgroundColor: "white",
