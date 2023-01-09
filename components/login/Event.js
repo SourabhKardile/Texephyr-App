@@ -136,8 +136,8 @@ const BranchItem = ({ name }) => (
         height: '100%'
       },
       modalView: {
-        width: '70%',
-        height: '50%',
+        width: '90%',
+        height: '80%',
         margin: 20,
         backgroundColor: "white",
         borderRadius: 20,
