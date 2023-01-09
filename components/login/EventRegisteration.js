@@ -115,9 +115,7 @@ const EventRegisteration = () => {
         keyExtractor={item => item.name}
       />
         <Text style={styles.finalPrice}>Final Price</Text>
-        <Button title="Next"
-            // 
-            />
+        <Button title="Next"/>
        </View>
   )
 }
