@@ -45,5 +45,5 @@ const Home_screen = () => {
 
 export default Home_screen
 
-
+// test
 const Stack = createBottomTabNavigator();
