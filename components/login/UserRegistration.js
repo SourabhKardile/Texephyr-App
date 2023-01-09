@@ -13,7 +13,8 @@ const countries = ["MITWPU", "Harvard", "Yale", "Oxford"]
 
 const CollegeSelect = () => {
     return(
-        <SelectDropdown
+        <View style={{alignSelf:'center',backgroundColor:'white', padding:10}}>
+            <SelectDropdown
 	        data={countries}
             defaultValue={countries[0]}
 	        onSelect={(selectedItem, index) => {
@@ -30,6 +31,7 @@ const CollegeSelect = () => {
 		    return item
 	        }}
         />
+        </View>
     )
 }
 
