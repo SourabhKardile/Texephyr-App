@@ -8,7 +8,9 @@ import EventRegisteration from './EventRegisteration';
 import { element } from 'prop-types';
 import EventList from './Event';
 import Records from './Records';
-import MainRecord from './MainRecord';
+import styles from './LoginStyle'
+import MyStatus from './MyStatus'
+import MainRecord from './MainRecord'
 
 
 const Home_screen = () => {
@@ -46,38 +48,5 @@ const Home_screen = () => {
 
 export default Home_screen
 
-const MyStatus = () => (
-  <View style={styles.layout}>
-    <Text style={styles.title}>My Status</Text>
-  </View>
-);
-
-
+// test
 const Stack = createBottomTabNavigator();
-
-
-const styles = StyleSheet.create({
-  layout: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 32,
-    marginBottom: 16,
-  },
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-  item: {
-    backgroundColor: '#0782F9',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
-  name: {
-    fontSize: 32,
-    color: 'white'
-  },
-});
