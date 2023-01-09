@@ -9,6 +9,8 @@ import { element } from 'prop-types';
 import EventList from './Event';
 import Records from './Records';
 import styles from './LoginStyle'
+import MyStatus from './MyStatus'
+import MainRecord from './MainRecord'
 
 const Home_screen = () => {
   return (
