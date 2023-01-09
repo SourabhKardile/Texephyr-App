@@ -1,23 +1,24 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Button, FlatList } from 'react-native'
 import React, { useState } from 'react'
-import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import {TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import UserRegistration from './UserRegistration';
 import Modal from "react-native-modal";
+import styles from './LoginStyle'
 
 
 const TexId = () =>{
     const [texId,setTexId] = useState('')
     const [modalRegistrationVisible, setRegistrationtModalVisible] = useState(false);
     return(
-        <View style={[styles.container, {
+        <View style={[styles.eventContainer, {
             flexDirection: "row"
           }]}>
-        <View style={styles.inputContainer}>
+        <View style={styles.eventInputContainer}>
           <TextInput
             value={texId}
             placeholder="textId"
             onChangeText={text =>setTexId(text)}
-            style={styles.input}/>
+            style={styles.eventInput}/>
         </View>
         <View>
         <TouchableWithoutFeedback onPress={() => {
@@ -66,6 +67,19 @@ const events = [
 const EventRegisteration = () => {
     const [description, setDescription] = useState('');
     const [modalAccountVisible,setAccountModalVisible] = useState(false);
+
+    const GetBTN = ({ onPress, title }) => (
+      <TouchableOpacity onPress={onPress} style={styles.getBtnContainer}>
+        <Text style={styles.appButtonText}>{title}</Text>
+      </TouchableOpacity>
+    );
+  
+    const CancelBTN = ({ onPress, title }) => (
+      <TouchableOpacity onPress={()=>setAccountModalVisible(!modalAccountVisible)} style={styles.cancelBtnContainer}>
+        <Text style={styles.appButtonText}>{title}</Text>
+      </TouchableOpacity>
+    );
+
   return (
        <View style = {{width: '100%', height: '100%'}}>
         <TexId/>
@@ -77,27 +91,37 @@ const EventRegisteration = () => {
         </TouchableWithoutFeedback>
         </View>
         <Modal
+        
         animationType="slide"
         transparent={true}
         visible={modalAccountVisible}
+        
         onRequestClose={() => {
-          setAccountModalVisible(!modalAccountVisible);
+          setAccountModalVisible(false);
         }}
+
         >
             <View style={styles.centeredView}>
             <View style={styles.modalAccountView}>
-            <View style={[styles.container, {
+            <CancelBTN title="X" size="sm" backgroundColor="#007bff" />
+            <View style={[styles.eventRegContainer, {
                 flexDirection: "row"
             }]}>
-                <Text>Email</Text>
+              
+                {/* <Text>Email</Text> */}
                 <TextInput 
-                placeholder=""
+                placeholder="Your email"
                 onChangeText={text =>setVerCode(text)}
-                style={styles.input}
+                style={styles.eventInput}
                 secureTextEntry
                 />
+
+
+                
             </View>
-                <Button title='Get Id' onPress={()=>setAccountModalVisible(!modalAccountVisible)}></Button>
+                {/* <Button title='Get Id' onPress={()=>setAccountModalVisible(!modalAccountVisible)}></Button>
+                <Button title='close' onPress={()=>setAccountModalVisible(!modalAccountVisible)}></Button> */}
+                <GetBTN title="GET ID" size="sm" backgroundColor="#007bff" > </GetBTN>
             </View>
             </View>
         </Modal>
@@ -117,125 +141,8 @@ const EventRegisteration = () => {
             // 
             />
        </View>
+       
   )
 }
 
 export default EventRegisteration
-
-const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center',
-        padding:10
-    },
-    inputContainer:{
-    width:'80%',
-    
-    },
-    input:{
-        backgroundColor:'white',
-        paddingHorizontal:15,
-        paddingVertical:10,
-        borderRadius: 10,
-        marginTop: 5,
-        borderColor: '#0782F9'
-    },
-    register:{
-        backgroundColor:'white',
-        paddingHorizontal:15,
-        paddingVertical:10,
-        borderRadius: 10,
-        marginTop: 5,
-        borderColor: '#0782F9'
-    },
-    buttonContainer:{ 
-        width: '20%',
-        justifyContent: 'center',
-        alignItems:'center',
-        marginTop:40, 
-        padding: 10
-    },
-    button:{
-        backgroundColor:'#0782F9',
-        width:'25%',
-        padding:15,
-        borderRadius:10,
-        alignItems:'left',
-        flex: 1
-    },
-    buttonOutline:{
-        backgroundColor:'white',
-        marginTop:5,
-        borderColor:'#0782F9',
-        borderWidth:2
-    },
-    buttonText:{
-        color:'white',
-        fontWeight:'700',
-        fontSize:16
-    },
-    buttonOutlineText:{
-        color:'#0782F9',
-        fontWeight:'700',
-        fontSize:16
-    },
-    item: {
-        backgroundColor: '#fff',
-        padding: 20,
-        borderRadius:7,
-        marginVertical: 8,
-        marginHorizontal: 16,
-      },
-      name: {
-        fontSize: 32,
-        color: '#0782F9'
-      },
-      finalPrice:{
-        fontSize: 32,
-        color: 'black',
-        alignSelf: 'center'
-      },
-      centeredView: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 22,
-        width: '100%',
-        height: '100%'
-      },
-      modalView: {
-        width: '80%',
-        height: '70%',
-        margin: 20,
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5
-      },
-      modalAccountView: {
-        width: '70%',
-        height: '25%',
-        margin: 20,
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5
-      }
-    })

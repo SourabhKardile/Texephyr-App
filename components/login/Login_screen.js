@@ -1,8 +1,8 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { Component } from 'react/cjs/react.production.min'
-import Home_screen from './Home_screen'
-import { useNavigation } from '@react-navigation/native';
+// import { Component } from 'react/cjs/react.production.min'
+// import Home_screen from './Home_screen'
+// import { useNavigation } from '@react-navigation/native';
 
 
 

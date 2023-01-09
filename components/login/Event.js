@@ -1,12 +1,13 @@
 import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, StatusBar, Modal,Button, Alert} from 'react-native'
 import React, { useState } from 'react'
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import EventRegisteration from './EventRegisteration';
-import { element } from 'prop-types';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createStackNavigator } from '@react-navigation/stack';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import Ionicons from 'react-native-vector-icons/Ionicons';
+// import EventRegisteration from './EventRegisteration';
+// import { element } from 'prop-types';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import styles from './LoginStyle'
 
 
 const events = [
@@ -18,7 +19,7 @@ const events = [
 
 const EventListItem = ({ name }) => (
     <View style={styles.eventListItem}>
-      <Text style={styles.name}>{name}</Text>
+      <Text style={styles.eventName}>{name}</Text>
     </View>
 );
 
@@ -44,7 +45,7 @@ const BranchItem = ({ name }) => (
         }}
         >
             <View style={styles.centeredView}>
-            <View style={styles.modalView}>
+            <View style={styles.eventModalView}>
                 <Text style={{padding:25}}>{description}</Text>
                 <Button title='close' onPress={()=>setModalVisible(!modalVisible)}></Button>
             </View>
@@ -88,68 +89,3 @@ const BranchItem = ({ name }) => (
   }
 
   export default EventList
-
-  const styles = StyleSheet.create({
-    layout: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    title: {
-      fontSize: 32,
-      marginBottom: 16,
-    },
-    container: {
-      flex: 1,
-      marginTop: StatusBar.currentHeight || 0,
-    },
-    eventListItem: {
-      backgroundColor: '#fff',
-      padding: 20,
-      borderRadius:7,
-      marginVertical: 8,
-      marginHorizontal: 16,
-    },
-    branchItem: {
-      backgroundColor: '#0782F9',
-      padding: 2,
-      marginVertical: 5,
-      marginHorizontal: 30,
-      borderRadius:7,
-      width:'70%',
-      alignItems: 'center'
-    },
-    name: {
-      fontSize: 32,
-      color: '#0782F9'
-    },
-    branchname: {
-      fontSize: 25,
-      color: 'white'
-    },
-    centeredView: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 22,
-        width: '100%',
-        height: '100%'
-      },
-      modalView: {
-        width: '70%',
-        height: '50%',
-        margin: 20,
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5
-      },
-  });

@@ -1,13 +1,14 @@
 import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, StatusBar} from 'react-native'
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import EventRegisteration from './EventRegisteration';
-import { element } from 'prop-types';
+// import { element } from 'prop-types';
 import EventList from './Event';
 import Records from './Records';
+import styles from './LoginStyle'
 
 const Home_screen = () => {
   return (
@@ -50,32 +51,4 @@ const MyStatus = () => (
   </View>
 );
 
-
 const Stack = createBottomTabNavigator();
-
-
-const styles = StyleSheet.create({
-  layout: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 32,
-    marginBottom: 16,
-  },
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-  item: {
-    backgroundColor: '#0782F9',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
-  name: {
-    fontSize: 32,
-    color: 'white'
-  },
-});
