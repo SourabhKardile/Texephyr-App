@@ -33,6 +33,7 @@ const DescriptionModal = (...props) =>{
   const [modalVisible, setModalVisible] = useState(false);
   return(
     <Modal
+        style={styles.modalView}
         animationType="slide"
         transparent={true}
         visible={modalVisible}
