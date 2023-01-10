@@ -1,4 +1,4 @@
-import { ImageBackground, StyleSheet, Text, View ,Button} from 'react-native'
+import { ImageBackground, StyleSheet, Text, View ,Button, Image} from 'react-native'
 import React from 'react'
 import {
   createDrawerNavigator,
@@ -9,9 +9,20 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import Home_screen from './login/Home_screen';
 import Reset from './login/Reset_Password';
+import { useState } from 'react';
 
 
 const Drawer = createDrawerNavigator();
+
+function LogoTitle() {
+  return (
+    <Image
+      
+      source={require('../assets/logo.png')}
+    />
+  );
+}
+
 
 const CustomerDrawer = (props) => {
   return(
@@ -30,10 +41,14 @@ const CustomerDrawer = (props) => {
   )
 }
 
-function MyDrawer() {
+
+
+export function MyDrawer(props) {
+    const [header, setHeader] = useState(true)
   return (
+
     <Drawer.Navigator drawerContent={props => <CustomerDrawer {...props}/>}>
-      <Drawer.Screen name="Home" component={Home_screen} options={{headerTitle: 'Texephyr',headerTitleStyle: {color:'#0782F9'}}}/> 
+      <Drawer.Screen name="Home" component={Home_screen} options={{headerTitle: (props) => <LogoTitle {...props} />,headerTitleStyle: {color:'#0782F9'} }}/> 
       <Drawer.Screen name="Reset Password" component={Reset} options={{headerTitle: 'Texephyr',headerTitleStyle: {color:'#0782F9'}}}/>
     </Drawer.Navigator>
     

@@ -1,79 +1,177 @@
-import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, StatusBar, TextInput,Button} from 'react-native'
+import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, Modal,Alert, TextInput,Pressable} from 'react-native'
 import React, {useState} from 'react'
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import EventRegisteration from './EventRegisteration';
-import { element } from 'prop-types';
-import EventList from './Event';
-import SelectDropdown from 'react-native-select-dropdown'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+const Tab = createMaterialTopTabNavigator();
 
-const UpdateRecord = () =>{
-    const[texId,setTexId] = useState('');
-    const[deductMoney,setDeduct] = useState('');
+
+const UpdateRecord = ({navigation}) =>{ 
     return(
-        <View style={styles.container} behavior = 'padding'>
-            <View style={styles.inputContainer}>
-                <TextInput
-                    placeholder="Tex Id"
-                    onChangeText={text =>setDeduct(text)}
-                    style={styles.input}
-                />
-            </View>
+        <Tab.Navigator>
+        <Tab.Screen name="Individual" component={Individual}/>
+        <Tab.Screen name="All" component={All}/>
+      </Tab.Navigator>
+    )
+}
+
+function All(){
+    return(
+        <View>
+            <Text>All</Text>
+        </View>
+    )
+}
+function Individual(){
+    const [modalVisible, setModalVisible] = useState(false);
+    const [blur,setBlur] = useState('');
+    return(
+<View style={[blur,{flex:1}]}>
+        <View style={{alignItems:'center'}}>
+            <TextInput 
+                placeholder='Tex Id'
+                style={[styles.input]}
+            />
+            <Pressable style={[blur,styles.button]}>
+                 <Text style={styles.text}>Get Details</Text>
+            </Pressable>
+        </View>
+        <Text style={{marginTop:50, marginLeft:30, fontSize:25}}>Name: Sourabh Kardile</Text>
+        <View style={{backgroundColor:'white', height:70, flexDirection:'row', margin:10}}>
+            <Text style={styles.amtText}>Amount Holding: </Text>
+            <Text style={styles.amtText}>{'\u20B9'}500.00</Text>
+        </View>
+        <View style={{alignItems:'center',height:100, flexDirection:'row'}}>
+        <Text style={{marginLeft:50, fontSize:20}}>Deduct:</Text>
+        <TextInput 
+                placeholder='Enter Amount'
+                style={[styles.input,{width:'50%',height:50,marginLeft:20}]}
+            />
+        </View>
+        <View style={{alignItems:'center'}}>
+            
+            <Modal
+            
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+          setBlur(styles.normal)
+        }}
+      >
+      {/* <BlurView
+        blurType='light'
+        style={styles.contentWrap}> */}
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={[styles.modalText,{marginBottom:15}]}>Deduct Amount : 500</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => {
+                setModalVisible(!modalVisible)
+                setBlur(styles.normal)
+              }
+              }
+            >
+              <Text style={styles.textStyle}>Confirm </Text>
+            </Pressable>
+          </View>
+        </View>
+        {/* </BlurView> */}
+      </Modal>
+      <Pressable style={[blur,styles.button,{width:'40%'}]}
+        onPress={() => {
+            setModalVisible(true)
+            setBlur(styles.blur)
+        }
+         }
+        
+      >
+                    <Text style={[blur,styles.text]}>Submit</Text>
+            </Pressable>
+        </View>
         </View>
     )
 }
 
 export default UpdateRecord
+
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        justifyContent:'center',
+
         alignItems:'center',
     },
     inputContainer:{
     width:'80%',
     
     },
+    textInput:{
+        width:'100%',
+    },
+    text:{
+        marginTop: 60,
+        fontSize:20,
+        
+
+    },
     input:{
         backgroundColor:'white',
         paddingHorizontal:15,
         paddingVertical:10,
         borderRadius: 10,
-        marginTop: 5,
+        marginTop: 50,
+        width:'80%',
+        marginBottom:50,
     },
-    buttonContainer:{ 
-        width: '60%',
+    button: {
+        alignItems: 'center',
         justifyContent: 'center',
-        alignItems:'center',
-        marginTop:40, 
-    
-    },
-    button:{
-        backgroundColor:'#0782F9',
-        width:'100%',
-        padding:15,
-        borderRadius:10,
-        alignItems:'center'
-    },
-    buttonOutline:{
-        backgroundColor:'white',
-        marginTop:5,
-        borderColor:'#0782F9',
-        borderWidth:2
-    },
-    buttonText:{
-        color:'white',
-        fontWeight:'700',
-        fontSize:16
-    },
-    buttonOutlineText:{
-        color:'#0782F9',
-        fontWeight:'700',
-        fontSize:16
-    },
-    
-    
+        paddingVertical: 12,
+        paddingHorizontal: 32,
+        borderRadius: 7,
+        elevation: 3,
+        backgroundColor: '#2196F3',
+      },
+      text: {
+        fontSize: 16,
+        lineHeight: 21,
+        fontWeight: 'bold',
+        letterSpacing: 0.25,
+        color: 'white',
+      },
+      amtText:{marginTop:20, marginLeft:35,fontSize:20},
+      centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22
+      },
+      modalView: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+      },
+      textStyle: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center"
+      },
+      blur:{
+        backgroundColor:'grey', opacity:0.2
+      },
+      normal:{
+        opacity:1
+      },
     
     })
