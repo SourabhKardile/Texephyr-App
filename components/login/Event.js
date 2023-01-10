@@ -55,7 +55,6 @@ function CSE() {
   const [modalVisible, setModalVisible] = useState(false);
   const [description, setDescription] = useState('');
   return (
-<<<<<<< Updated upstream
     <View style={[{alignSelf:'center', padding: 10
           }]}>
       <DescriptionModal/>
@@ -73,10 +72,6 @@ function CSE() {
         )}
         keyExtractor={item => item.name}
       />
-=======
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>MECH!</Text>
->>>>>>> Stashed changes
     </View>
   );
 }
@@ -132,29 +127,6 @@ function Civil(){
     const [branch, setBranch] = useState(0);
     return (
       <View style={{width: '100%', height: '100%'}}>
-        {/* <View style={[{alignSelf:'center', padding: 10,
-            flexDirection: "row"
-          }]}>
-            <TouchableWithoutFeedback onPress={() => {
-                setBranch(0);
-            }}>
-            <BranchItem style={styles.eventListItem} name='CSE'/>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback onPress={() => {
-                setBranch(1);
-            }}>
-            <BranchItem style={styles.eventListItem} name='Mech'/>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback onPress={() => {
-                setBranch(2);
-            }}>
-            <BranchItem style={styles.eventListItem} name='Civil'/>
-            </TouchableWithoutFeedback>
-        </View> */}
-        {/* <Stack.Navigator>
-        <Stack.Screen name="Event" component={EventList} options={{headerShown:false}} />
-        </Stack.Navigator> */}
-        
       <Tab.Navigator>
         <Tab.Screen name="CSE" component={CSE}/>
         <Tab.Screen name="MECH" component={MECH}/>
