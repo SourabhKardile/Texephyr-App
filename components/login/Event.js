@@ -29,7 +29,7 @@ const BranchItem = ({ name }) => (
   </View>
 );
 
-const DescriptionModal = (props) =>{
+/*const DescriptionModal = (props) =>{
   const [modalVisible, setModalVisible] = useState(false);
   return(
     <Modal
@@ -50,7 +50,7 @@ const DescriptionModal = (props) =>{
             </View>
         </Modal>
   )
-}
+}*/
 
 function CSE() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -58,7 +58,23 @@ function CSE() {
   return (
     <View style={[{alignSelf:'center', padding: 10
           }]}>
-      <DescriptionModal/>
+      <Modal
+        style={styles.modalView}
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+        >
+            <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+                <Text style={{padding:25}}>{description}</Text>
+                <Button title='close' onPress={()=>setModalVisible(!modalVisible)}></Button>
+            </View>
+            </View>
+        </Modal>
       <FlatList
         data={events}
         renderItem={({ item }) => (
@@ -82,7 +98,23 @@ function MECH() {
   const [description, setDescription] = useState('');
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <DescriptionModal description={description}/>
+      <Modal
+        style={styles.modalView}
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+        >
+            <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+                <Text style={{padding:25}}>{description}</Text>
+                <Button title='close' onPress={()=>setModalVisible(!modalVisible)}></Button>
+            </View>
+            </View>
+        </Modal>
       <FlatList
         data={events}
         renderItem={({ item }) => (
@@ -106,7 +138,23 @@ function Civil(){
   const [description, setDescription] = useState('');
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <DescriptionModal description={description}/>
+      <Modal
+        style={styles.modalView}
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+        >
+            <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+                <Text style={{padding:25}}>{description}</Text>
+                <Button title='close' onPress={()=>setModalVisible(!modalVisible)}></Button>
+            </View>
+            </View>
+        </Modal>
       <FlatList
         data={events}
         renderItem={({ item }) => (
