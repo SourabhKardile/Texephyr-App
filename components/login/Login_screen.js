@@ -67,13 +67,6 @@ const [password, setPassword] = useState('')
                 Login
             </Text>
         </TouchableOpacity>
-        <TouchableOpacity
-        style={[styles.button,styles.buttonOutline]}
-        >
-            <Text style={styles.buttonOutlineText}>
-                Register
-            </Text>
-        </TouchableOpacity>
      </View>
     </View>
   )
