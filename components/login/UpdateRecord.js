@@ -1,7 +1,11 @@
-import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, Modal,Alert, TextInput,Pressable} from 'react-native'
+import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, Modal,Alert, TextInput,Pressable, Image} from 'react-native'
 import React, {useState} from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { DataTable } from 'react-native-paper';
+import { ScrollView } from 'react-native-gesture-handler';
+import  SvgXml  from '../../assets/event_black_24dp.svg';
 const Tab = createMaterialTopTabNavigator();
+
 
 
 const UpdateRecord = ({navigation}) =>{ 
@@ -14,10 +18,11 @@ const UpdateRecord = ({navigation}) =>{
 }
 
 function All(){
-    return(
-        <View>
-            <Text>All</Text>
-        </View>
+      return(
+      <View>
+   
+</View>
+    
     )
 }
 function Individual(){
@@ -97,10 +102,15 @@ function Individual(){
 export default UpdateRecord
 
 const styles = StyleSheet.create({
+  row:{
+    marginTop:10,
+    flexDirection:'row',
+    justifyContent:'space-between',
+  },
     container:{
         flex:1,
-
-        alignItems:'center',
+        paddingTop: 100,
+        paddingHorizontal: 30,
     },
     inputContainer:{
     width:'80%',
@@ -173,5 +183,7 @@ const styles = StyleSheet.create({
       normal:{
         opacity:1
       },
-    
+      tableText:{
+        fontSize:20
+      },
     })
