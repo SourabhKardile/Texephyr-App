@@ -11,7 +11,14 @@ const Login_screen = ({navigation}) => {
 const [email,setEmail] = useState('')
 const [password, setPassword] = useState('')
 
+React.useEffect(
+    () =>
+      navigation.addListener('beforeRemove', (e) => {
+        const action = e.data.action;
+        e.preventDefault();
 
+      })
+  );
 // await auth
 // .createUserWithEmailAndPassword(email, password)
 // .then((userDetail) => {

@@ -28,7 +28,7 @@ export default function App() {
       <Stack.Screen name="Splash" component={Splash_Screen} options={{
         headerShown:false,
       }}/>
-      <Stack.Screen name="Login" component={Login_screen}/>
+      <Stack.Screen name="Login" component={Login_screen} options={{headerBackVisible:false }}/>
       <Stack.Screen name="Home" component={Home_screen}/>
       <Stack.Screen name="DrawerNav" component={DrawerNav} options={{
         headerShown:false,
