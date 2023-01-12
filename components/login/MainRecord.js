@@ -11,9 +11,7 @@ export default function MainRecord() {
   return (
     <Stack.Navigator>
     <Stack.Screen name="Record" component={Record} options={{headerShown:false}}/>
-
     <Stack.Screen name="Update" component={Update} options={{ headerShown:false}}/>
-
   </Stack.Navigator>
   )
 }

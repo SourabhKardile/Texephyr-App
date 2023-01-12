@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, StatusBar} from 'react-native'
+import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, StatusBar, ImageBackground} from 'react-native'
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -15,16 +15,19 @@ const Item = ({ name }) => (
     </View>
 );
 
-const displayString = 'Hello ' + 'Sourabh' + ' SK1070'
-var toBeSubmitted = 'Money to be submitted\n\n' + 1000;
-var moneySubmitted = 'Money submitted\n\n' + 5000;
+
+
+
 
 const MyStatus = () =>{
     return(
-        <View style={{alignSelf:'center', padding:'5%'}}>
-           <Item name={displayString}/>
-           <Item name={toBeSubmitted}/>
-           <Item name={moneySubmitted}/>
+        <View style={[styles.container]}>
+        <ImageBackground source={require('../../assets/backwalle.png')} resizeMode="cover" style={styles.image}>
+        <Text style={{fontSize:20, marginTop:150, marginLeft:40}}>Paise Dedo</Text>
+        <Text style={{fontSize:30, marginLeft:40, fontWeight:'bold'}}>{'\u20B9'}500</Text>
+           
+           
+           </ImageBackground>
         </View>
     )
 }
@@ -32,14 +35,12 @@ const MyStatus = () =>{
 export default MyStatus
 
 const styles = StyleSheet.create({
-    item: {
-        backgroundColor: '#fff',
-        padding: '5%',
-        borderRadius:7,
-        marginVertical: '5%'
-      },
-      name: {
-        fontSize: 32,
-        color: '#0782F9'
-      },
+  container: {
+    flex: 1,
+  },
+  image: {
+    
+    flex: 1,
+    justifyContent:'flex-start'
+  },
 })
