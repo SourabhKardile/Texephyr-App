@@ -3210,6 +3210,11 @@
     "path-browserify" "^1.0.0"
     "url-parse" "^1.5.9"
 
+"expo-blur@^12.0.1":
+  "integrity" "sha512-7oF/xRIFJukM4/qL6ejZ4Z/4YcVExvBPsBrz7rGYz6PtgAkWwYFR62+ExZOzTEG4hgoPPmlnt1ncimsk/MYUgQ=="
+  "resolved" "https://registry.npmjs.org/expo-blur/-/expo-blur-12.0.1.tgz"
+  "version" "12.0.1"
+
 "expo-constants@~14.0.0", "expo-constants@~14.0.2":
   "integrity" "sha512-wzV3nrzTXTI8yG0tfas3fnqCfKV6YE+1GphEREyVDAShEB6mBInX1b6HgtpHFy2wOtnml+lPVmTCeGtjjLnZhA=="
   "resolved" "https://registry.npmjs.org/expo-constants/-/expo-constants-14.0.2.tgz"

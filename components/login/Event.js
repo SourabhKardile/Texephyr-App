@@ -9,6 +9,7 @@ import { element } from 'prop-types';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import styles from './LoginStyle'
+import {BlurView} from 'expo-blur'
 
 const Tab = createMaterialTopTabNavigator();
 const events = [
@@ -26,31 +27,9 @@ const EventListItem = ({ name }) => (
 const BranchItem = ({ name }) => (
   <View style={styles.branchItem}>
     <Text style={styles.branchname}>{name}</Text>
-  </View>
+  </View>
 );
 
-const DescriptionModal = (...props) =>{
-  const [modalVisible, setModalVisible] = useState(false);
-  return(
-    <Modal
-        style={styles.modalView}
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
-        >
-            <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-                <Text style={{padding:25}}>{props.description}</Text>
-                <Button title='close' onPress={()=>setModalVisible(!modalVisible)}></Button>
-            </View>
-            </View>
-        </Modal>
-  )
-}
 
 function CSE() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -58,13 +37,31 @@ function CSE() {
   return (
     <View style={[{alignSelf:'center', padding: 10
           }]}>
-      <DescriptionModal/>
+      <Modal
+        style={styles.modalView}
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+        >
+          <BlurView width='100%' height='100%' intensity={100}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+                <Text style={{padding:25}}>{description}</Text>
+                <Button title='close' onPress={()=>setModalVisible(!modalVisible)}></Button>
+            </View>
+            </View>
+          </BlurView>
+        </Modal>
       <FlatList
         data={events}
         renderItem={({ item }) => (
           item.branch == 0 ?
             <TouchableWithoutFeedback onPress={() => {
-              setModalVisible(!modalVisible);
+              setModalVisible(true);
               setDescription(item.description);
             }}>
           <EventListItem name={item.name}/>
@@ -82,7 +79,23 @@ function MECH() {
   const [description, setDescription] = useState('');
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <DescriptionModal description={description}/>
+      <Modal
+        style={styles.modalView}
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+        >
+            <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+                <Text style={{padding:25}}>{description}</Text>
+                <Button title='close' onPress={()=>setModalVisible(!modalVisible)}></Button>
+            </View>
+            </View>
+        </Modal>
       <FlatList
         data={events}
         renderItem={({ item }) => (
@@ -106,7 +119,23 @@ function Civil(){
   const [description, setDescription] = useState('');
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <DescriptionModal description={description}/>
+      <Modal
+        style={styles.modalView}
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+        >
+            <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+                <Text style={{padding:25}}>{description}</Text>
+                <Button title='close' onPress={()=>setModalVisible(!modalVisible)}></Button>
+            </View>
+            </View>
+        </Modal>
       <FlatList
         data={events}
         renderItem={({ item }) => (
