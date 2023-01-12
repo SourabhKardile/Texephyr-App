@@ -23,7 +23,7 @@ const MyStatus = () =>{
     return(
         <View style={[styles.container]}>
         <ImageBackground source={require('../../assets/backwalle.png')} resizeMode="cover" style={styles.image}>
-        <Text style={{fontSize:20, marginTop:150, marginLeft:40}}>Paise Dedo</Text>
+        <Text style={{fontSize:20, marginTop:'30%', marginLeft:40}}>Money To be {"\n"}Submitted</Text>
         <Text style={{fontSize:30, marginLeft:40, fontWeight:'bold'}}>{'\u20B9'}500</Text>
            
            

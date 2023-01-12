@@ -184,11 +184,11 @@ module.exports =
     },
     modalView: {
         width: '80%',
-        height: '70%',
+        height: 'auto',
         margin: 20,
         backgroundColor: "white",
         borderRadius: 20,
-        padding: 35,
+        padding: 20,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -244,5 +244,13 @@ module.exports =
         margin: 5,
         flexDirection: 'row',
         justifyContent: 'space-between',
-    }
+    },
+    blur: {
+        color: 'grey',
+        backgroundColor: "grey",
+        opacity: 0.2,
+      },
+      normal: {
+        opacity: 1,
+      }
 }

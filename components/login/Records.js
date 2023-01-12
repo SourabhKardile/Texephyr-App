@@ -1,4 +1,4 @@
-import { View, Text, Button , StyleSheet, TouchableOpacity} from 'react-native'
+import { View, Text, Button , StyleSheet, TouchableOpacity, Image} from 'react-native'
 import React from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 
@@ -19,10 +19,14 @@ export default function Records({navigation}) {
 }}>
     <Text style={{color:'white', fontSize:25,padding:17, fontWeight:'bold'}}>RECORDS</Text>
 </TouchableOpacity>
-<TouchableOpacity style={[styles.box, {backgroundColor:'red'}]}>
+<TouchableOpacity style={[styles.box, {backgroundColor:'red'}]} onPress={() => {
+    navigation.navigate('EventSales')
+}}>
     <Text style={{color:'white', fontSize:25,padding:17, fontWeight:'bold'}}>EVENT SALES</Text>
 </TouchableOpacity>
-<TouchableOpacity style={[styles.box, {backgroundColor:'yellow'}]}>
+<TouchableOpacity style={[styles.box, {backgroundColor:'yellow'}]} onPress={() => {
+    navigation.navigate('OverAllSales')
+}}>
     <Text style={{color:'white', fontSize:25,padding:17, fontWeight:'bold'}}>OVERALL</Text>
 </TouchableOpacity>
     </View>

@@ -42,7 +42,7 @@ function All(){
           <TableWrapper key={index} style={styles.row1}>
             {
               rowData.map((cellData, cellIndex) => (
-                <Cell key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData} textStyle={styles.text1}/>
+                <Cell key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData}/>
               ))
             }
           </TableWrapper>
@@ -91,9 +91,6 @@ function Individual(){
           setBlur(styles.normal)
         }}
       >
-      {/* <BlurView
-        blurType='light'
-        style={styles.contentWrap}> */}
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={[styles.modalText,{marginBottom:15}]}>Deduct Amount : 500</Text>

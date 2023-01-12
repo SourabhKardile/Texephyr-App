@@ -42,9 +42,10 @@ const BranchItem = ({ name }) => (
 function CSE() {
   const [modalVisible, setModalVisible] = useState(false);
   const [description, setDescription] = useState('');
+  const [blur,setBlur] = useState('');
   return (
 
-    <View style={[{alignSelf:'center', padding: 10
+    <View style={[blur,{alignSelf:'center', padding: 10
           }]}>
       <Modal
         style={styles.modalView}
@@ -52,14 +53,19 @@ function CSE() {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
+          setBlur(styles.normal)
         }}
         >
             <View style={styles.centeredView}>
             <View style={styles.modalView}>
                 <Text style={{padding:25}}>{description}</Text>
-                <Button title='close' onPress={()=>setModalVisible(!modalVisible)}></Button>
+                <Button title='close' onPress={()=>
+                  {
+                    setModalVisible(!modalVisible)
+                    setBlur(styles.normal)
+                  }
+                }></Button>
             </View>
             </View>
         </Modal>
@@ -69,6 +75,7 @@ function CSE() {
         renderItem={({ item }) => (
           item.branch == 0 ?
             <TouchableOpacity onPress={() => {
+              setBlur(styles.blur)
               setModalVisible(!modalVisible);
               setDescription(item.description);
             }}>
@@ -88,8 +95,9 @@ function CSE() {
 function MECH() {
   const [modalVisible, setModalVisible] = useState(false);
   const [description, setDescription] = useState('');
+  const [blur,setBlur] = useState('');
   return (
-    <View style={[{alignSelf:'center', padding: 10
+    <View style={[blur,{alignSelf:'center', padding: 10
   }]}>
       <Modal
         style={styles.modalView}
@@ -97,14 +105,19 @@ function MECH() {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
+          setBlur(styles.normal)
         }}
         >
             <View style={styles.centeredView}>
             <View style={styles.modalView}>
                 <Text style={{padding:25}}>{description}</Text>
-                <Button title='close' onPress={()=>setModalVisible(!modalVisible)}></Button>
+                <Button title='close' onPress={()=>
+                  {
+                    setModalVisible(!modalVisible)
+                    setBlur(styles.normal)
+                  }
+                }></Button>
             </View>
             </View>
         </Modal>
@@ -113,6 +126,7 @@ function MECH() {
         renderItem={({ item }) => (
           item.branch == 1 ?
             <TouchableOpacity onPress={() => {
+              setBlur(styles.blur)
               setModalVisible(!modalVisible);
               setDescription(item.description);
             }}>
@@ -129,8 +143,9 @@ function MECH() {
 function Civil(){
   const [modalVisible, setModalVisible] = useState(false);
   const [description, setDescription] = useState('');
+  const [blur,setBlur] = useState('');
   return (
-    <View style={[{alignSelf:'center', padding: 10
+    <View style={[blur,{alignSelf:'center', padding: 10
   }]}>
       <Modal
         style={styles.modalView}
@@ -138,14 +153,20 @@ function Civil(){
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
+        
           setModalVisible(!modalVisible);
+          setBlur(styles.normal)
         }}
         >
             <View style={styles.centeredView}>
             <View style={styles.modalView}>
                 <Text style={{padding:25}}>{description}</Text>
-                <Button title='close' onPress={()=>setModalVisible(!modalVisible)}></Button>
+                <Button title='close' onPress={()=>
+                  { 
+                    setModalVisible(!modalVisible)
+                    setBlur(styles.normal)
+                  }
+                }></Button>
             </View>
             </View>
         </Modal>
@@ -155,6 +176,7 @@ function Civil(){
           item.branch == 2 ?
             <TouchableOpacity onPress={() => {
               setModalVisible(!modalVisible);
+              setBlur(styles.blur)
               setDescription(item.description);
             }}>
           <EventListItem name={item.name}/>
