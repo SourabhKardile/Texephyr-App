@@ -10,50 +10,6 @@ import { Card } from 'react-native-paper';
 
 const Tab = createMaterialTopTabNavigator();
 
-function CseEvent(){
-  return(
-    <FlatList
-        data={events}
-        renderItem={({ item }) => (
-            <TouchableWithoutFeedback onPress={() => {
-            }}>
-            <Item name={item.name}/>
-            </TouchableWithoutFeedback>
-        )}
-        keyExtractor={item => item.name}
-      />
-  )
-}
-
-function MechEvent(){
-  return(
-    <FlatList
-        data={events}
-        renderItem={({ item }) => (
-            <TouchableWithoutFeedback onPress={() => {
-            }}>
-            <Item name={item.name}/>
-            </TouchableWithoutFeedback>
-        )}
-        keyExtractor={item => item.name}
-      />
-  )
-}
-
-function EntcEvent(){
-  return(
-    <FlatList
-        data={events}
-        renderItem={({ item }) => (
-            <TouchableWithoutFeedback onPress={() => {
-            }}>
-            <Item name={item.name}/>
-            </TouchableWithoutFeedback>
-        )}
-        keyExtractor={item => item.name}
-      />
-  )
-}
 
 const TexId = () =>{
     const [texId,setTexId] = useState('')
@@ -103,10 +59,10 @@ const TexId = () =>{
 }
 
 const events = [
-    {id:1, name: 'codestorm', description: 'For all the codeers Texephyr brings code storm. Write out the optimized and most efficient code to prove your coding prowess. This event will not only test your coding but also evaluate your debugging. Event format: 1) Minor (Diploma and FE and SE), 2) Major (TE and BE), Prizes for both tracks are different', isChecked: false, noOfEntries: 1},
-    {id:2, name: 'algoholics', description: 'Algoholics, as the name suggests, is an algorithm-based event which tests your logical thinking rather than testing your coding abilities. The motto of the event is Think efficient, build efficient.', isChecked: false, noOfEntries: 4},
-    {id:3, name: 'catch the muderer', description: 'catch the murder', isChecked: false, noOfEntries: 2},
-    {id:4, name: 'hackathon', description: 'college level hackathon', isChecked: false, noOfEntries: 4 }
+    {id:1, name: 'codestorm', description: 'For all the codeers Texephyr brings code storm. Write out the optimized and most efficient code to prove your coding prowess. This event will not only test your coding but also evaluate your debugging. Event format: 1) Minor (Diploma and FE and SE), 2) Major (TE and BE), Prizes for both tracks are different', isChecked: false, noOfEntries: 1, branch: 0},
+    {id:2, name: 'algoholics', description: 'Algoholics, as the name suggests, is an algorithm-based event which tests your logical thinking rather than testing your coding abilities. The motto of the event is Think efficient, build efficient.', isChecked: false, noOfEntries: 4, branch: 0},
+    {id:3, name: 'catch the muderer', description: 'catch the murder', isChecked: false, noOfEntries: 2, branch: 1},
+    {id:4, name: 'hackathon', description: 'college level hackathon', isChecked: false, noOfEntries: 4, branch: 2}
    ]
 
    const Item = ({ name }) => (
@@ -160,6 +116,97 @@ const EventRegisteration = () => {
     };
 
     let selected = eventsBoxes.filter((event) => event.isChecked == true);
+
+    function CseEvent(){
+      return(
+        <FlatList
+        data={eventsBoxes}
+        style={styles.item}
+        renderItem={({ item }) => (
+          item.isChecked == false && item.branch == 0 ?
+          <Card style={{ margin: 5 }}>
+          <View style={styles.card}>
+              <View
+                  style={{
+                      flexDirection: 'row',
+                      flex: 1,
+                      justifyContent: 'space-between',
+                  }}>
+                  <TouchableWithoutFeedback onPress={() => handleChange(item.id)} >
+                      <MaterialCommunityIcons
+                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
+                  </TouchableWithoutFeedback>
+                  <Text style={{fontSize:18}}>{item.name}</Text>
+              </View>
+          </View>
+          </Card>
+          :null
+        )}
+        keyExtractor={item => item.id}
+      />
+      )
+    }
+
+    function MechEvent(){
+      return(
+        <FlatList
+        data={eventsBoxes}
+        style={styles.item}
+        renderItem={({ item }) => (
+          item.isChecked == false && item.branch == 1 ?
+          <Card style={{ margin: 5 }}>
+          <View style={styles.card}>
+              <View
+                  style={{
+                      flexDirection: 'row',
+                      flex: 1,
+                      justifyContent: 'space-between',
+                  }}>
+                  <TouchableWithoutFeedback onPress={() => handleChange(item.id)} >
+                      <MaterialCommunityIcons
+                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
+                  </TouchableWithoutFeedback>
+                  <Text style={{fontSize:18}}>{item.name}</Text>
+              </View>
+          </View>
+          </Card>
+          :null
+        )}
+        keyExtractor={item => item.id}
+      />
+      )
+    }
+
+    function EntcEvent(){
+      return(
+        <FlatList
+        data={eventsBoxes}
+        style={styles.item}
+        renderItem={({ item }) => (
+          item.isChecked == false && item.branch == 2 ?
+          <Card style={{ margin: 5 }}>
+          <View style={styles.card}>
+              <View
+                  style={{
+                      flexDirection: 'row',
+                      flex: 1,
+                      justifyContent: 'space-between',
+                  }}>
+                  <TouchableWithoutFeedback onPress={() => handleChange(item.id)} >
+                      <MaterialCommunityIcons
+                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
+                  </TouchableWithoutFeedback>
+                  <Text style={{fontSize:18}}>{item.name}</Text>
+              </View>
+          </View>
+          </Card>
+          :null
+        )}
+        keyExtractor={item => item.id}
+      />
+      )
+    }
+
   return (
        <View style = {{flex:1}}>
         <TexId/>
@@ -170,6 +217,11 @@ const EventRegisteration = () => {
             <Text>Already have an account?</Text>
         </TouchableWithoutFeedback>
         </View>
+        <Tab.Navigator>
+        <Tab.Screen name="CSE" component={CseEvent}/>
+        <Tab.Screen name="MECH & ROBO" component={MechEvent}/>
+        <Tab.Screen name="ENTC" component={EntcEvent}/>
+      </Tab.Navigator>
         <Modal
         animationType="slide"
         transparent={true}
@@ -268,32 +320,6 @@ const EventRegisteration = () => {
             </View>
             </View>
         </Modal>
-        <FlatList
-        data={eventsBoxes}
-        style={styles.item}
-        renderItem={({ item }) => (
-          item.isChecked == false ?
-          <Card style={{ margin: 5 }}>
-          <View style={styles.card}>
-              <View
-                  style={{
-                      flexDirection: 'row',
-                      flex: 1,
-                      justifyContent: 'space-between',
-                  }}>
-                  <TouchableWithoutFeedback onPress={() => handleChange(item.id)} >
-                      <MaterialCommunityIcons
-                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
-                  </TouchableWithoutFeedback>
-                  <Text style={{fontSize:18}}>{item.name}</Text>
-              </View>
-          </View>
-          </Card>
-          :null
-        )}
-        keyExtractor={item => item.id}
-      />
-      <View style={styles.item}><Text>CART</Text></View>
       <FlatList
         data={selected}
         style = {styles.item}
@@ -317,16 +343,6 @@ const EventRegisteration = () => {
         )}
         keyExtractor={item => item.id}
       />
-        <View>
-        <Text style={styles.finalPrice}>Final Price</Text>
-        <Button title="Next" />
-        </View>
-        <Tab.Navigator>
-        <Tab.Screen name="CSE" component={CseEvent}/>
-        <Tab.Screen name="MECH & ROBO" component={MechEvent}/>
-        <Tab.Screen name="ENTC" component={EntcEvent}/>
-      </Tab.Navigator>
-        
         <Text style={styles.finalPrice}>Final Price</Text>
         <Button title="Next"/>
        </View>
