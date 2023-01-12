@@ -218,6 +218,31 @@ module.exports =
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5
-    }
+    },
+    modalGroupView: {
+        width: 400,
+        height: 280,
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 10,
+        paddingRight: 1,
+        display: "flex",
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
 
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+    },
+    card: {
+        padding: 10,
+        margin: 5,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    }
 }
