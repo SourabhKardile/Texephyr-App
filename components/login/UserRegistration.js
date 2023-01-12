@@ -65,7 +65,7 @@ const UserRegisteration = () => {
                 secureTextEntry
                 />
                 <TextInput
-                placeholder="Passowrd"
+                placeholder="Password"
                 onChangeText={text =>setPassword(text)}
                 style={styles.input}
                 secureTextEntry

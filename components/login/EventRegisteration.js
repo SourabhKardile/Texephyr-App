@@ -1,6 +1,6 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Button, FlatList } from 'react-native'
 import React, { useState } from 'react'
-import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import {ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import UserRegistration from './UserRegistration';
 import Modal from "react-native-modal";
 import styles from './LoginStyle'
@@ -10,15 +10,15 @@ const TexId = () =>{
     const [texId,setTexId] = useState('')
     const [modalRegistrationVisible, setRegistrationtModalVisible] = useState(false);
     return(
-        <View style={[styles.container, {
+        <View style={[styles.eventContainer, {
             flexDirection: "row"
           }]}>
-        <View style={styles.inputContainer}>
+        <View style={styles.eventInputContainer}>
           <TextInput
             value={texId}
             placeholder="textId"
             onChangeText={text =>setTexId(text)}
-            style={styles.input}/>
+            style={styles.eventInput}/>
         </View>
         <View>
         <TouchableWithoutFeedback onPress={() => {
@@ -42,10 +42,10 @@ const TexId = () =>{
         >
             <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <ScrollView>
+            <ScrollView>
                 <UserRegistration/>
                 <Button title='close' onPress={()=>setRegistrationtModalVisible(!modalRegistrationVisible)}></Button>
-              </ScrollView>
+            </ScrollView>
             </View>
             </View>
         </Modal>
@@ -69,6 +69,19 @@ const events = [
 const EventRegisteration = () => {
     const [description, setDescription] = useState('');
     const [modalAccountVisible,setAccountModalVisible] = useState(false);
+
+    const GetBTN = ({ onPress, title }) => (
+      <TouchableOpacity onPress={onPress} style={styles.getBtnContainer}>
+        <Text style={styles.appButtonText}>{title}</Text>
+      </TouchableOpacity>
+    );
+  
+    const CancelBTN = ({ onPress, title }) => (
+      <TouchableOpacity onPress={()=>setAccountModalVisible(!modalAccountVisible)} style={styles.cancelBtnContainer}>
+        <Text style={styles.appButtonText}>{title}</Text>
+      </TouchableOpacity>
+    );
+
   return (
        <View style = {{width: '100%', height: '100%'}}>
         <TexId/>
@@ -80,27 +93,37 @@ const EventRegisteration = () => {
         </TouchableWithoutFeedback>
         </View>
         <Modal
+        
         animationType="slide"
         transparent={true}
         visible={modalAccountVisible}
+        
         onRequestClose={() => {
-          setAccountModalVisible(!modalAccountVisible);
+          setAccountModalVisible(false);
         }}
+
         >
             <View style={styles.centeredView}>
             <View style={styles.modalAccountView}>
-            <View style={[styles.container, {
+            <CancelBTN title="X" size="sm" backgroundColor="#007bff" />
+            <View style={[styles.eventRegContainer, {
                 flexDirection: "row"
             }]}>
-                <Text>Email</Text>
+              
+                {/* <Text>Email</Text> */}
                 <TextInput 
-                placeholder=""
+                placeholder="Your email"
                 onChangeText={text =>setVerCode(text)}
-                style={styles.input}
+                style={styles.eventInput}
                 secureTextEntry
                 />
+
+
+                
             </View>
-                <Button title='Get Id' onPress={()=>setAccountModalVisible(!modalAccountVisible)}></Button>
+                {/* <Button title='Get Id' onPress={()=>setAccountModalVisible(!modalAccountVisible)}></Button>
+                <Button title='close' onPress={()=>setAccountModalVisible(!modalAccountVisible)}></Button> */}
+                <GetBTN title="GET ID" size="sm" backgroundColor="#007bff" > </GetBTN>
             </View>
             </View>
         </Modal>
@@ -116,10 +139,12 @@ const EventRegisteration = () => {
         keyExtractor={item => item.name}
       />
         <Text style={styles.finalPrice}>Final Price</Text>
-        <Button title="Next"/>
+        <Button title="Next"
+            // 
+            />
        </View>
+       
   )
 }
 
 export default EventRegisteration
-

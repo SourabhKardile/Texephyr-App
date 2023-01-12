@@ -11,7 +11,14 @@ const Login_screen = ({navigation}) => {
 const [email,setEmail] = useState('')
 const [password, setPassword] = useState('')
 
+React.useEffect(
+    () =>
+      navigation.addListener('beforeRemove', (e) => {
+        const action = e.data.action;
+        e.preventDefault();
 
+      })
+  );
 // await auth
 // .createUserWithEmailAndPassword(email, password)
 // .then((userDetail) => {
@@ -65,13 +72,6 @@ const [password, setPassword] = useState('')
         >
             <Text style={styles.buttonText}>
                 Login
-            </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-        style={[styles.button,styles.buttonOutline]}
-        >
-            <Text style={styles.buttonOutlineText}>
-                Register
             </Text>
         </TouchableOpacity>
      </View>
