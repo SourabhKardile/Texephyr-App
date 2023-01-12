@@ -178,8 +178,8 @@ function Civil(){
       <View style={{width: '100%', height: '100%'}}>
       <Tab.Navigator>
         <Tab.Screen name="CSE" component={CSE}/>
-        <Tab.Screen name="MECH" component={MECH}/>
-        <Tab.Screen name="Civil" component={Civil}/>
+        <Tab.Screen name="MECH & Robo" component={MECH}/>
+        <Tab.Screen name="ENTC" component={Civil}/>
       </Tab.Navigator>
       </View>
     )

@@ -1,19 +1,66 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Button, FlatList } from 'react-native'
 import React, { useState } from 'react'
 import {ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import UserRegistration from './UserRegistration';
 import Modal from "react-native-modal";
 import styles from './LoginStyle'
 
+const Tab = createMaterialTopTabNavigator();
+
+function CseEvent(){
+  return(
+    <FlatList
+        data={events}
+        renderItem={({ item }) => (
+            <TouchableWithoutFeedback onPress={() => {
+            }}>
+            <Item name={item.name}/>
+            </TouchableWithoutFeedback>
+        )}
+        keyExtractor={item => item.name}
+      />
+  )
+}
+
+function MechEvent(){
+  return(
+    <FlatList
+        data={events}
+        renderItem={({ item }) => (
+            <TouchableWithoutFeedback onPress={() => {
+            }}>
+            <Item name={item.name}/>
+            </TouchableWithoutFeedback>
+        )}
+        keyExtractor={item => item.name}
+      />
+  )
+}
+
+function EntcEvent(){
+  return(
+    <FlatList
+        data={events}
+        renderItem={({ item }) => (
+            <TouchableWithoutFeedback onPress={() => {
+            }}>
+            <Item name={item.name}/>
+            </TouchableWithoutFeedback>
+        )}
+        keyExtractor={item => item.name}
+      />
+  )
+}
 
 const TexId = () =>{
     const [texId,setTexId] = useState('')
     const [modalRegistrationVisible, setRegistrationtModalVisible] = useState(false);
     return(
-        <View style={[styles.eventContainer, {
+        <View style={[ {
             flexDirection: "row"
           }]}>
-        <View style={styles.eventInputContainer}>
+        <View>
           <TextInput
             value={texId}
             placeholder="textId"
@@ -83,7 +130,7 @@ const EventRegisteration = () => {
     );
 
   return (
-       <View style = {{width: '100%', height: '100%'}}>
+       <View style = {{flex:1}}>
         <TexId/>
         <View style ={{padding:10}}>
         <TouchableWithoutFeedback onPress={() => {
@@ -127,21 +174,14 @@ const EventRegisteration = () => {
             </View>
             </View>
         </Modal>
+        <Tab.Navigator>
+        <Tab.Screen name="CSE" component={CseEvent}/>
+        <Tab.Screen name="MECH & ROBO" component={MechEvent}/>
+        <Tab.Screen name="ENTC" component={EntcEvent}/>
+      </Tab.Navigator>
         
-        <FlatList
-        data={events}
-        renderItem={({ item }) => (
-            <TouchableWithoutFeedback onPress={() => {
-            }}>
-            <Item name={item.name}/>
-            </TouchableWithoutFeedback>
-        )}
-        keyExtractor={item => item.name}
-      />
         <Text style={styles.finalPrice}>Final Price</Text>
-        <Button title="Next"
-            // 
-            />
+        <Button title="Next"/>
        </View>
        
   )
