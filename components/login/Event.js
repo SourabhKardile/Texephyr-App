@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, StatusBar, Modal,Button, Alert} from 'react-native'
+import { StyleSheet, Text, View , ListItem, Icon, FlatList, StatusBar, Modal,Button, Alert, Image, TouchableOpacity} from 'react-native'
 import React, { useState } from 'react'
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -9,7 +9,7 @@ import { element } from 'prop-types';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import styles from './LoginStyle'
-import {BlurView} from 'expo-blur'
+import { Card } from 'react-native-paper';
 
 const Tab = createMaterialTopTabNavigator();
 const events = [
@@ -20,8 +20,16 @@ const events = [
    ]
 
 const EventListItem = ({ name }) => (
-    <View style={styles.eventListItem}>
-      <Text style={styles.name}>{name}</Text>
+
+    <View style={{flex: 1, width:'90%', justifyContent: 'center', alignItems: 'center', marginTop: 20}}>
+    <Image
+     style={{
+       flex: 1,
+       height: 150
+     }}
+     source={require('../../assets/card.jpg')}
+     />
+      <Text style={{position: 'absolute', fontSize: 30, color:'white', textTransform:'uppercase'}}>{name}</Text>
     </View>
 );
 const BranchItem = ({ name }) => (
@@ -35,6 +43,7 @@ function CSE() {
   const [modalVisible, setModalVisible] = useState(false);
   const [description, setDescription] = useState('');
   return (
+
     <View style={[{alignSelf:'center', padding: 10
           }]}>
       <Modal
@@ -54,20 +63,24 @@ function CSE() {
             </View>
             </View>
         </Modal>
-      <FlatList
+        
+    <FlatList
         data={events}
         renderItem={({ item }) => (
           item.branch == 0 ?
-            <TouchableWithoutFeedback onPress={() => {
-              setModalVisible(true);
+            <TouchableOpacity onPress={() => {
+              setModalVisible(!modalVisible);
               setDescription(item.description);
             }}>
           <EventListItem name={item.name}/>
-          </TouchableWithoutFeedback>
+          
+          </TouchableOpacity>
           :null
         )}
         keyExtractor={item => item.name}
       />
+ 
+      
     </View>
   );
 }
@@ -76,7 +89,8 @@ function MECH() {
   const [modalVisible, setModalVisible] = useState(false);
   const [description, setDescription] = useState('');
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={[{alignSelf:'center', padding: 10
+  }]}>
       <Modal
         style={styles.modalView}
         animationType="slide"
@@ -98,12 +112,12 @@ function MECH() {
         data={events}
         renderItem={({ item }) => (
           item.branch == 1 ?
-            <TouchableWithoutFeedback onPress={() => {
+            <TouchableOpacity onPress={() => {
               setModalVisible(!modalVisible);
               setDescription(item.description);
             }}>
           <EventListItem name={item.name}/>
-          </TouchableWithoutFeedback>
+          </TouchableOpacity>
           :null
         )}
         keyExtractor={item => item.name}
@@ -116,7 +130,8 @@ function Civil(){
   const [modalVisible, setModalVisible] = useState(false);
   const [description, setDescription] = useState('');
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={[{alignSelf:'center', padding: 10
+  }]}>
       <Modal
         style={styles.modalView}
         animationType="slide"
@@ -138,12 +153,12 @@ function Civil(){
         data={events}
         renderItem={({ item }) => (
           item.branch == 2 ?
-            <TouchableWithoutFeedback onPress={() => {
+            <TouchableOpacity onPress={() => {
               setModalVisible(!modalVisible);
               setDescription(item.description);
             }}>
           <EventListItem name={item.name}/>
-          </TouchableWithoutFeedback>
+          </TouchableOpacity>
           :null
         )}
         keyExtractor={item => item.name}
@@ -157,8 +172,8 @@ function Civil(){
       <View style={{width: '100%', height: '100%'}}>
       <Tab.Navigator>
         <Tab.Screen name="CSE" component={CSE}/>
-        <Tab.Screen name="MECH" component={MECH}/>
-        <Tab.Screen name="Civil" component={Civil}/>
+        <Tab.Screen name="MECH & Robo" component={MECH}/>
+        <Tab.Screen name="ENTC" component={Civil}/>
       </Tab.Navigator>
       </View>
     )

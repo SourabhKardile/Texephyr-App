@@ -1,21 +1,68 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Button, FlatList, Pressable} from 'react-native'
 import React, { useState } from 'react'
 import {ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import UserRegistration from './UserRegistration';
 import Modal from "react-native-modal";
 import styles from './LoginStyle'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Card } from 'react-native-paper';
 
+const Tab = createMaterialTopTabNavigator();
+
+function CseEvent(){
+  return(
+    <FlatList
+        data={events}
+        renderItem={({ item }) => (
+            <TouchableWithoutFeedback onPress={() => {
+            }}>
+            <Item name={item.name}/>
+            </TouchableWithoutFeedback>
+        )}
+        keyExtractor={item => item.name}
+      />
+  )
+}
+
+function MechEvent(){
+  return(
+    <FlatList
+        data={events}
+        renderItem={({ item }) => (
+            <TouchableWithoutFeedback onPress={() => {
+            }}>
+            <Item name={item.name}/>
+            </TouchableWithoutFeedback>
+        )}
+        keyExtractor={item => item.name}
+      />
+  )
+}
+
+function EntcEvent(){
+  return(
+    <FlatList
+        data={events}
+        renderItem={({ item }) => (
+            <TouchableWithoutFeedback onPress={() => {
+            }}>
+            <Item name={item.name}/>
+            </TouchableWithoutFeedback>
+        )}
+        keyExtractor={item => item.name}
+      />
+  )
+}
 
 const TexId = () =>{
     const [texId,setTexId] = useState('')
     const [modalRegistrationVisible, setRegistrationtModalVisible] = useState(false);
     return(
-        <View style={[styles.eventContainer, {
+        <View style={[ {
             flexDirection: "row"
           }]}>
-        <View style={styles.eventInputContainer}>
+        <View>
           <TextInput
             value={texId}
             placeholder="textId"
@@ -114,7 +161,7 @@ const EventRegisteration = () => {
 
     let selected = eventsBoxes.filter((event) => event.isChecked == true);
   return (
-       <View style = {{width: '100%', height: '100%'}}>
+       <View style = {{flex:1}}>
         <TexId/>
         <View style ={{padding:10}}>
         <TouchableWithoutFeedback onPress={() => {
@@ -274,6 +321,14 @@ const EventRegisteration = () => {
         <Text style={styles.finalPrice}>Final Price</Text>
         <Button title="Next" />
         </View>
+        <Tab.Navigator>
+        <Tab.Screen name="CSE" component={CseEvent}/>
+        <Tab.Screen name="MECH & ROBO" component={MechEvent}/>
+        <Tab.Screen name="ENTC" component={EntcEvent}/>
+      </Tab.Navigator>
+        
+        <Text style={styles.finalPrice}>Final Price</Text>
+        <Button title="Next"/>
        </View>
        
   )

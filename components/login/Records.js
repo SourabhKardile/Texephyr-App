@@ -12,7 +12,11 @@ export default function Records({navigation}) {
 }}>
     <Text style={{color:'white', fontSize:25,padding:17, fontWeight:'bold'}}>UPDATE</Text>
 </TouchableOpacity>
-<TouchableOpacity style={[styles.box, {backgroundColor:'green'}]}>
+
+
+<TouchableOpacity style={[styles.box, {backgroundColor:'green'}]} onPress={() => {
+    navigation.navigate('TresRecord')
+}}>
     <Text style={{color:'white', fontSize:25,padding:17, fontWeight:'bold'}}>RECORDS</Text>
 </TouchableOpacity>
 <TouchableOpacity style={[styles.box, {backgroundColor:'red'}]}>

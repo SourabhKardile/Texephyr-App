@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, Modal,Alert, TextInput,Pressable, Image} from 'react-native'
+import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, Modal,Alert, TextInput,Pressable, TouchableOpacity} from 'react-native'
 import React, {useState} from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { DataTable } from 'react-native-paper';
-import { Table, Row, Rows, TableWrapper,Col } from 'react-native-table-component';
+import { Table, TableWrapper, Row, Cell } from 'react-native-table-component';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -19,27 +19,38 @@ const UpdateRecord = ({navigation}) =>{
 
 function All(){
   const [tableHead, setTableHead] = useState( ['Tex ID', 'Name', 'Holding', 'Collect'])
-  const [tableData, setTableData]= useState( [
-    ['1', '2', '3'],
-    ['a', 'b', 'c'],
-    ['1', '2', '3'],
-    ['a', 'b', 'c']
-  ])
+    const [tableData, setTableData]= useState( [
+        ['101', 'Aditya Patil', '300', '4'],
+        ['102', 'Pratap Kakade', '10000', 'd'],
+        ['103', 'Aditya Inamdar', '400', '4'],
+        ['104', 'Sourabh Kardile', '300', 'd']
+      ])
 
+      const element = (data, index) => (
+        <TouchableOpacity onPress={() => Alert.alert(`This is row ${index + 1}`)}>
+          <View style={styles.btn1}>
+            <Text style={styles.btnText1}>Collect</Text>
+          </View>
+        </TouchableOpacity>
+      );
       return(
         <View style={styles.container1}>
-        <Table borderStyle={{borderWidth: 1, borderColor: '#c8e1ff'}}>
-        <Row data={tableHead}  style={styles.head1} textStyle={styles.text1}/>
-          <TableWrapper style={styles.wrapper1}>
-          <Col data={tableHead} style={styles.title1} heightArr={[28,28]} textStyle={styles.text1}/>
-          <Rows data={tableData} flexArr={[2, 1, 1]} style={styles.row1} textStyle={styles.text1}/>
-          
-          
+    <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
+      <Row data={tableHead} style={styles.head1} textStyle={styles.text1}/>
+      {
+        tableData.map((rowData, index) => (
+          <TableWrapper key={index} style={styles.row1}>
+            {
+              rowData.map((cellData, cellIndex) => (
+                <Cell key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData} textStyle={styles.text1}/>
+              ))
+            }
           </TableWrapper>
-        </Table>
-      </View>
-    
-    )
+        ))
+      }
+    </Table>
+  </View>
+      )
 }
 function Individual(){
     const [modalVisible, setModalVisible] = useState(false);
@@ -201,9 +212,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   container1: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-  head1: {  height: 40,  backgroundColor: '#f1f8ff'  },
-  wrapper1: { flexDirection: 'row' },
-  title1: { flex: 1, backgroundColor: '#f6f8fa' },
-  row1: {  height: 28  },
-  text1: { textAlign: 'center' }
+    head1: { height: 40, backgroundColor: '#808B97' },
+    text1: { margin: 6 },
+    row1: { flexDirection: 'row', height: 'auto', minHeight:40 },
+    btn1: { marginLeft:6 , width: 80, height: 25, backgroundColor: '#2196F3',  borderRadius: 5, justifyContent: 'center' },
+    btnText1: { textAlign: 'center', color: '#fff' }
 });
