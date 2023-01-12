@@ -1,6 +1,6 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Button, FlatList } from 'react-native'
 import React, { useState } from 'react'
-import {TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import {ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import UserRegistration from './UserRegistration';
 import Modal from "react-native-modal";
 import styles from './LoginStyle'
@@ -42,8 +42,10 @@ const TexId = () =>{
         >
             <View style={styles.centeredView}>
             <View style={styles.modalView}>
+            <ScrollView>
                 <UserRegistration/>
                 <Button title='close' onPress={()=>setRegistrationtModalVisible(!modalRegistrationVisible)}></Button>
+            </ScrollView>
             </View>
             </View>
         </Modal>
