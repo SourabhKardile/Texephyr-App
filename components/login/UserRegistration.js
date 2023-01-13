@@ -8,13 +8,13 @@ import EventRegisteration from './EventRegisteration';
 import { element } from 'prop-types';
 import EventList from './Event';
 import SelectDropdown from 'react-native-select-dropdown'
-import styles from './LoginStyle'
+
 
 const countries = ["MITWPU", "Harvard", "Yale", "Oxford"]
 
 const CollegeSelect = () => {
     return(
-        <View style={{alignSelf:'center',backgroundColor:'white', padding:10}}>
+        <View style={{alignSelf:'center',backgroundColor:'white', padding:10,}}>
             <SelectDropdown
 	        data={countries}
             defaultValue={countries[0]}
@@ -47,7 +47,7 @@ const UserRegisteration = () => {
         behavior="padding">
             <View style={styles.inputContainer}>
                 <TextInput
-                value={email}
+                value={name}
                 placeholder="Name"
                 onChangeText={text =>setName(text)}
                 style={styles.input}
@@ -56,13 +56,12 @@ const UserRegisteration = () => {
                 placeholder="Phone"
                 onChangeText={text =>setContactNo(text)}
                 style={styles.input}
-                secureTextEntry
+                
                 />
                 <TextInput
                 placeholder="Email"
                 onChangeText={text =>setEmail(text)}
                 style={styles.input}
-                secureTextEntry
                 />
                 <TextInput
                 placeholder="Password"
@@ -78,9 +77,8 @@ const UserRegisteration = () => {
             <View style={[styles.container, {
             flexDirection: "row"
           }]}>
-            <Text>verification code</Text>
             <TextInput
-                placeholder=""
+                placeholder="Verification Code"
                 onChangeText={text =>setVerCode(text)}
                 style={styles.input}
                 secureTextEntry
@@ -94,3 +92,20 @@ const UserRegisteration = () => {
 }
 
 export default UserRegisteration
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20
+    },
+    input: {
+        color: 'black',
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        borderRadius: 10,
+        marginTop: 5,
+        backgroundColor:'#D3D3D3'
+    },
+})

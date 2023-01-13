@@ -12,10 +12,23 @@ const Tab = createMaterialTopTabNavigator();
 
 
 const TexId = () =>{
+  const [blur,setBlur] = useState('');
     const [texId,setTexId] = useState('')
     const [modalRegistrationVisible, setRegistrationtModalVisible] = useState(false);
+
+    const CancelBTN = ({ onPress, title }) => (
+      <TouchableOpacity onPress={()=>
+      {
+        setBlur(styles.normal)
+        setRegistrationtModalVisible(!modalRegistrationVisible)}
+       }
+        style={styles.cancelBtnContainer}>
+        <Text style={styles.appButtonText}>X</Text>
+      </TouchableOpacity>
+    );
+
     return(
-        <View style={[ {
+        <View style={[ blur,{
             flexDirection: "row"
           }]}>
         <View>
@@ -28,6 +41,7 @@ const TexId = () =>{
         <View>
         <TouchableWithoutFeedback onPress={() => {
               setRegistrationtModalVisible(!modalRegistrationVisible);
+              setBlur(styles.normal)
             }}>
             <View style={styles.register}>
                 <Text style={{fontSize:20}}>Register</Text>
@@ -46,10 +60,12 @@ const TexId = () =>{
         }}
         >
             <View style={styles.centeredView}>
+            
             <View style={styles.modalView}>
+            <CancelBTN title="X" size="sm" backgroundColor="#007bff" />
             <ScrollView>
                 <UserRegistration/>
-                <Button title='close' onPress={()=>setRegistrationtModalVisible(!modalRegistrationVisible)}></Button>
+                {/* <Button title='close' onPress={()=>setRegistrationtModalVisible(!modalRegistrationVisible)}></Button> */}
             </ScrollView>
             </View>
             </View>
@@ -72,6 +88,7 @@ const events = [
   );
 
 const EventRegisteration = () => {
+  const [blur,setBlur] = useState('');
     const [description, setDescription] = useState('');
     const [modalAccountVisible,setAccountModalVisible] = useState(false);
     const [modalGroupVisible, setGroupModalVisible] = useState(false); 
@@ -88,7 +105,12 @@ const EventRegisteration = () => {
     );
     
     const CancelBTN = ({ onPress, title }) => (
-      <TouchableOpacity onPress={()=>setAccountModalVisible(!modalAccountVisible)} style={styles.cancelBtnContainer}>
+      <TouchableOpacity onPress={()=>
+      {
+        setBlur(styles.normal)
+        setAccountModalVisible(!modalAccountVisible)}
+       }
+        style={styles.cancelBtnContainer}>
         <Text style={styles.appButtonText}>X</Text>
       </TouchableOpacity>
     );
@@ -208,11 +230,12 @@ const EventRegisteration = () => {
     }
 
   return (
-       <View style = {{flex:1}}>
-        <TexId/>
+       <View style = {[blur,{flex:1}]}>
+        <TexId />
         <View style ={{padding:10}}>
         <TouchableWithoutFeedback onPress={() => {
             setAccountModalVisible(!modalAccountVisible);
+            setBlur(styles.blur)
             }}>
             <Text>Already have an account?</Text>
         </TouchableWithoutFeedback>
@@ -229,6 +252,7 @@ const EventRegisteration = () => {
         
         onRequestClose={() => {
           setAccountModalVisible(false);
+          setBlur(styles.normal)
         }}
 
         >

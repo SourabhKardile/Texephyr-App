@@ -56,7 +56,8 @@ module.exports =
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 20
+        padding: 20,
+        backgroundColor: '#171717',
     },
 
     inputContainer: {
@@ -65,11 +66,15 @@ module.exports =
     },
 
     input: {
-        backgroundColor: 'white',
+        borderBottomColor: 'white',
+    borderBottomWidth: 1,
+    marginBottom: 30,
+        placeholderTextColor:"#fff",
         paddingHorizontal: 15,
-        paddingVertical: 10,
+       
         borderRadius: 10,
         marginTop: 5,
+        color: 'white',
     },
 
     buttonContainer: {
@@ -81,7 +86,8 @@ module.exports =
     },
 
     button: {
-        backgroundColor: '#0782F9',
+        
+        backgroundColor: '#6C6C6C',
         width: '100%',
         padding: 15,
         borderRadius: 10,

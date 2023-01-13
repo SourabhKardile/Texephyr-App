@@ -7,7 +7,10 @@ import styles from './LoginStyle'
 
 
 
+
 const Login_screen = ({navigation}) => {
+
+  
 const [email,setEmail] = useState('')
 const [password, setPassword] = useState('')
 
@@ -42,17 +45,23 @@ React.useEffect(
 
   return (
     <View
-    style={styles.container}
-    behavior="padding"
+    style={[styles.container,{justifyContent:'space-evenly', alignItems:'center' }]} behavior="padding"
     >
+    <View style={{alignItems:'center'}}>
+    <Text style={{color:'#fff',fontSize: 35,lineHeight: 47, alignItems:'center', justifyContent:'center'}}>WELCOME</Text>
+    <Text style={{color:'#fff',fontSize: 35,lineHeight: 47, alignItems:'center', justifyContent:'center'}}>TEAM TEXEPHYR</Text>
+    </View>
+      
      <View style={styles.inputContainer}>
+     <Text style={{color:'#fff', marginLeft:5, opacity:0.79}}>Tex ID</Text>
         <TextInput
-        value={email}
-        placeholder="Email"
+        value={email} 
         onChangeText={text =>setEmail(text)}
         style={styles.input}
 
         />
+
+        <Text style={{color:'#fff', marginLeft:5, opacity:0.79}}>Password</Text>
          <TextInput
         placeholder="Password"
         onChangeText={text =>setPassword(text)}
@@ -60,20 +69,21 @@ React.useEffect(
         secureTextEntry
 
         />
-     </View>
-     <View style={styles.buttonContainer}>
         <TouchableOpacity
         onPress={() =>{
             navigation.navigate('DrawerNav')
             // if(email == 'sourabh@gmail.com' && password == '12345')
                 
         }}
-        style={styles.button}
+        style={[{marginTop:40},styles.button]}
         >
             <Text style={styles.buttonText}>
                 Login
             </Text>
         </TouchableOpacity>
+     </View>
+     <View style={styles.buttonContainer}>
+        
      </View>
     </View>
   )
