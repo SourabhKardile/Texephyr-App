@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View , ListItem, Icon, FlatList, StatusBar, Modal,Button, Alert, Image, TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, View , ListItem, Icon, FlatList, StatusBar, Modal,Button, Alert, Image, TouchableOpacity, Dimensions} from 'react-native'
 import React, { useState } from 'react'
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -17,18 +17,20 @@ const events = [
     {name: 'catch the muderer', description: 'catch the murder', branch: 1},
     {name: 'hackathon', description: 'college level hackathon', branch: 2}
    ]
-
+   const windowWidth = Dimensions. get('window').width
 const EventListItem = ({ name }) => (
-
-    <View style={{flex: 1, width:'90%', justifyContent: 'center', alignItems: 'center', marginTop: 20}}>
-    <Image
+  
+    <View style={{flex: 1,  justifyContent: 'center', alignItems: 'center', marginTop: 20, backgroundColor:'#BB86FC', borderRadius:20, marginHorizontal:5}}>
+    {/* <Image
      style={{
        flex: 1,
-       height: 150
+       height: 150,
+       backgroundColor:'red'
      }}
      source={require('../../assets/card.jpg')}
-     />
-      <Text style={{position: 'absolute', fontSize: 30, color:'white', textTransform:'uppercase'}}>{name}</Text>
+     /> */}
+     <View style={{flex:1, height:120, width:windowWidth}}><Text style={{color:'#fff', fontWeight:'bold', fontSize:40, textTransform:'uppercase', marginLeft:20, marginTop:35}}>{name}</Text></View>
+      
     </View>
 );
 const BranchItem = ({ name }) => (
@@ -44,7 +46,7 @@ function CSE() {
   const [blur,setBlur] = useState('');
   return (
 
-    <View style={[blur,{alignSelf:'center', padding: 10
+    <View style={[blur,{alignSelf:'center', padding: 10, backgroundColor:'#171717'
           }]}>
       <Modal
         style={styles.modalView}
@@ -144,7 +146,7 @@ function Civil(){
   const [description, setDescription] = useState('');
   const [blur,setBlur] = useState('');
   return (
-    <View style={[blur,{alignSelf:'center', padding: 10
+    <View style={[blur,{alignSelf:'center',
   }]}>
       <Modal
         style={styles.modalView}
@@ -191,10 +193,15 @@ function Civil(){
     const [branch, setBranch] = useState(0);
     return (
       <View style={{width: '100%', height: '100%'}}>
-      <Tab.Navigator>
-        <Tab.Screen name="CSE" component={CSE}/>
-        <Tab.Screen name="MECH & Robo" component={MECH}/>
-        <Tab.Screen name="ENTC" component={Civil}/>
+      <Tab.Navigator screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#121212',
+          opacity:0.9
+        },
+      }}>
+        <Tab.Screen name="CSE" component={CSE} options={{tabBarActiveTintColor:'#fff'}}/>
+        <Tab.Screen name="MECH & Robo" component={MECH} options={{tabBarActiveTintColor:'#fff'}}/>
+        <Tab.Screen name="ENTC" component={Civil} options={{tabBarActiveTintColor:'#fff'}}/>
       </Tab.Navigator>
       </View>
     )

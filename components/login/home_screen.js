@@ -25,6 +25,12 @@ const Home_screen = () => {
   return (
     <View style={{width: '100%', height: '100%'}}>
       <Stack.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#121212',
+          opacity:0.9
+        },
+      }}
       // screenOptions={({ route }) => ({
       //     tabBarIcon: ({ focused, color, size }) => {
       //       let iconName;
@@ -44,10 +50,10 @@ const Home_screen = () => {
       //     tabBarInactiveTintColor: 'gray',
       //   })}
       >
-    <Stack.Screen name="Event" component={EventList} options={{headerShown:false,tabBarLabel: 'Event', tabBarIcon: ({color}) => <MaterialIcons name="event" size={24} color={color}/>, tabBarActiveTintColor: 'black',tabBarInactiveTintColor: 'gray'}} />
-    <Stack.Screen name="Register" component={EventRegisteration} options={{headerShown:false, tabBarIcon:({color})=> <FontAwesome name="pencil-square-o" size={24} color={color} />, tabBarActiveTintColor: 'black',tabBarInactiveTintColor: 'gray'}}/>
-    <Stack.Screen name="My Status" component={MyStatus} options={{headerShown:false, tabBarIcon:({color})=> <FontAwesome5 name="money-check-alt" size={24} color={color} />, tabBarActiveTintColor: 'black',tabBarInactiveTintColor: 'gray'}}/>
-    <Stack.Screen name="Records" component={MainRecord} options={{headerShown:false, tabBarIcon:({color})=> <FontAwesome name="address-book" size={24} color={color} />, tabBarActiveTintColor: 'black',tabBarInactiveTintColor: 'gray'}}/>
+    <Stack.Screen name="Event" component={EventList} options={{headerShown:false,tabBarLabel: 'Event', tabBarIcon: ({color}) => <MaterialIcons name="event" size={24} color={color}/>, tabBarActiveTintColor: '#fff',tabBarInactiveTintColor: 'gray'}} />
+    <Stack.Screen name="Register" component={EventRegisteration} options={{headerShown:false, tabBarIcon:({color})=> <FontAwesome name="pencil-square-o" size={24} color={color} />, tabBarActiveTintColor: '#fff',tabBarInactiveTintColor: 'gray'}}/>
+    <Stack.Screen name="My Status" component={MyStatus} options={{headerShown:false, tabBarIcon:({color})=> <FontAwesome5 name="money-check-alt" size={24} color={color} />, tabBarActiveTintColor: '#fff',tabBarInactiveTintColor: 'gray'}}/>
+    <Stack.Screen name="Records" component={MainRecord} options={{headerShown:false, tabBarIcon:({color})=> <FontAwesome name="address-book" size={24} color={color} />, tabBarActiveTintColor: '#fff',tabBarInactiveTintColor: 'gray'}}/>
   </Stack.Navigator>
   
     </View>
