@@ -260,7 +260,6 @@ const EventRegisteration = () => {
         animationType="slide"
         transparent={true}
         visible={modalGroupVisible}
-        
         onRequestClose={() => {
           setGroupModalVisible(false);
         }}
@@ -268,54 +267,12 @@ const EventRegisteration = () => {
             <View style={styles.centeredView}>
             <View style={styles.modalGroupView}>
               <CancelGroupBTN title="X" size="sm" backgroundColor="#007bff" />
-              <View style={[styles.eventContainer, {
-            flexDirection: "row"
-          }]}>
-              <TextInput 
-                placeholder="Group member 2"
-                style={styles.eventInput}
-                secureTextEntry
-                />
-              <TouchableWithoutFeedback onPress={() => {
-                setRegistrationtModalVisible(!modalRegistrationVisible);
-                }}>
-                <View style={styles.register}>
-                  <Text style={{fontSize:20}}>Register</Text>
-                </View>
-              </TouchableWithoutFeedback>
-              </View>
-              <View style={[styles.eventContainer, {
-            flexDirection: "row"
-          }]}>
-              <TextInput 
-                placeholder="Group member 2"
-                style={styles.eventInput}
-                secureTextEntry
-                />
-              <TouchableWithoutFeedback onPress={() => {
-                setRegistrationtModalVisible(!modalRegistrationVisible);
-                }}>
-                <View style={styles.register}>
-                  <Text style={{fontSize:20}}>Register</Text>
-                </View>
-              </TouchableWithoutFeedback>
-              </View>
-              <View style={[styles.eventContainer, {
-            flexDirection: "row"
-          }]}>
-              <TextInput 
-                placeholder="Group member 2"
-                style={styles.eventInput}
-                secureTextEntry
-                />
-              <TouchableWithoutFeedback onPress={() => {
-                setRegistrationtModalVisible(!modalRegistrationVisible);
-                }}>
-                <View style={styles.register}>
-                  <Text style={{fontSize:20}}>Register</Text>
-                </View>
-              </TouchableWithoutFeedback>
-              </View>
+              <Text>Group member 2</Text>
+              <TexId/>
+              <Text>Group member 3</Text>
+              <TexId/>
+              <Text>Group member 4</Text>
+              <TexId/>
               <RegisterGroupBTN title="Register group" size="sm" backgroundColor="#007bff" />
             </View>
             </View>
