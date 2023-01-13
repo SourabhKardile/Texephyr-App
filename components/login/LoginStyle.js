@@ -76,6 +76,18 @@ module.exports =
         marginTop: 5,
         color: 'white',
     },
+    inputTex:{
+        borderBottomColor: 'white',
+        
+        borderBottomWidth: 1,
+        marginTop: 5,
+        color: 'white',
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        borderRadius: 10,
+        marginTop: 5,
+        width: 270,
+    },
 
     buttonContainer: {
         width: '60%',
@@ -132,13 +144,17 @@ module.exports =
     },
 
     register: {
-        backgroundColor: 'white',
         paddingHorizontal: 15,
-        paddingVertical: 1,
+        paddingVertical: 2,
         borderRadius: 10,
-        marginTop: 0,
-        borderColor: '#0782F9'
+        marginTop: 15,
+        
     },
+    modalButton: {
+        alignItems: 'center',
+        backgroundColor: '#BB86FC',
+        padding: 10
+      },
 
     getBtnContainer: {
         margin: 5,
@@ -165,7 +181,7 @@ module.exports =
     },
 
     item: {
-        backgroundColor: '#fff',
+        backgroundColor: '#0d0907',
         padding: 20,
         borderRadius: 7,
         marginVertical: 8,
@@ -192,7 +208,7 @@ module.exports =
         width: '80%',
         height: 'auto',
         margin: 20,
-        backgroundColor: "white",
+        backgroundColor: "#232323",
         borderRadius: 20,
         padding: 20,
         alignItems: "center",
@@ -252,8 +268,8 @@ module.exports =
         justifyContent: 'space-between',
     },
     blur: {
-        color: 'grey',
-        backgroundColor: "grey",
+        color: '#171717',
+        backgroundColor: "#171717",
         opacity: 0.2,
       },
       normal: {

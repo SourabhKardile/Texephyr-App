@@ -22,9 +22,9 @@ const Item = ({ name }) => (
 const MyStatus = () =>{
     return(
         <View style={[styles.container]}>
-        <ImageBackground source={require('../../assets/backwalle.png')} resizeMode="cover" style={styles.image}>
-        <Text style={{fontSize:20, marginTop:'30%', marginLeft:40}}>Money To be {"\n"}Submitted</Text>
-        <Text style={{fontSize:30, marginLeft:40, fontWeight:'bold'}}>{'\u20B9'}500</Text>
+        <ImageBackground source={require('../../assets/backDark.jpg')} resizeMode="cover" style={styles.image}>
+        <Text style={{fontSize:20, marginTop:'30%', marginLeft:40, color:'#fff'}}>Money To be {"\n"}Submitted</Text>
+        <Text style={{fontSize:30, marginLeft:40, fontWeight:'bold', color:'#fff'}}>{'\u20B9'}500</Text>
            
            
            </ImageBackground>
