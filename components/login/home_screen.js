@@ -11,6 +11,7 @@ import MainRecord from './MainRecord'
 import { MaterialIcons } from '@expo/vector-icons'; 
 import { FontAwesome } from '@expo/vector-icons'; 
 import { FontAwesome5 } from '@expo/vector-icons';
+import EventRegStack from './EventRegStack'
 
 function EventLogo() {
   return (
@@ -45,7 +46,7 @@ const Home_screen = () => {
       //   })}
       >
     <Stack.Screen name="Event" component={EventList} options={{headerShown:false,tabBarLabel: 'Event', tabBarIcon: ({color}) => <MaterialIcons name="event" size={24} color={color}/>, tabBarActiveTintColor: 'black',tabBarInactiveTintColor: 'gray'}} />
-    <Stack.Screen name="Register" component={EventRegisteration} options={{headerShown:false, tabBarIcon:({color})=> <FontAwesome name="pencil-square-o" size={24} color={color} />, tabBarActiveTintColor: 'black',tabBarInactiveTintColor: 'gray'}}/>
+    <Stack.Screen name="Register" component={EventRegStack} options={{headerShown:false, tabBarIcon:({color})=> <FontAwesome name="pencil-square-o" size={24} color={color} />, tabBarActiveTintColor: 'black',tabBarInactiveTintColor: 'gray'}}/>
     <Stack.Screen name="My Status" component={MyStatus} options={{headerShown:false, tabBarIcon:({color})=> <FontAwesome5 name="money-check-alt" size={24} color={color} />, tabBarActiveTintColor: 'black',tabBarInactiveTintColor: 'gray'}}/>
     <Stack.Screen name="Records" component={MainRecord} options={{headerShown:false, tabBarIcon:({color})=> <FontAwesome name="address-book" size={24} color={color} />, tabBarActiveTintColor: 'black',tabBarInactiveTintColor: 'gray'}}/>
   </Stack.Navigator>
