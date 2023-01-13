@@ -29,7 +29,7 @@ const EventListItem = ({ name }) => (
      }}
      source={require('../../assets/card.jpg')}
      /> */}
-     <View style={{flex:1, height:120, width:windowWidth}}><Text style={{color:'#fff', fontWeight:'bold', fontSize:40, textTransform:'uppercase', marginLeft:20, marginTop:35}}>{name}</Text></View>
+     <View style={{flex:1, height:100, width:windowWidth}}><Text style={{color:'#fff', fontWeight:'bold', fontSize:30, textTransform:'uppercase', marginLeft:20, marginTop:30}}>{name}</Text></View>
       
     </View>
 );
@@ -98,7 +98,7 @@ function MECH() {
   const [description, setDescription] = useState('');
   const [blur,setBlur] = useState('');
   return (
-    <View style={[blur,{alignSelf:'center', padding: 10
+    <View style={[blur,{alignSelf:'center', padding: 10,backgroundColor:'#171717'
   }]}>
       <Modal
         style={styles.modalView}
@@ -146,7 +146,7 @@ function Civil(){
   const [description, setDescription] = useState('');
   const [blur,setBlur] = useState('');
   return (
-    <View style={[blur,{alignSelf:'center',
+    <View style={[blur,{alignSelf:'center',backgroundColor:'#171717'
   }]}>
       <Modal
         style={styles.modalView}
