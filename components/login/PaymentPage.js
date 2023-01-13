@@ -33,7 +33,7 @@ const PaymentPage = () => {
             <MaterialCommunityIcons
                 name={onlineSelect == true ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
         </TouchableWithoutFeedback>
-        <Text style={{fontSize:18}}>Online</Text>
+        <Text style={{fontSize:18, color: 'white'}}>Online</Text>
         </View>
         {onlineSelect == true ?
         <View style={{alignSelf:'center'}}>
@@ -49,7 +49,7 @@ const PaymentPage = () => {
             <MaterialCommunityIcons
                 name={offlineSelect == true ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
         </TouchableWithoutFeedback>
-        <Text style={{fontSize:18}}>Offline</Text>
+        <Text style={{fontSize:18 , color: 'white'}}>Offline</Text>
         </View>
         </View>
         </View>

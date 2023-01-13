@@ -318,10 +318,15 @@ const EventRegisteration = ({navigation}) => {
         </TouchableWithoutFeedback>
         </View>
 
-          <Tab.Navigator>
-          <Tab.Screen name="CSE" component={CseEvent}/>
-          <Tab.Screen name="MECH & ROBO" component={MechEvent}/>
-          <Tab.Screen name="ENTC" component={EntcEvent}/>
+          <Tab.Navigator screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#000',
+          opacity:0.9
+        },
+      }}>
+          <Tab.Screen name="CSE" component={CseEvent} options={{tabBarActiveTintColor:'#fff'}}/>
+          <Tab.Screen name="MECH & ROBO" component={MechEvent} options={{tabBarActiveTintColor:'#fff'}}/>
+          <Tab.Screen name="ENTC" component={EntcEvent} options={{tabBarActiveTintColor:'#fff'}}/>
           </Tab.Navigator>
 
         <Modal
@@ -360,7 +365,7 @@ const EventRegisteration = ({navigation}) => {
             </View>
         </Modal>
         <View style={styles.item}>
-          <Text>CART</Text>
+          <Text style={{color:'white'}}>CART</Text>
           <FlatList
         data={selected}
         renderItem={({ item }) => (

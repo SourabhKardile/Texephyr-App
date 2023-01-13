@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, StatusBar, TextInput,Button} from 'react-native'
+import { StyleSheet, Text, View , Card, ListItem, Icon, FlatList, StatusBar, TextInput,Button, TouchableOpacity} from 'react-native'
 import React, {useState} from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -84,7 +84,7 @@ const UserRegisteration = () => {
       }
     
     return(
-        <View style={styles.container}
+        <View style={[styles.container]}
         behavior="padding">
             <View style={styles.inputContainer}>
                 <TextInput
@@ -112,9 +112,17 @@ const UserRegisteration = () => {
                 />
                 <CollegeSelect/>
             </View>
-            <View style={{flexDirection:"row"}}>
-                <Button onPress={showImagePicker} title="Select an image" />
-                <Button onPress={openCamera} title="Open camera" />
+            <View style={{flexDirection:"row", margin: 5}}>
+                <TouchableOpacity style = {styles.modalButton} onPress={() => {
+                    
+                }}>
+                   <Text style = {styles.Text}>Select an image</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style = {styles.modalButton} onPress={() => {
+                    
+                 }}>
+                    <Text style = {styles.Text}>Click image</Text>
+                </TouchableOpacity>
             </View>
             <View>
             {
@@ -124,7 +132,11 @@ const UserRegisteration = () => {
                 }
             </View>
             <View>
-                <Button title='Send verification code'/>
+            <TouchableOpacity style = {styles.modalButton} onPress={() => {
+                    
+                }}>
+                   <Text style = {styles.Text}>Send Verification code</Text>
+               </TouchableOpacity>
             </View>
             <View style={[styles.container, {
             flexDirection: "row"
@@ -137,7 +149,11 @@ const UserRegisteration = () => {
                 />
           </View>
           <View>
-            <Button title='Create'/>
+          <TouchableOpacity style = {styles.modalButton} onPress={() => {
+                    
+                }}>
+                   <Text style = {styles.Text}>Create</Text>
+               </TouchableOpacity>
           </View>
         </View>
     )
@@ -160,4 +176,10 @@ const styles = StyleSheet.create({
         marginTop: 5,
         backgroundColor:'#D3D3D3'
     },
+    modalButton: {
+        alignItems: 'center',
+        backgroundColor: '#BB86FC',
+        padding: 10,
+        margin: 5
+      },
 })
