@@ -112,9 +112,6 @@ const UserRegisteration = () => {
                 />
                 <CollegeSelect/>
             </View>
-            <View>
-                <Button title='Send verification code'/>
-            </View>
             <View style={{flexDirection:"row"}}>
                 <Button onPress={showImagePicker} title="Select an image" />
                 <Button onPress={openCamera} title="Open camera" />
@@ -125,6 +122,9 @@ const UserRegisteration = () => {
                 <Text>Image Picked successfully</Text>
                 :null
                 }
+            </View>
+            <View>
+                <Button title='Send verification code'/>
             </View>
             <View style={[styles.container, {
             flexDirection: "row"
