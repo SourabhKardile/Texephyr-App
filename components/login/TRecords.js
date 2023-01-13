@@ -27,10 +27,10 @@ export default function TRecords() {
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-  head: {  height: 40,  backgroundColor: '#f1f8ff'  },
+    container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#171717' },
+  head: {  height: 40,  backgroundColor: '#5f5f5f'  },
   wrapper: { flexDirection: 'row' },
   title: { flex: 1, backgroundColor: '#f6f8fa' },
   row: {  height: 28  },
-  text: { textAlign: 'center' }
+  text: { textAlign: 'center', color:'#fff' },
   });

@@ -28,8 +28,8 @@ const Home_screen = () => {
       <Stack.Navigator
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: '#121212',
-          opacity:0.9
+          backgroundColor: '#232323',
+          
         },
       }}
       // screenOptions={({ route }) => ({

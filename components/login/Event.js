@@ -20,7 +20,7 @@ const events = [
    const windowWidth = Dimensions. get('window').width
 const EventListItem = ({ name }) => (
   
-    <View style={{flex: 1,  justifyContent: 'center', alignItems: 'center', marginTop: 20, backgroundColor:'#BB86FC', borderRadius:20, marginHorizontal:5}}>
+    <View style={{flex: 1,  justifyContent: 'center', alignItems: 'center', marginTop: 20, backgroundColor:'#4966f8', borderRadius:20, marginHorizontal:5}}>
     {/* <Image
      style={{
        flex: 1,
@@ -29,7 +29,7 @@ const EventListItem = ({ name }) => (
      }}
      source={require('../../assets/card.jpg')}
      /> */}
-     <View style={{flex:1, height:100, width:windowWidth}}><Text style={{color:'#fff', fontWeight:'bold', fontSize:30, textTransform:'uppercase', marginLeft:20, marginTop:30}}>{name}</Text></View>
+     <View style={{flex:1, height:100, width:windowWidth}}><Text style={{color:'#fff', fontWeight:'bold', fontSize:30, textTransform:'uppercase', marginLeft:30, marginTop:30}}>{name}</Text></View>
       
     </View>
 );
@@ -60,13 +60,13 @@ function CSE() {
         >
             <View style={styles.centeredView}>
             <View style={styles.modalView}>
-                <Text style={{padding:25}}>{description}</Text>
-                <Button title='close' onPress={()=>
+                <Text style={{padding:25, color:'#fff', fontSize:16}}>{description}</Text>
+                <TouchableOpacity  onPress={()=>
                   {
                     setModalVisible(!modalVisible)
                     setBlur(styles.normal)
                   }
-                }></Button>
+                } style={styles.modalButton}><Text>CLOSE</Text></TouchableOpacity>
             </View>
             </View>
         </Modal>
@@ -113,7 +113,7 @@ function MECH() {
             <View style={styles.centeredView}>
             <View style={styles.modalView}>
                 <Text style={{padding:25}}>{description}</Text>
-                <Button title='close' onPress={()=>
+                <Button style={{color:'red'}} title='close' onPress={()=>
                   {
                     setModalVisible(!modalVisible)
                     setBlur(styles.normal)
@@ -195,7 +195,7 @@ function Civil(){
       <View style={{width: '100%', height: '100%'}}>
       <Tab.Navigator screenOptions={{
         tabBarStyle: {
-          backgroundColor: '#121212',
+          backgroundColor: '#000',
           opacity:0.9
         },
       }}>
