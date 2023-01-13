@@ -7,6 +7,11 @@ import Modal from "react-native-modal";
 import styles from './LoginStyle'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Card } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import PaymentPage from './PaymentPage';
+
+const Stack = createStackNavigator();
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -87,7 +92,7 @@ const events = [
     </View>
   );
 
-const EventRegisteration = () => {
+const EventRegisteration = ({navigation}) => {
   const [blur,setBlur] = useState('');
     const [description, setDescription] = useState('');
     const [modalAccountVisible,setAccountModalVisible] = useState(false);
@@ -331,8 +336,9 @@ const EventRegisteration = () => {
         keyExtractor={item => item.id}
       />
         </View>
-        <Text style={styles.finalPrice}>Final Price</Text>
-        <Button title="Next"/>
+        <TouchableOpacity style={{backgroundColor:'red', height:40}} onPress={() => navigation.navigate('NEXT')}>
+          <Text>NEXT</Text>
+        </TouchableOpacity>
        </View>
        
   )
