@@ -80,7 +80,7 @@ const TexId = () =>{
 }
 
 const events = [
-    {id:1, name: 'codestorm', description: 'For all the codeers Texephyr brings code storm. Write out the optimized and most efficient code to prove your coding prowess. This event will not only test your coding but also evaluate your debugging. Event format: 1) Minor (Diploma and FE and SE), 2) Major (TE and BE), Prizes for both tracks are different', isChecked: false, noOfEntries: 1, branch: 0},
+    {id:1, name: 'codestorm', description: 'For all the codeers Texephyr brings code storm. Write out the optimized and most efficient code to prove your coding prowess. This event will not only test your coding but also evaluate your debugging. Event format: 1) Minor (Diploma and FE and SE), 2) Major (TE and BE), Prizes for both tracks are different', isChecked: false, noOfEntries: 4, branch: 0},
     {id:2, name: 'algoholics', description: 'Algoholics, as the name suggests, is an algorithm-based event which tests your logical thinking rather than testing your coding abilities. The motto of the event is Think efficient, build efficient.', isChecked: false, noOfEntries: 4, branch: 0},
     {id:3, name: 'catch the muderer', description: 'catch the murder', isChecked: false, noOfEntries: 2, branch: 1},
     {id:4, name: 'hackathon', description: 'college level hackathon', isChecked: false, noOfEntries: 4, branch: 2}
@@ -96,7 +96,10 @@ const EventRegisteration = ({navigation}) => {
   const [blur,setBlur] = useState('');
     const [description, setDescription] = useState('');
     const [modalAccountVisible,setAccountModalVisible] = useState(false);
-    const [modalGroupVisible, setGroupModalVisible] = useState(false); 
+    const [groupVisible, setGroupVisible]  = useState(false);
+    const [eventId, setEventId] = useState(0);
+
+
     const GetBTN = ({ onPress, title }) => (
       <TouchableOpacity onPress={onPress} style={styles.getBtnContainer}>
         <Text style={styles.appButtonText}>{title}</Text>
@@ -104,7 +107,10 @@ const EventRegisteration = ({navigation}) => {
     );
  
     const RegisterGroupBTN = ({ onPress, title }) => (
-      <TouchableOpacity onPress={onPress} style={styles.getBtnContainer}>
+      <TouchableOpacity onPress={()=>{
+        setGroupVisible(!groupVisible);
+        registerConfirmed(eventId);
+      }} style={styles.getBtnContainer}>
         <Text style={styles.appButtonText}>{title}</Text>
       </TouchableOpacity>
     );
@@ -121,21 +127,33 @@ const EventRegisteration = ({navigation}) => {
     );
 
     const CancelGroupBTN = ({ onPress, title }) => (
-      <TouchableOpacity onPress={()=>setGroupModalVisible(!modalGroupVisible)} style={styles.cancelBtnContainer}>
+      <TouchableOpacity onPress={()=>setGroupVisible(!groupVisible)} style={styles.cancelBtnContainer}>
         <Text style={styles.appButtonText}>X</Text>
       </TouchableOpacity>
     );
     
     const [eventsBoxes,setEvent] = useState(events);
 
+    const registerConfirmed = (id) => {
+      let temp = eventsBoxes.map((event) =>{
+        if(id == event.id){
+          return { ...event, isChecked : !event.isChecked };
+        }
+        return event
+      })
+      setEvent(temp);
+    }
 
     const handleChange = (id) => {
       let temp = eventsBoxes.map((event) => {
           if (id === event.id) {
             if(event.isChecked == false && event.noOfEntries >= 2){
-              setGroupModalVisible(!modalGroupVisible);
+              setGroupVisible(!groupVisible);
+              setEventId(event.id);
             }
-            return { ...event, isChecked : !event.isChecked };
+            else{
+              return { ...event, isChecked : !event.isChecked };
+            }
           }
           return event;
       });
@@ -151,7 +169,8 @@ const EventRegisteration = ({navigation}) => {
         style={styles.item}
         renderItem={({ item }) => (
           item.isChecked == false && item.branch == 0 ?
-          <Card style={{ margin: 5 }}>
+          <View>
+            <Card style={{ margin: 5 }}>
           <View style={styles.card}>
               <View
                   style={{
@@ -167,6 +186,13 @@ const EventRegisteration = ({navigation}) => {
               </View>
           </View>
           </Card>
+          {
+            groupVisible == true && eventId == item.id?
+            <GroupRegisterForm/>
+            :null
+          }
+          
+          </View>
           :null
         )}
         keyExtractor={item => item.id}
@@ -181,7 +207,8 @@ const EventRegisteration = ({navigation}) => {
         style={styles.item}
         renderItem={({ item }) => (
           item.isChecked == false && item.branch == 1 ?
-          <Card style={{ margin: 5 }}>
+          <View>
+            <Card style={{ margin: 5 }}>
           <View style={styles.card}>
               <View
                   style={{
@@ -197,6 +224,13 @@ const EventRegisteration = ({navigation}) => {
               </View>
           </View>
           </Card>
+          {
+            groupVisible == true && eventId == item.id?
+            <GroupRegisterForm/>
+            :null
+          }
+          
+          </View>
           :null
         )}
         keyExtractor={item => item.id}
@@ -211,7 +245,8 @@ const EventRegisteration = ({navigation}) => {
         style={styles.item}
         renderItem={({ item }) => (
           item.isChecked == false && item.branch == 2 ?
-          <Card style={{ margin: 5 }}>
+          <View>
+            <Card style={{ margin: 5 }}>
           <View style={styles.card}>
               <View
                   style={{
@@ -227,12 +262,39 @@ const EventRegisteration = ({navigation}) => {
               </View>
           </View>
           </Card>
+          {
+            groupVisible == true && eventId == item.id?
+            <GroupRegisterForm/>
+            :null
+          }
+          
+          </View>
           :null
         )}
         keyExtractor={item => item.id}
       />
       )
     }
+  
+  const GroupRegisterForm = () =>{
+    return(
+      <View style = {styles.item}>
+        <CancelGroupBTN title="X" size="sm" backgroundColor="#007bff" />
+            <Text>Group member 2</Text>
+            <TexId/>
+            <Text>Group member 3</Text>
+            <TexId/>
+            <Text>Group member 4</Text>
+            <TexId/>
+            <TouchableWithoutFeedback onPress={() => {
+                setAccountModalVisible(!modalAccountVisible);
+              }}>
+            <Text>Already have an account?</Text>
+            </TouchableWithoutFeedback>
+            <RegisterGroupBTN title="Register group" size="sm" backgroundColor="#007bff" />
+      </View>
+    )
+  }
 
   return (
        <View style = {[blur,{flex:1}]}>
@@ -245,11 +307,13 @@ const EventRegisteration = ({navigation}) => {
             <Text>Already have an account?</Text>
         </TouchableWithoutFeedback>
         </View>
-        <Tab.Navigator>
+
+          <Tab.Navigator>
           <Tab.Screen name="CSE" component={CseEvent}/>
           <Tab.Screen name="MECH & ROBO" component={MechEvent}/>
           <Tab.Screen name="ENTC" component={EntcEvent}/>
-        </Tab.Navigator>
+          </Tab.Navigator>
+
         <Modal
         animationType="slide"
         transparent={true}
@@ -285,38 +349,13 @@ const EventRegisteration = ({navigation}) => {
             </View>
             </View>
         </Modal>
-        <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalGroupVisible}
-        onRequestClose={() => {
-          setGroupModalVisible(false);
-        }}
-        >
-            <View style={styles.centeredView}>
-            <View style={styles.modalGroupView}>
-              <CancelGroupBTN title="X" size="sm" backgroundColor="#007bff" />
-              <Text>Group member 2</Text>
-              <TexId/>
-              <Text>Group member 3</Text>
-              <TexId/>
-              <Text>Group member 4</Text>
-              <TexId/>
-              <TouchableWithoutFeedback onPress={() => {
-                  setAccountModalVisible(!modalAccountVisible);
-                }}>
-              <Text>Already have an account?</Text>
-              </TouchableWithoutFeedback>
-              <RegisterGroupBTN title="Register group" size="sm" backgroundColor="#007bff" />
-            </View>
-            </View>
-        </Modal>
         <View style={styles.item}>
           <Text>CART</Text>
-        <FlatList
+          <FlatList
         data={selected}
         renderItem={({ item }) => (
-          <Card style={{ margin: 5 }}>
+          <View>
+            <Card style={{ margin: 5 }}>
           <View style={styles.card}>
               <View
                   style={{
@@ -332,11 +371,12 @@ const EventRegisteration = ({navigation}) => {
               </View>
           </View>
           </Card>
+          </View>
         )}
         keyExtractor={item => item.id}
       />
         </View>
-        <TouchableOpacity style={{backgroundColor:'red', height:40}} onPress={() => navigation.navigate('NEXT')}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NEXT')}>
           <Text>NEXT</Text>
         </TouchableOpacity>
        </View>

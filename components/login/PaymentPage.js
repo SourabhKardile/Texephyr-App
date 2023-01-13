@@ -6,6 +6,10 @@ import Modal from "react-native-modal";
 import styles from './LoginStyle'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import QRCode from 'react-native-qrcode-svg'
+import EventRegisteration from './EventRegisteration';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 const PaymentPage = () => {
     const [onlineSelect, setOnline] = useState(false);
@@ -22,6 +26,7 @@ const PaymentPage = () => {
     };
 
     return(
+        <View>
         <View style={styles.item}>
         <View style={styles.card}>
         <TouchableWithoutFeedback onPress={() => handleOnline(onlineSelect)} >
@@ -45,6 +50,7 @@ const PaymentPage = () => {
                 name={offlineSelect == true ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
         </TouchableWithoutFeedback>
         <Text style={{fontSize:18}}>Offline</Text>
+        </View>
         </View>
         </View>
     )
