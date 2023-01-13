@@ -5,7 +5,7 @@
     "description": "No Desc",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo.jpg",
+    "icon": "./assets/logo1.png",
     "userInterfaceStyle": "light",
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -19,8 +19,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF",
-        "package": "com.Texephyr.Texephyr"
+        "backgroundColor": "#FFFFFF"
       }
     },
     "web": {

@@ -241,10 +241,10 @@ const EventRegisteration = () => {
         </TouchableWithoutFeedback>
         </View>
         <Tab.Navigator>
-        <Tab.Screen name="CSE" component={CseEvent}/>
-        <Tab.Screen name="MECH & ROBO" component={MechEvent}/>
-        <Tab.Screen name="ENTC" component={EntcEvent}/>
-      </Tab.Navigator>
+          <Tab.Screen name="CSE" component={CseEvent}/>
+          <Tab.Screen name="MECH & ROBO" component={MechEvent}/>
+          <Tab.Screen name="ENTC" component={EntcEvent}/>
+        </Tab.Navigator>
         <Modal
         animationType="slide"
         transparent={true}
@@ -284,7 +284,6 @@ const EventRegisteration = () => {
         animationType="slide"
         transparent={true}
         visible={modalGroupVisible}
-        
         onRequestClose={() => {
           setGroupModalVisible(false);
         }}
@@ -292,61 +291,25 @@ const EventRegisteration = () => {
             <View style={styles.centeredView}>
             <View style={styles.modalGroupView}>
               <CancelGroupBTN title="X" size="sm" backgroundColor="#007bff" />
-              <View style={[styles.eventContainer, {
-            flexDirection: "row"
-          }]}>
-              <TextInput 
-                placeholder="Group member 2"
-                style={styles.eventInput}
-                secureTextEntry
-                />
+              <Text>Group member 2</Text>
+              <TexId/>
+              <Text>Group member 3</Text>
+              <TexId/>
+              <Text>Group member 4</Text>
+              <TexId/>
               <TouchableWithoutFeedback onPress={() => {
-                setRegistrationtModalVisible(!modalRegistrationVisible);
+                  setAccountModalVisible(!modalAccountVisible);
                 }}>
-                <View style={styles.register}>
-                  <Text style={{fontSize:20}}>Register</Text>
-                </View>
+              <Text>Already have an account?</Text>
               </TouchableWithoutFeedback>
-              </View>
-              <View style={[styles.eventContainer, {
-            flexDirection: "row"
-          }]}>
-              <TextInput 
-                placeholder="Group member 2"
-                style={styles.eventInput}
-                secureTextEntry
-                />
-              <TouchableWithoutFeedback onPress={() => {
-                setRegistrationtModalVisible(!modalRegistrationVisible);
-                }}>
-                <View style={styles.register}>
-                  <Text style={{fontSize:20}}>Register</Text>
-                </View>
-              </TouchableWithoutFeedback>
-              </View>
-              <View style={[styles.eventContainer, {
-            flexDirection: "row"
-          }]}>
-              <TextInput 
-                placeholder="Group member 2"
-                style={styles.eventInput}
-                secureTextEntry
-                />
-              <TouchableWithoutFeedback onPress={() => {
-                setRegistrationtModalVisible(!modalRegistrationVisible);
-                }}>
-                <View style={styles.register}>
-                  <Text style={{fontSize:20}}>Register</Text>
-                </View>
-              </TouchableWithoutFeedback>
-              </View>
               <RegisterGroupBTN title="Register group" size="sm" backgroundColor="#007bff" />
             </View>
             </View>
         </Modal>
-      <FlatList
+        <View style={styles.item}>
+          <Text>CART</Text>
+        <FlatList
         data={selected}
-        style = {styles.item}
         renderItem={({ item }) => (
           <Card style={{ margin: 5 }}>
           <View style={styles.card}>
@@ -367,6 +330,7 @@ const EventRegisteration = () => {
         )}
         keyExtractor={item => item.id}
       />
+        </View>
         <Text style={styles.finalPrice}>Final Price</Text>
         <Button title="Next"/>
        </View>
