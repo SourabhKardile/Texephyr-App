@@ -4,9 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import EventRegisteration from './EventRegisteration';
 import { element } from 'prop-types';
-import EventList from './Event';
 import SelectDropdown from 'react-native-select-dropdown'
 import styles from './LoginStyle'
 

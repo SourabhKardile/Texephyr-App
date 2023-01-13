@@ -218,10 +218,10 @@ const EventRegisteration = () => {
         </TouchableWithoutFeedback>
         </View>
         <Tab.Navigator>
-        <Tab.Screen name="CSE" component={CseEvent}/>
-        <Tab.Screen name="MECH & ROBO" component={MechEvent}/>
-        <Tab.Screen name="ENTC" component={EntcEvent}/>
-      </Tab.Navigator>
+          <Tab.Screen name="CSE" component={CseEvent}/>
+          <Tab.Screen name="MECH & ROBO" component={MechEvent}/>
+          <Tab.Screen name="ENTC" component={EntcEvent}/>
+        </Tab.Navigator>
         <Modal
         animationType="slide"
         transparent={true}
@@ -273,13 +273,19 @@ const EventRegisteration = () => {
               <TexId/>
               <Text>Group member 4</Text>
               <TexId/>
+              <TouchableWithoutFeedback onPress={() => {
+                  setAccountModalVisible(!modalAccountVisible);
+                }}>
+              <Text>Already have an account?</Text>
+              </TouchableWithoutFeedback>
               <RegisterGroupBTN title="Register group" size="sm" backgroundColor="#007bff" />
             </View>
             </View>
         </Modal>
-      <FlatList
+        <View style={styles.item}>
+          <Text>CART</Text>
+        <FlatList
         data={selected}
-        style = {styles.item}
         renderItem={({ item }) => (
           <Card style={{ margin: 5 }}>
           <View style={styles.card}>
@@ -300,6 +306,7 @@ const EventRegisteration = () => {
         )}
         keyExtractor={item => item.id}
       />
+        </View>
         <Text style={styles.finalPrice}>Final Price</Text>
         <Button title="Next"/>
        </View>

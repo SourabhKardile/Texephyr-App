@@ -221,7 +221,7 @@ module.exports =
     },
     modalGroupView: {
         width: 400,
-        height: 280,
+        height: 400,
         margin: 20,
         backgroundColor: "white",
         borderRadius: 20,
