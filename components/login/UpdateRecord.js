@@ -10,9 +10,14 @@ const Tab = createMaterialTopTabNavigator();
 
 const UpdateRecord = ({navigation}) =>{ 
     return(
-        <Tab.Navigator>
-        <Tab.Screen name="Individual" component={Individual}/>
-        <Tab.Screen name="All" component={All}/>
+        <Tab.Navigator screenOptions={{
+          tabBarStyle: {
+            backgroundColor: '#000',
+            opacity:0.9
+          },
+        }}>
+        <Tab.Screen name="Individual" component={Individual} options={{tabBarActiveTintColor:'#fff'}}/>
+        <Tab.Screen name="All" component={All} options={{tabBarActiveTintColor:'#fff'}}/>
       </Tab.Navigator>
     )
 }
@@ -34,7 +39,7 @@ function All(){
         </TouchableOpacity>
       );
       return(
-        <View style={styles.container1}>
+        <View style={[styles.container1]}>
     <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
       <Row data={tableHead} style={styles.head1} textStyle={styles.text1}/>
       {
@@ -56,26 +61,28 @@ function Individual(){
     const [modalVisible, setModalVisible] = useState(false);
     const [blur,setBlur] = useState('');
     return(
-<View style={[blur,{flex:1}]}>
-        <View style={{alignItems:'center'}}>
+<View style={[blur,{flex:1, backgroundColor:'#171717'}]}>
+        <View style={{alignItems:'center', marginTop:10}}>
             <TextInput 
-                placeholder='Tex Id'
-                style={[styles.input]}
+                placeholder='TEX ID'
+                placeholderTextColor="#D9D9D9"
+                style={[styles.input,{fontSize:20}]}
             />
             <Pressable style={[blur,styles.button]}>
                  <Text style={styles.text}>Get Details</Text>
             </Pressable>
         </View>
-        <Text style={{marginTop:50, marginLeft:30, fontSize:25}}>Name: Sourabh Kardile</Text>
-        <View style={{backgroundColor:'white', height:70, flexDirection:'row', margin:10}}>
+        <Text style={{marginTop:50, marginLeft:30, fontSize:25, color:'#fff'}}>Name: Sourabh Kardile</Text>
+        <View style={{backgroundColor:'#5f5f5f', height:70, flexDirection:'row', margin:10}}>
             <Text style={styles.amtText}>Amount Holding: </Text>
             <Text style={styles.amtText}>{'\u20B9'}500.00</Text>
         </View>
         <View style={{alignItems:'center',height:100, flexDirection:'row'}}>
-        <Text style={{marginLeft:50, fontSize:20}}>Deduct:</Text>
+        <Text style={{marginLeft:50, fontSize:20, color:'#fff'}}>Deduct:</Text>
         <TextInput 
+                placeholderTextColor="#D9D9D9"
                 placeholder='Enter Amount'
-                style={[styles.input,{width:'50%',height:50,marginLeft:20}]}
+                style={[styles.input,{width:'50%',height:50,marginLeft:20, fontSize:20}]}
             />
         </View>
         <View style={{alignItems:'center'}}>
@@ -147,15 +154,19 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   input: {
-    backgroundColor: "white",
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderRadius: 10,
-    marginTop: 50,
-    width: "80%",
-    marginBottom: 50,
+    borderBottomColor: 'white',
+        
+        borderBottomWidth: 1,
+        marginTop: 5,
+        color: 'white',
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        borderRadius: 10,
+        marginTop: 5,
+        width: 270,
   },
   button: {
+    marginTop:20,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
@@ -171,12 +182,13 @@ const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: "white",
   },
-  amtText: { marginTop: 20, marginLeft: 35, fontSize: 20 },
+  amtText: { marginTop: 20, marginLeft: 35, fontSize: 20 , color:'#fff'},
   centeredView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22,
+    color:'#fff'
   },
   modalView: {
     margin: 20,
@@ -208,10 +220,10 @@ const styles = StyleSheet.create({
   tableText: {
     fontSize: 20,
   },
-  container1: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-    head1: { height: 40, backgroundColor: '#808B97' },
-    text1: { margin: 6 },
-    row1: { flexDirection: 'row', height: 'auto', minHeight:40 },
-    btn1: { marginLeft:6 , width: 80, height: 25, backgroundColor: '#2196F3',  borderRadius: 5, justifyContent: 'center' },
+  container1: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#171717' },
+    head1: { height: 40, backgroundColor: '#808B97', color:'#fff' },
+    text1: { margin: 6 , color:'#fff'},
+    row1: { flexDirection: 'row', height: 'auto', minHeight:40, color:'#fff'},
+    btn1: { marginLeft:6 , width: 80, height: 25, backgroundColor: '#b24bf3',  borderRadius: 5, justifyContent: 'center' },
     btnText1: { textAlign: 'center', color: '#fff' }
 });

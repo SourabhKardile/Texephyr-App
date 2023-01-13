@@ -10,6 +10,7 @@ import { Card } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import PaymentPage from './PaymentPage';
+import { FontAwesome } from '@expo/vector-icons'; 
 
 const Stack = createStackNavigator();
 
@@ -33,23 +34,26 @@ const TexId = () =>{
     );
 
     return(
-        <View style={[ blur,{
-            flexDirection: "row"
+        <View style={[ blur,{marginTop:10,
+            flexDirection: "row", justifyContent:'space-around',backgroundColor:'#171717'
           }]}>
-        <View>
+          <View>
+        
           <TextInput
             value={texId}
-            placeholder="textId"
+            placeholder="TEXID"
+            placeholderTextColor="#D9D9D9"
             onChangeText={text =>setTexId(text)}
-            style={styles.eventInput}/>
-        </View>
-        <View>
+            style={styles.inputTex}/>
+            </View>
+        
+        <View style={{alignItems:'center', justifyContent:'center'}}>
         <TouchableWithoutFeedback onPress={() => {
               setRegistrationtModalVisible(!modalRegistrationVisible);
               setBlur(styles.normal)
             }}>
-            <View style={styles.register}>
-                <Text style={{fontSize:20}}>Register</Text>
+            <View style={[{alignItems:'center', justifyContent:'center', backgroundColor:'#b24bf3', height:40, width:60},styles.register]}>
+                <FontAwesome name="pencil-square-o" size={25} color='#fff' />
             </View>
         </TouchableWithoutFeedback>
         </View>
@@ -164,9 +168,10 @@ const EventRegisteration = ({navigation}) => {
 
     function CseEvent(){
       return(
+        <View style={{flex:1, backgroundColor:'#171717'}}>
         <FlatList
         data={eventsBoxes}
-        style={styles.item}
+        style={[styles.item]}
         renderItem={({ item }) => (
           item.isChecked == false && item.branch == 0 ?
           <View>
@@ -197,11 +202,13 @@ const EventRegisteration = ({navigation}) => {
         )}
         keyExtractor={item => item.id}
       />
+      </View>
       )
     }
 
     function MechEvent(){
       return(
+        <View style={{flex:1, backgroundColor:'#171717'}}>
         <FlatList
         data={eventsBoxes}
         style={styles.item}
@@ -235,11 +242,13 @@ const EventRegisteration = ({navigation}) => {
         )}
         keyExtractor={item => item.id}
       />
+      </View>
       )
     }
 
     function EntcEvent(){
       return(
+        <View style={{flex:1, backgroundColor:'#171717'}}>
         <FlatList
         data={eventsBoxes}
         style={styles.item}
@@ -273,6 +282,7 @@ const EventRegisteration = ({navigation}) => {
         )}
         keyExtractor={item => item.id}
       />
+      </View>
       )
     }
   
@@ -297,14 +307,14 @@ const EventRegisteration = ({navigation}) => {
   }
 
   return (
-       <View style = {[blur,{flex:1}]}>
+       <View style = {[blur,{flex:1, backgroundColor:'#171717'}]}>
         <TexId />
-        <View style ={{padding:10}}>
+        <View style ={{padding:10, marginLeft:20, backgroundColor:'#171717'}}>
         <TouchableWithoutFeedback onPress={() => {
             setAccountModalVisible(!modalAccountVisible);
             setBlur(styles.blur)
             }}>
-            <Text>Already have an account?</Text>
+            <Text style={{color:'#007bff'}}>Already have an account?</Text>
         </TouchableWithoutFeedback>
         </View>
 
@@ -379,7 +389,8 @@ const EventRegisteration = ({navigation}) => {
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NEXT')}>
           <Text>NEXT</Text>
         </TouchableOpacity>
-       </View>
+        </View>
+       
        
   )
 }
