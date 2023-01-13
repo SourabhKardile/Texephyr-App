@@ -32,10 +32,10 @@ function LogoTitle() {
 const CustomerDrawer = (props) => {
   return(
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
-    <DrawerContentScrollView {...props} contentContainerStyle={{backgroundColor: '#fff'}}>
+    <DrawerContentScrollView {...props} >
       <ImageBackground>
-        <Text style ={{color: 'black', fontSize: 25}}>Your Name</Text>
-        <Text style ={{color: 'black'}}>---------------------------------------------------------------------</Text>
+        <Text style ={{color: '#fff', fontSize: 25}}>Your Name</Text>
+        <Text style ={{color: '#fff'}}>----------------------------------------------</Text>
       </ImageBackground>
       <DrawerItemList {...props}/>
       <Pressable onPress={() => Alert.alert('Simple Button pressed')} style={styles.button} >
@@ -52,7 +52,15 @@ export function MyDrawer() {
     const [header, setHeader] = useState(true)
   return (
 
-    <Drawer.Navigator drawerContent={props => <CustomerDrawer {...props}/>}>
+    <Drawer.Navigator 
+    
+    screenOptions={{
+
+      drawerStyle: {
+        backgroundColor: '#171717',
+        width: 240,
+      },
+    }} drawerContent={props => <CustomerDrawer {...props}/>}>
       <Drawer.Screen name="Home" component={Home_screen} options={{headerTitle: (props) => <LogoTitle />,headerTitleStyle: {color:'#0782F9'} }}/> 
       <Drawer.Screen name="Reset Password" component={Reset} options={{headerTitle: 'Texephyr',headerTitleStyle: {color:'#0782F9'}}}/>
     </Drawer.Navigator>
@@ -77,7 +85,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     borderRadius: 7,
     elevation: 3,
-    backgroundColor: '#2196F3',
+    backgroundColor: '#6c6c6c',
     width:'90%',
     marginLeft:10
   },
