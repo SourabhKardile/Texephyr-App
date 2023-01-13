@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { element } from 'prop-types';
 import SelectDropdown from 'react-native-select-dropdown'
+import * as ImagePicker from 'expo-image-picker';
 
 
 const countries = ["MITWPU", "Harvard", "Yale", "Oxford"]
@@ -40,6 +41,48 @@ const UserRegisteration = () => {
     const [contactNo, setContactNo] = useState('')
     const [password, setPassword] = useState('')
     const [verCode, setVerCode] = useState('');
+    const [pickedImagePath, setPickedImagePath] = useState('');
+
+    const showImagePicker = async () => {
+        // Ask the user for the permission to access the media library 
+        const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    
+        if (permissionResult.granted === false) {
+          alert("You've refused to allow this appp to access your photos!");
+          return;
+        }
+    
+        const result = await ImagePicker.launchImageLibraryAsync();
+        
+        // Explore the result
+        console.log(result);
+
+        if (!result.cancelled) {
+          setPickedImagePath(result.uri);
+          console.log(result.uri);
+        }
+      }
+    
+      const openCamera = async () => {
+        // Ask the user for the permission to access the camera
+        const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
+    
+        if (permissionResult.granted === false) {
+          alert("You've refused to allow this appp to access your camera!");
+          return;
+        }
+    
+        const result = await ImagePicker.launchCameraAsync();
+    
+        console.log(result);
+    
+        if (!result.cancelled) {
+          setPickedImagePath(result.uri);
+          console.log(result.uri);
+          
+        }
+      }
+    
     return(
         <View style={styles.container}
         behavior="padding">
@@ -71,6 +114,17 @@ const UserRegisteration = () => {
             </View>
             <View>
                 <Button title='Send verification code'/>
+            </View>
+            <View style={{flexDirection:"row"}}>
+                <Button onPress={showImagePicker} title="Select an image" />
+                <Button onPress={openCamera} title="Open camera" />
+            </View>
+            <View>
+            {
+                pickedImagePath !== '' ?
+                <Text>Image Picked successfully</Text>
+                :null
+                }
             </View>
             <View style={[styles.container, {
             flexDirection: "row"
