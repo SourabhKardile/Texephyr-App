@@ -10,24 +10,24 @@ export default function Records({navigation}) {
 <TouchableOpacity style={styles.box} onPress={() => {
     navigation.navigate('Update')
 }}>
-    <Text style={{color:'white', fontSize:25,padding:17, fontSize:30, textTransform:'uppercase', fontWeight:'bold', letterSpacing:1}}>UPDATE</Text>
+    <Text style={styles.text}>UPDATE</Text>
 </TouchableOpacity>
 
 
 <TouchableOpacity style={[styles.box]} onPress={() => {
     navigation.navigate('TresRecord')
 }}>
-    <Text style={{color:'white', fontWeight:'bold', fontSize:30, textTransform:'uppercase', padding:17, letterSpacing:1}}>RECORDS</Text>
+    <Text style={styles.text}>RECORDS</Text>
 </TouchableOpacity>
 <TouchableOpacity style={[styles.box]} onPress={() => {
     navigation.navigate('EventSales')
 }}>
-    <Text style={{color:'white', fontSize:25,padding:17, fontSize:30, textTransform:'uppercase', fontWeight:'bold', letterSpacing:1}}>EVENT SALES</Text>
+    <Text style={styles.text}>EVENT SALES</Text>
 </TouchableOpacity>
 <TouchableOpacity style={[styles.box]} onPress={() => {
     navigation.navigate('OverAllSales')
 }}>
-    <Text style={{color:'white', fontSize:25,padding:17,fontSize:30, textTransform:'uppercase',  fontWeight:'bold' , letterSpacing:1}}>OVERALL</Text>
+    <Text style={styles.text}>OVERALL</Text>
 </TouchableOpacity>
     </View>
     </ScrollView>
@@ -36,7 +36,15 @@ export default function Records({navigation}) {
 }
 
 const styles = StyleSheet.create({
-
+    text:{
+        color:'white',
+        fontSize:25,
+        paddingLeft:20,
+        fontSize:30,
+        textTransform:'uppercase',
+        fontWeight:'bold',
+        letterSpacing:1
+    },
     box:{
          height: 100,
           marginTop:25,
