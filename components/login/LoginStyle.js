@@ -168,7 +168,8 @@ module.exports =
     },
     modalButton: {
         alignItems: 'center',
-        backgroundColor: '#BB86FC',
+        backgroundColor: '#079779',
+        borderRadius:5,
         padding: 10
       },
 
@@ -280,15 +281,17 @@ module.exports =
         elevation: 5
     },
     card: {
-        padding: 10,
-        margin: 5,
+        padding: 15,
+        backgroundColor:'grey',
+        borderRadius:10,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        
     },
     blur: {
-        color: '#171717',
-        backgroundColor: "#171717",
-        opacity: 0.2,
+        color: '#000',
+        backgroundColor: "#000",
+        opacity: 0.5,
       },
       normal: {
         opacity: 1,

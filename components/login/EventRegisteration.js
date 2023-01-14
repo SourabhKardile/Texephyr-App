@@ -52,7 +52,7 @@ const TexId = () =>{
               setRegistrationtModalVisible(!modalRegistrationVisible);
               setBlur(styles.normal)
             }}>
-            <View style={[{alignItems:'center', justifyContent:'center', backgroundColor:'#b24bf3', height:40, width:60},styles.register]}>
+            <View style={[{alignItems:'center', justifyContent:'center', backgroundColor:'#079779', height:40, width:60},styles.register]}>
                 <FontAwesome name="pencil-square-o" size={25} color='#fff' />
             </View>
         </TouchableWithoutFeedback>
@@ -84,7 +84,7 @@ const TexId = () =>{
 }
 
 const events = [
-    {id:1, name: 'codestorm', description: 'For all the codeers Texephyr brings code storm. Write out the optimized and most efficient code to prove your coding prowess. This event will not only test your coding but also evaluate your debugging. Event format: 1) Minor (Diploma and FE and SE), 2) Major (TE and BE), Prizes for both tracks are different', isChecked: false, noOfEntries: 4, branch: 0},
+    {id:1, name: 'CODESTROM', description: 'For all the codeers Texephyr brings code storm. Write out the optimized and most efficient code to prove your coding prowess. This event will not only test your coding but also evaluate your debugging. Event format: 1) Minor (Diploma and FE and SE), 2) Major (TE and BE), Prizes for both tracks are different', isChecked: false, noOfEntries: 4, branch: 0},
     {id:2, name: 'algoholics', description: 'Algoholics, as the name suggests, is an algorithm-based event which tests your logical thinking rather than testing your coding abilities. The motto of the event is Think efficient, build efficient.', isChecked: false, noOfEntries: 4, branch: 0},
     {id:3, name: 'catch the muderer', description: 'catch the murder', isChecked: false, noOfEntries: 2, branch: 1},
     {id:4, name: 'hackathon', description: 'college level hackathon', isChecked: false, noOfEntries: 4, branch: 2}
@@ -182,12 +182,13 @@ const EventRegisteration = ({navigation}) => {
                       flexDirection: 'row',
                       flex: 1,
                       justifyContent: 'space-between',
+                      alignItems:'center'
                   }}>
                   <TouchableWithoutFeedback onPress={() => handleChange(item.id)} >
                       <MaterialCommunityIcons
-                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
+                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#079779" />
                   </TouchableWithoutFeedback>
-                  <Text style={{fontSize:18}}>{item.name}</Text>
+                  <Text style={{fontSize:18, textTransform:'uppercase'}}>{item.name}</Text>
               </View>
           </View>
           </Card>
@@ -222,12 +223,13 @@ const EventRegisteration = ({navigation}) => {
                       flexDirection: 'row',
                       flex: 1,
                       justifyContent: 'space-between',
+                      alignItems:'center'
                   }}>
                   <TouchableWithoutFeedback onPress={() => handleChange(item.id)} >
                       <MaterialCommunityIcons
-                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
+                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#079779" />
                   </TouchableWithoutFeedback>
-                  <Text style={{fontSize:18}}>{item.name}</Text>
+                  <Text style={{fontSize:18, textTransform:'uppercase'}}>{item.name}</Text>
               </View>
           </View>
           </Card>
@@ -262,12 +264,15 @@ const EventRegisteration = ({navigation}) => {
                       flexDirection: 'row',
                       flex: 1,
                       justifyContent: 'space-between',
+                      alignItems:'center'
+                  
+                      
                   }}>
-                  <TouchableWithoutFeedback onPress={() => handleChange(item.id)} >
+                  <TouchableWithoutFeedback onPress={() => handleChange(item.id)}>
                       <MaterialCommunityIcons
-                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
+                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#079779" />
                   </TouchableWithoutFeedback>
-                  <Text style={{fontSize:18}}>{item.name}</Text>
+                  <Text style={{fontSize:18, textTransform:'uppercase'}}>{item.name}</Text>
               </View>
           </View>
           </Card>
@@ -314,13 +319,13 @@ const EventRegisteration = ({navigation}) => {
             setAccountModalVisible(!modalAccountVisible);
             setBlur(styles.blur)
             }}>
-            <Text style={{color:'#007bff'}}>Already have an account?</Text>
+            <Text style={{color:'#079779'}}>Already have an account?</Text>
         </TouchableWithoutFeedback>
         </View>
 
           <Tab.Navigator screenOptions={{
         tabBarStyle: {
-          backgroundColor: '#000',
+          backgroundColor: '#171717',
           opacity:0.9
         },
       }}>
@@ -377,12 +382,13 @@ const EventRegisteration = ({navigation}) => {
                       flexDirection: 'row',
                       flex: 1,
                       justifyContent: 'space-between',
+                      alignItems:'center'
                   }}>
                   <TouchableWithoutFeedback onPress={() => handleChange(item.id)} >
                       <MaterialCommunityIcons
-                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={30} color="#0782F9" />
+                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={30} color="#079779" />
                   </TouchableWithoutFeedback>
-                  <Text>{item.name}</Text>
+                  <Text style={{fontSize:18, textTransform:'uppercase'}}>{item.name}</Text>
               </View>
           </View>
           </Card>

@@ -77,10 +77,11 @@ export function MyDrawer() {
           ),
           drawerActiveTintColor: "#fff",
           drawerInactiveTintColor: "grey",
-          headerTitle: (props) => <LogoTitle />,
-          headerTitleStyle: { backgroundColor: "#0782F9" },
+          headerTitle:"TEXEPHYR",
+          // headerTitle: (props) => <LogoTitle />,
+          // headerTitleStyle: { backgroundColor: "#0782F9" },
           headerStyle: {
-            backgroundColor: "#f4511e",
+            backgroundColor: "#079779",
           },
           headerTintColor: "#fff",
           headerTitleStyle: {
