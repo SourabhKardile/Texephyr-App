@@ -38,11 +38,14 @@ export default function Records({navigation}) {
 const styles = StyleSheet.create({
 
     box:{
-         height: 130,
+         height: 100,
           marginTop:25,
           marginHorizontal:10,
            backgroundColor:'#4966f8',
             paddingTop:50,
-            borderRadius:20
+            borderRadius:20,
+            backgroundColor:'#171717',
+            borderBottomColor: '#079779',
+            borderBottomWidth: 2
     }
 })
