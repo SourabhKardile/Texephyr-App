@@ -80,7 +80,7 @@ function CSE() {
                     setModalVisible(!modalVisible)
                     setBlur(styles.normal)
                   }
-                } style={styles.modalButton}><Text>CLOSE</Text></TouchableOpacity>
+                } style={styles.modalButton}><Text style={{color:'#fff'}}>CLOSE</Text></TouchableOpacity>
             </View>
             </View>
         </Modal>
@@ -135,7 +135,7 @@ function MECH() {
                     setModalVisible(!modalVisible)
                     setBlur(styles.normal)
                   }
-                } style={styles.modalButton}><Text>CLOSE</Text></TouchableOpacity>
+                } style={styles.modalButton}><Text style={{color:'#fff'}}>CLOSE</Text></TouchableOpacity>
             </View>
             </View>
         </Modal>
@@ -187,7 +187,7 @@ function Civil(){
                     setModalVisible(!modalVisible)
                     setBlur(styles.normal)
                   }
-                } style={styles.modalButton}><Text>CLOSE</Text></TouchableOpacity>
+                } style={styles.modalButton}><Text style={{color:'#fff'}}>CLOSE</Text></TouchableOpacity>
             </View>
             </View>
         </Modal>

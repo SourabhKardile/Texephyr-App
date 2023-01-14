@@ -3,7 +3,14 @@ import { Table, TableWrapper, Row, Cell, Col, Rows } from 'react-native-table-co
 import React , {useState} from 'react'
 import * as Font from 'expo-font';
 
+async function loadFonts() {
+  await Font.loadAsync({
+    'ChakraPetch-Bold': require('../.././assets/fonts/ChakraPetch-Bold.ttf'),
+  });
+  
+}
 
+loadFonts();
 
 export default function TRecords() {
     const [tableHead, setTableHead] = useState( ['Tex ID', 'Name', 'Dept', 'Holding','Total'])
@@ -35,5 +42,5 @@ const styles = StyleSheet.create({
   wrapper: { flexDirection: 'row' },
   title: { flex: 1, backgroundColor: '#f6f8fa' },
   row: {  height: 28  },
-  text: { textAlign: 'center', color:'#fff'},
+  text: { textAlign: 'center', color:'#fff', fontFamily: "ChakraPetch-Bold"},
   });

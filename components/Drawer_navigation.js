@@ -62,6 +62,7 @@ const CustomerDrawer = (props) => {
           <Text style={styles.text}>LOGOUT</Text>
         </TouchableOpacity>
       </DrawerContentScrollView>
+      <View style={{flex:1, justifyContent:"flex-end", marginBottom:10}}><Text style={styles.text1}> © TECH TEAM TEX 2023</Text></View>
     </View>
   );
 };
@@ -152,4 +153,12 @@ const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: "white",
   },
+  text1: {
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: "bold",
+    letterSpacing: 0.25,
+    color: "grey",
+    justifyContent:'flex-end'
+  }
 });

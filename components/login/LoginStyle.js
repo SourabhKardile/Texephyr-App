@@ -110,7 +110,7 @@ module.exports = {
   button: {
     backgroundColor: "#079779",
     width: "100%",
-    padding: 15,
+    padding: 10,
     borderRadius: 10,
     alignItems: "center",
   },
@@ -124,8 +124,7 @@ module.exports = {
   buttonText: {
     
     color: "white",
-    fontWeight: "700",
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: "ChakraPetch-Bold",
   },
 
@@ -366,12 +365,10 @@ module.exports = {
   },
   textRecords:{
     color:'white',
-    fontFamily:'ChakraPetch-Bold',
-    fontSize:25,
-    paddingLeft:20,
     fontSize:30,
+    paddingLeft:20,
+    fontFamily:'ChakraPetch-Bold',
     textTransform:'uppercase',
-    fontWeight:'bold',
     letterSpacing:1,
     
 },

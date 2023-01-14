@@ -2,8 +2,16 @@ import { View, Text, Button , StyleSheet, TouchableOpacity, Image} from 'react-n
 import React from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 import styles from './LoginStyle'
+import * as Font from 'expo-font';
 
-
+async function loadFonts() {
+    await Font.loadAsync({
+      'ChakraPetch-Bold': require('../.././assets/fonts/ChakraPetch-Bold.ttf'),
+    });
+    
+  }
+  
+  loadFonts();
 
 export default function Records({navigation}) {
   return (
@@ -20,7 +28,7 @@ export default function Records({navigation}) {
 <TouchableOpacity style={[styles.boxRecords]} onPress={() => {
     navigation.navigate('TresRecord')
 }}>
-    <Text style={styles.textRecords}>RECORDS</Text>
+    <Text style={[styles.textRecords]}>RECORDS</Text>
 </TouchableOpacity>
 <TouchableOpacity style={[styles.boxRecords]} onPress={() => {
     navigation.navigate('EventSales')

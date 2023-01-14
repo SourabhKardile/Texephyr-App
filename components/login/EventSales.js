@@ -1,13 +1,13 @@
 import { StyleSheet, View, Text, TouchableOpacity, Alert, ScrollView } from 'react-native';
 import { Table, TableWrapper, Row, Cell, Col, Rows } from 'react-native-table-component';
 import React , {useState} from 'react'
-import * as Font from 'expo-font';
+
 
 async function loadFonts() {
     await Font.loadAsync({
       'ChakraPetch-Bold': require('../.././assets/fonts/ChakraPetch-Bold.ttf'),
     });
-    this.setState({ fontsLoaded: true });
+    
   }
   
   loadFonts();

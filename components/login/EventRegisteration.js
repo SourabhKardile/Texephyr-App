@@ -39,7 +39,7 @@ const TexId = () =>{
             flexDirection: "row", justifyContent:'space-around',backgroundColor:'#171717'
           }]}>
           <View>
-        
+          
           <TextInput
             value={texId}
             placeholder="TEXID"
@@ -106,8 +106,15 @@ const EventRegisteration = ({navigation}) => {
 
 
     const GetBTN = ({ onPress, title }) => (
-      <TouchableOpacity onPress={onPress} style={styles.getBtnContainer}>
-        <Text style={styles.appButtonText}>{title}</Text>
+      <TouchableOpacity onPress={onPress} style={{marginTop:20,
+        alignItems: "center",
+        justifyContent: "center",
+        paddingVertical: 12,
+        paddingHorizontal: 32,
+        borderRadius: 7,
+        elevation: 3,
+        backgroundColor: "#079779"}}>
+        <Text style={{color:'#fff'}}>{title}</Text>
       </TouchableOpacity>
     );
  
@@ -127,8 +134,8 @@ const EventRegisteration = ({navigation}) => {
         setBlur(styles.normal)
         setAccountModalVisible(!modalAccountVisible)}
        }
-        style={styles.cancelBtnContainer}>
-        <Text style={styles.appButtonText}><Entypo name="cross" size={30} color="black" /></Text>
+        style={[styles.cancelBtnContainer,{alignSelf:'flex-end'}]}>
+        <Text style={styles.appButtonText}><Entypo name="cross" size={24} color="#fff" /></Text>
       </TouchableOpacity>
     );
 
@@ -326,7 +333,7 @@ const EventRegisteration = ({navigation}) => {
         <View style ={{padding:10, marginLeft:20, backgroundColor:'#171717'}}>
         <TouchableWithoutFeedback onPress={() => {
             setAccountModalVisible(!modalAccountVisible);
-            setBlur(styles.blur)
+            
             }}>
             <Text style={{color:'#079779'}}>Already have an account?</Text>
         </TouchableWithoutFeedback>
@@ -355,18 +362,15 @@ const EventRegisteration = ({navigation}) => {
 
         >
             <View style={styles.centeredView}>
-            <View style={styles.modalAccountView}>
+            <View style={[styles.modalView,{backgroundColor:'#171717'}]}>
             <CancelBTN title="X" size="sm" backgroundColor="#007bff" />
-            <View style={[styles.eventRegContainer, {
-                flexDirection: "row"
-            }]}>
+            <View>
               
-                {/* <Text>Email</Text> */}
+              <Text style={{color:'#fff', marginLeft:5, opacity:0.79, width:200}}>TEX ID</Text>
                 <TextInput 
-                placeholder="Your email"
+                
                 onChangeText={text =>setVerCode(text)}
-                style={styles.eventInput}
-                secureTextEntry
+                style={styles.input}
                 />
 
 

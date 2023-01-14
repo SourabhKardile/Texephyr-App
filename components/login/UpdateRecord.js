@@ -5,6 +5,15 @@ import { DataTable } from 'react-native-paper';
 import { Table, TableWrapper, Row, Cell } from 'react-native-table-component';
 import * as Font from 'expo-font';
 
+async function loadFonts() {
+  await Font.loadAsync({
+    'ChakraPetch-Bold': require('../.././assets/fonts/ChakraPetch-Bold.ttf'),
+  });
+  
+}
+
+loadFonts();
+
 const Tab = createMaterialTopTabNavigator();
 
 
@@ -85,7 +94,7 @@ function Individual(){
                 pressGetDet(!getDetPressed);
             }
              }>
-              <Text style={styles.text}>Get Details</Text>
+              <Text style={styles.text}>GET DETAILS</Text>
               </Pressable>
               :null
             }
@@ -115,7 +124,7 @@ function Individual(){
          }
         
       >
-                    <Text style={[blur,styles.text]}>Submit</Text>
+                    <Text style={[blur,styles.text]}>SUBMIT</Text>
             </Pressable>
           </View>
           </View>
@@ -137,8 +146,8 @@ function Individual(){
         }}
       >
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={[styles.modalText,{marginBottom:15}]}>Deduct Amount : 500</Text>
+          <View style={[styles.modalView,{backgroundColor:'#232323'}]}>
+            <Text style={[styles.modalText,{marginBottom:15,color:'#fff'}]}>Deduct Amount : 500</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => {
@@ -201,7 +210,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 7,
     elevation: 3,
-    backgroundColor: "#2196F3",
+    backgroundColor: "#079779",
   },
   text: {
     fontSize: 16,
@@ -250,8 +259,8 @@ const styles = StyleSheet.create({
   },
   container1: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#171717' },
     head1: { height: 40, backgroundColor: '#808B97', color:'#fff' },
-    text1: { margin: 6 , color:'#fff'},
+    text1: { margin: 6 , color:'#fff', fontFamily: "ChakraPetch-Bold",},
     row1: { flexDirection: 'row', height: 'auto', minHeight:40, color:'#fff'},
-    btn1: { marginLeft:6 , width: 80, height: 25, backgroundColor: '#b24bf3',  borderRadius: 5, justifyContent: 'center' },
-    btnText1: { textAlign: 'center', color: '#fff'}
+    btn1: { marginLeft:6 , width: 80, height: 25, backgroundColor: '#079779',  borderRadius: 5, justifyContent: 'center' },
+    btnText1: { textAlign: 'center', color: '#fff', fontFamily: "ChakraPetch-Bold",}
 });
