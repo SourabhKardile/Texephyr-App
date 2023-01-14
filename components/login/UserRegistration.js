@@ -19,14 +19,14 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { element } from "prop-types";
 import SelectDropdown from "react-native-select-dropdown";
 import * as ImagePicker from "expo-image-picker";
-
+import { Feather, Entypo } from '@expo/vector-icons';
 const countries = ["MITWPU", "Harvard", "Yale", "Oxford"];
 
 const CollegeSelect = () => {
   return (
     <View
       style={{
-        marginTop:15,
+        marginTop:15,alignSelf:'center'
       }}
     >
       <SelectDropdown
@@ -110,54 +110,64 @@ const UserRegisteration = () => {
   return (
     <View style={[styles.container]} behavior="padding">
       <View style={styles.inputContainer}>
-        <TextInput
+        
+               <TextInput
           value={name}
           placeholder="NAME"
           placeholderTextColor="#D9D9D9"
           onChangeText={(text) => setName(text)}
           style={[styles.input, { fontSize: 15 }]}
         />
-                <TextInput
-                placeholder="Phone"
-                onChangeText={text =>setContactNo(text)}
-                style={styles.input}
+        <TextInput
+          
+          placeholder="PHONE"
+          placeholderTextColor="#D9D9D9"
+          onChangeText={(text) => setName(text)}
+          style={[styles.input, { fontSize: 15 }]}
+        />
+        <TextInput
+          
+          placeholder="EMAIL"
+          placeholderTextColor="#D9D9D9"
+          onChangeText={(text) => setName(text)}
+          style={[styles.input, { fontSize: 15 }]}
+        />
+        <TextInput
+          
+          placeholder="PASSWORD"
+          placeholderTextColor="#D9D9D9"
+          onChangeText={text =>setPassword(text)}
+          style={[styles.input, { fontSize: 15 }]}
+          secureTextEntry
+        />
                 
-                />
-                <TextInput
-                placeholder="Email"
-                onChangeText={text =>setEmail(text)}
-                style={styles.input}
-                />
-                <TextInput
-                placeholder="Password"
-                onChangeText={text =>setPassword(text)}
-                style={styles.input}
-                secureTextEntry
-                />
                 <CollegeSelect/>
             </View>
-            <View style={{flexDirection:"row", margin: 5}}>
+            <Text style={{color:'#fff'}}>------------------------------------------------------</Text>
+            <Text style={{color:'#fff', alignSelf:'flex-start', marginLeft:25, marginTop:15}}>DOCUMENTS</Text>
+            <View style={{flexDirection:"row", marginTop: 15, justifyContent:'space-around'}}>
                 <TouchableOpacity style = {styles.modalButton} onPress={showImagePicker}>
-                   <Text style = {styles.Text}>Select an image</Text>
+                   <Text style = {{color:'#fff', fontSize:15}}>UPLOAD  <Feather name="upload" size={20} color="#fff" /> </Text>
                 </TouchableOpacity>
-                <Text style = {{color : 'white'}}> OR </Text>
+                <Text style = {{color : 'white', marginTop:10, marginHorizontal:10}}> OR </Text>
                 <TouchableOpacity style = {styles.modalButton} onPress={openCamera}>
-                    <Text style = {styles.Text}>Click image</Text>
+                    <Text style = {{color:'#fff',fontSize:15}}>TAKE  <Entypo name="camera" size={20} color="#fff" /></Text>
                 </TouchableOpacity>
             </View>
-            <View>
+            <View style={{margin:10}}>
             {
                 pickedImagePath !== '' ?
-                <Text style = {{color : 'white'}}>Image Picked successfully</Text>
-                :<Text style = {{color : 'white'}}>Please select an image</Text>
+                <Text style = {{color : '#079779'}}>Image Added successfully</Text>
+                :<Text style = {{color : 'red'}}>Please select an image</Text>
                 }
             </View>
             <View>
+            <Text style={{color:'#fff'}}>------------------------------------------------------</Text>
             <TouchableOpacity style = {styles.modalButton} onPress={() => {
               setShowVer(!showVerText);
                     
                 }}>
-                   <Text style = {styles.Text}>Send Verification code</Text>
+                   <Text style = {[styles.Text,{color:'#fff'}]}>Send Verification code</Text>
                </TouchableOpacity>
             </View>
             <View style={[styles.container, {
@@ -167,16 +177,19 @@ const UserRegisteration = () => {
               showVerText == true ?
               <View>
               <TextInput
-              placeholder="Verification Code"
-              onChangeText={text =>setVerCode(text)}
-              style={styles.input}
-              secureTextEntry
-              />
+          
+          placeholder="VERIFICATION CODE"
+          placeholderTextColor="#D9D9D9"
+          onChangeText={text =>setVerCode(text)}
+          secureTextEntry
+          style={[styles.input, { fontSize: 15 }]}
+        />
+              
               <View>
-          <TouchableOpacity style = {styles.modalButton} onPress={() => {
+          <TouchableOpacity style = {[styles.modalButton, {marginTop:15}]} onPress={() => {
                     
                 }}>
-                   <Text style = {styles.Text}>Create</Text>
+                   <Text style = {[styles.Text,{color:'#fff', textTransform:'uppercase'}]}>VERIFY & Create</Text>
                </TouchableOpacity>
           </View>
           </View>
@@ -209,8 +222,8 @@ const styles = StyleSheet.create({
   },
   modalButton: {
     alignItems: "center",
-    backgroundColor: "#BB86FC",
+    backgroundColor: "#079779",
+    borderRadius: 5,
     padding: 10,
-    margin: 5,
   },
 });

@@ -7,14 +7,9 @@ import * as Font from 'expo-font';
 
 const Tab = createMaterialTopTabNavigator();
 
-async function loadFonts() {
-  await Font.loadAsync({
-    'ChakraPetch-Bold': require('../.././assets/fonts/ChakraPetch-Bold.ttf'),
-  });
-  this.setState({ fontsLoaded: true });
-}
 
-loadFonts();
+
+
 
 const UpdateRecord = ({navigation}) =>{ 
     return(
@@ -255,8 +250,8 @@ const styles = StyleSheet.create({
   },
   container1: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#171717' },
     head1: { height: 40, backgroundColor: '#808B97', color:'#fff' },
-    text1: { margin: 6 , color:'#fff', fontFamily: 'ChakraPetch-Bold'},
+    text1: { margin: 6 , color:'#fff'},
     row1: { flexDirection: 'row', height: 'auto', minHeight:40, color:'#fff'},
     btn1: { marginLeft:6 , width: 80, height: 25, backgroundColor: '#b24bf3',  borderRadius: 5, justifyContent: 'center' },
-    btnText1: { textAlign: 'center', color: '#fff', fontFamily: 'ChakraPetch-Bold'}
+    btnText1: { textAlign: 'center', color: '#fff'}
 });

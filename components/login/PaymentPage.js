@@ -26,17 +26,17 @@ const PaymentPage = () => {
     };
 
     return(
-        <View>
-        <View style={styles.item}>
-        <View style={styles.card}>
+        <View style={{backgroundColor:'#171717'}}>
+        <View style={styles.itemPayment}>
+        <View style={[styles.card,{marginBottom:10}]}>
         <TouchableWithoutFeedback onPress={() => handleOnline(onlineSelect)} >
             <MaterialCommunityIcons
-                name={onlineSelect == true ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
+                name={onlineSelect == true ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#079779" />
         </TouchableWithoutFeedback>
-        <Text style={{fontSize:18, color: 'white'}}>Online</Text>
+        <Text style={styles.payment}>UPI PAYMENT</Text>
         </View>
         {onlineSelect == true ?
-        <View style={{alignSelf:'center', backgroundColor:'white', padding: 10}}>
+        <View style={{alignSelf:'center', backgroundColor:'white', padding: 10, margintop:5, marginBottom:15}}>
             <QRCode
             value={value}
             size={250}
@@ -47,9 +47,9 @@ const PaymentPage = () => {
         <View style={styles.card}>
         <TouchableWithoutFeedback onPress={() => handleOffline(offlineSelect)} >
             <MaterialCommunityIcons
-                name={offlineSelect == true ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
+                name={offlineSelect == true ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#079779" />
         </TouchableWithoutFeedback>
-        <Text style={{fontSize:18 , color: 'white'}}>Offline</Text>
+        <Text style={styles.payment}>CASH</Text>
         </View>
         </View>
         </View>

@@ -4,7 +4,7 @@ async function loadFonts() {
   await Font.loadAsync({
     "ChakraPetch-Bold": require("../.././assets/fonts/ChakraPetch-Bold.ttf"),
   });
-  this.setState({ fontsLoaded: true });
+  
 }
 
 loadFonts();
@@ -108,7 +108,7 @@ module.exports = {
   },
 
   button: {
-    backgroundColor: "#6C6C6C",
+    backgroundColor: "#079779",
     width: "100%",
     padding: 15,
     borderRadius: 10,
@@ -122,6 +122,7 @@ module.exports = {
   },
 
   buttonText: {
+    
     color: "white",
     fontWeight: "700",
     fontSize: 16,
@@ -168,22 +169,24 @@ module.exports = {
 
   getBtnContainer: {
     margin: 5,
-    backgroundColor: "black",
-    borderRadius: 5,
-    paddingVertical: 4,
+    
+    backgroundColor: "green",
+    borderRadius: 100,
+    paddingVertical: 7,
     paddingHorizontal: 7,
   },
 
   cancelBtnContainer: {
-    marginLeft: 180,
+    margin: 5,
+    borderRadius: 100,
     backgroundColor: "red",
     borderRadius: 20,
-    paddingVertical: 2,
-    paddingHorizontal: 8,
+    paddingVertical: 7,
+    paddingHorizontal: 7,
   },
 
   appButtonText: {
-    fontSize: 18,
+    fontSize: 30,
     color: "#fff",
     fontWeight: "bold",
     alignSelf: "center",
@@ -241,9 +244,9 @@ module.exports = {
   },
   modalAccountView: {
     width: 280,
-    height: 250,
+    height: 'auto',
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: "#171717",
     borderRadius: 20,
     padding: 10,
     paddingRight: 1,
@@ -308,4 +311,80 @@ module.exports = {
     color: "#fff",
     fontFamily: "ChakraPetch-Bold",
   },
+  grpTextMember:{
+    color:'#fff', 
+    marginTop:15
+  },
+  grpText:{
+    color:'#079779', 
+    marginTop:15
+  },
+  nextButton: {
+    backgroundColor: "#079779",
+    width: "90%",
+    padding: 1,
+    borderRadius: 10,
+    marginTop:10,
+    marginBottom:20,
+    color:'#fff',
+    alignItems:'center',
+  },
+  nextBtn:{
+    color:'#fff',
+    fontFamily: "ChakraPetch-Bold",
+    fontSize:20,
+    letterSpacing:2,
+    textTransform: "uppercase",
+  },
+  cartText:{
+    color:'#fff',
+    fontFamily: "ChakraPetch-Bold",
+  },
+  cartNames:{
+    fontSize:20, textTransform:'uppercase', color:'#fff', fontFamily:'ChakraPetch-Bold'
+  },
+  payment:{
+    fontSize:20,
+     color: 'white',
+    fontFamily:'ChakraPetch-Bold',
+    letterSpacing:1
+  },
+  itemPayment:{
+    backgroundColor: "#171717",
+    padding: 20,
+    borderRadius: 7,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  paymentText:{
+    marginTop:30,
+    marginLeft:40,
+    color:'#fff',
+    fontSize:25,
+    textTransform:'uppercase',
+    fontFamily:'ChakraPetch-Bold',
+  },
+  textRecords:{
+    color:'white',
+    fontFamily:'ChakraPetch-Bold',
+    fontSize:25,
+    paddingLeft:20,
+    fontSize:30,
+    textTransform:'uppercase',
+    fontWeight:'bold',
+    letterSpacing:1,
+    
+},
+boxRecords:{
+     height: 100,
+      marginTop:25,
+      marginHorizontal:10,
+       backgroundColor:'#4966f8',
+        paddingTop:50,
+        borderRadius:20,
+        backgroundColor:'#171717',
+        borderBottomColor: '#079779',
+        borderBottomWidth: 2,
+        
+}
 };
