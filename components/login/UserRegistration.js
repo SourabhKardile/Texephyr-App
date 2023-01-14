@@ -113,14 +113,10 @@ const UserRegisteration = () => {
                 <CollegeSelect/>
             </View>
             <View style={{flexDirection:"row", margin: 5}}>
-                <TouchableOpacity style = {styles.modalButton} onPress={() => {
-                    
-                }}>
+                <TouchableOpacity style = {styles.modalButton} onPress={showImagePicker}>
                    <Text style = {styles.Text}>Select an image</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.modalButton} onPress={() => {
-                    
-                 }}>
+                <TouchableOpacity style = {styles.modalButton} onPress={openCamera}>
                     <Text style = {styles.Text}>Click image</Text>
                 </TouchableOpacity>
             </View>
