@@ -210,6 +210,12 @@ module.exports =
         color: '#0782F9',
         fontFamily: 'ChakraPetch-Bold'
     },
+    EventRegistername: {
+        fontSize: 25,
+        color: 'white',
+        fontFamily: 'ChakraPetch-Bold',
+        textTransform: 'uppercase'
+    },
     finalPrice: {
         fontSize: 32,
         color: 'black',
