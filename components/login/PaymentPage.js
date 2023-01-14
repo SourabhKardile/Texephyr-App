@@ -36,7 +36,7 @@ const PaymentPage = () => {
         <Text style={{fontSize:18, color: 'white'}}>Online</Text>
         </View>
         {onlineSelect == true ?
-        <View style={{alignSelf:'center'}}>
+        <View style={{alignSelf:'center', backgroundColor:'white', padding: 10}}>
             <QRCode
             value={value}
             size={250}
