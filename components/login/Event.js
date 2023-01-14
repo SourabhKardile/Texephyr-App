@@ -18,9 +18,10 @@ const events = [
     {name: 'hackathon', description: 'college level hackathon', branch: 2}
    ]
    const windowWidth = Dimensions. get('window').width
-const EventListItem = ({ name }) => (
+const EventListItem = ({ name,blur }) => (
   
-    <View style={{flex: 1,  justifyContent: 'center', alignItems: 'center', marginTop: 20, backgroundColor:'#4966f8', borderRadius:20, marginHorizontal:5}}>
+    <View style={[{flex: 1,  justifyContent: 'center', alignItems: 'center', marginTop: 10, backgroundColor:'#171717', borderRadius:20, marginHorizontal:5, borderBottomColor: '#079779',
+    borderBottomWidth: 2},blur]}>
     {/* <Image
      style={{
        flex: 1,
@@ -29,7 +30,7 @@ const EventListItem = ({ name }) => (
      }}
      source={require('../../assets/card.jpg')}
      /> */}
-     <View style={{flex:1, height:100, width:windowWidth}}><Text style={{color:'#fff', fontWeight:'bold', fontSize:30, textTransform:'uppercase', marginLeft:30, marginTop:30}}>{name}</Text></View>
+     <View style={{flex:1, height:80, width:windowWidth}}><Text style={{color:'#fff', fontWeight:'bold', fontSize:30, textTransform:'uppercase', marginLeft:30, marginTop:30}}>{name}</Text></View>
       
     </View>
 );
@@ -43,11 +44,12 @@ const BranchItem = ({ name }) => (
 function CSE() {
   const [modalVisible, setModalVisible] = useState(false);
   const [description, setDescription] = useState('');
+  const [name, setName] = useState('');
   const [blur,setBlur] = useState('');
   return (
 
-    <View style={[blur,{alignSelf:'center', padding: 10, backgroundColor:'#171717'
-          }]}>
+    <View style={[{alignSelf:'center', padding: 10, backgroundColor:'#171717'
+          },blur]}>
       <Modal
         style={styles.modalView}
         animationType="slide"
@@ -60,6 +62,7 @@ function CSE() {
         >
             <View style={styles.centeredView}>
             <View style={styles.modalView}>
+            <Text style={{ color:'#fff', fontSize:20, textTransform:'uppercase', fontWeight:'bold'}}>{name}</Text>
                 <Text style={{padding:25, color:'#fff', fontSize:16}}>{description}</Text>
                 <TouchableOpacity  onPress={()=>
                   {
@@ -79,6 +82,7 @@ function CSE() {
               setBlur(styles.blur)
               setModalVisible(!modalVisible);
               setDescription(item.description);
+              setName(item.name);
             }}>
           <EventListItem name={item.name}/>
           
@@ -97,6 +101,7 @@ function MECH() {
   const [modalVisible, setModalVisible] = useState(false);
   const [description, setDescription] = useState('');
   const [blur,setBlur] = useState('');
+  const [name, setName] = useState('');
   return (
     <View style={[blur,{alignSelf:'center', padding: 10,backgroundColor:'#171717'
   }]}>
@@ -112,13 +117,14 @@ function MECH() {
         >
             <View style={styles.centeredView}>
             <View style={styles.modalView}>
-                <Text style={{padding:25}}>{description}</Text>
-                <Button style={{color:'red'}} title='close' onPress={()=>
+            <Text style={{ color:'#fff', fontSize:20, textTransform:'uppercase', fontWeight:'bold'}}>{name}</Text>
+                <Text style={{padding:25, color:'#fff'}}>{description}</Text>
+                <TouchableOpacity  onPress={()=>
                   {
                     setModalVisible(!modalVisible)
                     setBlur(styles.normal)
                   }
-                }></Button>
+                } style={styles.modalButton}><Text>CLOSE</Text></TouchableOpacity>
             </View>
             </View>
         </Modal>
@@ -130,6 +136,7 @@ function MECH() {
               setBlur(styles.blur)
               setModalVisible(!modalVisible);
               setDescription(item.description);
+              setName(item.name);
             }}>
           <EventListItem name={item.name}/>
           </TouchableOpacity>
@@ -145,6 +152,7 @@ function Civil(){
   const [modalVisible, setModalVisible] = useState(false);
   const [description, setDescription] = useState('');
   const [blur,setBlur] = useState('');
+  const [name, setName] = useState('');
   return (
     <View style={[blur,{alignSelf:'center',backgroundColor:'#171717'
   }]}>
@@ -161,13 +169,14 @@ function Civil(){
         >
             <View style={styles.centeredView}>
             <View style={styles.modalView}>
-                <Text style={{padding:25}}>{description}</Text>
-                <Button title='close' onPress={()=>
-                  { 
+            <Text style={{ color:'#fff', fontSize:20, textTransform:'uppercase', fontWeight:'bold'}}>{name}</Text>
+                <Text style={{padding:25, color:'#fff'}}>{description}</Text>
+                <TouchableOpacity  onPress={()=>
+                  {
                     setModalVisible(!modalVisible)
                     setBlur(styles.normal)
                   }
-                }></Button>
+                } style={styles.modalButton}><Text>CLOSE</Text></TouchableOpacity>
             </View>
             </View>
         </Modal>
@@ -179,6 +188,7 @@ function Civil(){
               setModalVisible(!modalVisible);
               setBlur(styles.blur)
               setDescription(item.description);
+              setName(item.name);
             }}>
           <EventListItem name={item.name}/>
           </TouchableOpacity>
@@ -193,10 +203,24 @@ function Civil(){
     const [branch, setBranch] = useState(0);
     return (
       <View style={{width: '100%', height: '100%'}}>
-      <Tab.Navigator screenOptions={{
+      <Tab.Navigator 
+       
+      screenOptions={{
         tabBarStyle: {
           backgroundColor: '#000',
+          activeTintColor: '#F8F8F8',
           opacity:0.9
+        },
+        tabBarSelectedItemStyle: {
+            borderBottomWidth: 2,
+            borderBottomColor: 'red',
+        },
+        tabBarItemStyle:{
+          borderBottomColor: 'red',
+          activeTintColor:'red',
+    },
+    indicatorStyle: {
+            backgroundColor: 'red',
         },
       }}>
         <Tab.Screen name="CSE" component={CSE} options={{tabBarActiveTintColor:'#fff'}}/>
