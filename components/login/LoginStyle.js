@@ -211,7 +211,7 @@ module.exports =
         fontFamily: 'ChakraPetch-Bold'
     },
     EventRegistername: {
-        fontSize: 25,
+        fontSize: 20,
         color: 'white',
         fontFamily: 'ChakraPetch-Bold',
         textTransform: 'uppercase'
