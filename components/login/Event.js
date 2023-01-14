@@ -40,7 +40,8 @@ const EventListItem = ({ name,blur }) => (
      }}
      source={require('../../assets/card.jpg')}
      /> */}
-     <View style={{flex:1, height:100, width:windowWidth}}><Text style={styles.eventName}>{name}</Text></View>
+     {/* codeStrom */}
+     <View style={{flex:1, height:90, width:windowWidth}}><Text style={[styles.eventName,{textTransform:'uppercase'}]}>{name}</Text></View>
       
     </View>
 );

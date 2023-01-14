@@ -40,7 +40,7 @@ module.exports =
     },
     eventName: {
         padding: 25,
-        fontSize: 35,
+        fontSize: 30,
         color: 'white',
         fontFamily: 'ChakraPetch-Bold'
     },
@@ -282,7 +282,7 @@ module.exports =
     },
     card: {
         padding: 15,
-        backgroundColor:'grey',
+        backgroundColor:'#232323',
         borderRadius:10,
         flexDirection: 'row',
         justifyContent: 'space-between',
