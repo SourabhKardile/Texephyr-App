@@ -206,7 +206,7 @@ module.exports =
         height: '100%'
     },
     modalView: {
-        width: '80%',
+        width: '90%',
         height: 'auto',
         margin: 20,
         backgroundColor: "#232323",

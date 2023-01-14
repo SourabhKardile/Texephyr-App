@@ -116,6 +116,7 @@ const UserRegisteration = () => {
                 <TouchableOpacity style = {styles.modalButton} onPress={showImagePicker}>
                    <Text style = {styles.Text}>Select an image</Text>
                 </TouchableOpacity>
+                <Text style = {{color : 'white'}}> OR </Text>
                 <TouchableOpacity style = {styles.modalButton} onPress={openCamera}>
                     <Text style = {styles.Text}>Click image</Text>
                 </TouchableOpacity>
@@ -123,7 +124,7 @@ const UserRegisteration = () => {
             <View>
             {
                 pickedImagePath !== '' ?
-                <Text>Image Picked successfully</Text>
+                <Text style = {{color : 'white'}}>Image Picked successfully</Text>
                 :null
                 }
             </View>
