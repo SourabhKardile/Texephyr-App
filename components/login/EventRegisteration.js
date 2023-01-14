@@ -188,7 +188,7 @@ const EventRegisteration = ({navigation}) => {
                       <MaterialCommunityIcons
                           name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#079779" />
                   </TouchableWithoutFeedback>
-                  <Text style={{fontSize:18, textTransform:'uppercase'}}>{item.name}</Text>
+                  <Text style={{color:'#fff',fontSize:18, textTransform:'uppercase'}}>{item.name}</Text>
               </View>
           </View>
           </Card>
@@ -229,7 +229,7 @@ const EventRegisteration = ({navigation}) => {
                       <MaterialCommunityIcons
                           name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#079779" />
                   </TouchableWithoutFeedback>
-                  <Text style={{fontSize:18, textTransform:'uppercase'}}>{item.name}</Text>
+                  <Text style={{ color:'#fff', fontSize:18, textTransform:'uppercase'}}>{item.name}</Text>
               </View>
           </View>
           </Card>
@@ -272,7 +272,7 @@ const EventRegisteration = ({navigation}) => {
                       <MaterialCommunityIcons
                           name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#079779" />
                   </TouchableWithoutFeedback>
-                  <Text style={{fontSize:18, textTransform:'uppercase'}}>{item.name}</Text>
+                  <Text style={{color:'#fff',fontSize:18, textTransform:'uppercase'}}>{item.name}</Text>
               </View>
           </View>
           </Card>
