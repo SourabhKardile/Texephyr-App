@@ -360,7 +360,7 @@ const EventRegisteration = ({navigation}) => {
             </View>
         </Modal>
         <View style={styles.item}>
-          <Text>CART</Text>
+          <Text style={{color:'white'}}>CART</Text>
           <FlatList
         data={selected}
         renderItem={({ item }) => (

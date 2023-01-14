@@ -22,7 +22,7 @@ function Next({navigation}){
         </TouchableOpacity>
       );
     return(
-        <View>
+        <View style={[{backgroundColor:'#171717', flex: 1}]}>
         <PaymentPage/>
         <TouchableOpacity
         onPress={() =>{

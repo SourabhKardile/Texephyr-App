@@ -29,7 +29,7 @@ export default function App() {
         headerShown:false,
       }}/>
       <Stack.Screen name="Login" component={Login_screen} options={{headerShown:false }}/>
-      <Stack.Screen name="Home" component={Home_screen}/>
+      <Stack.Screen name="Home" component={Home_screen} />
       <Stack.Screen name="DrawerNav" component={DrawerNav} options={{
         headerShown:false,
       }}/>
