@@ -69,6 +69,7 @@ function All(){
 function Individual(){
     const [modalVisible, setModalVisible] = useState(false);
     const [blur,setBlur] = useState('');
+    const [showGetDet, setShowGet] = useState(false);
     return(
 <View style={[blur,{flex:1, backgroundColor:'#171717'}]}>
         <View style={{alignItems:'center', marginTop:10}}>
@@ -77,9 +78,13 @@ function Individual(){
                 placeholderTextColor="#D9D9D9"
                 style={[styles.input,{fontSize:20}]}
             />
-            <Pressable style={[blur,styles.button]}>
-                 <Text style={styles.text}>Get Details</Text>
-            </Pressable>
+            {
+              showGetDet == true ?
+              <Pressable style={[blur,styles.button]}>
+              <Text style={styles.text}>Get Details</Text>
+              </Pressable>
+              :null
+            }
         </View>
         <Text style={{marginTop:50, marginLeft:30, fontSize:25, color:'#fff'}}>Name: Sourabh Kardile</Text>
         <View style={{backgroundColor:'#5f5f5f', height:70, flexDirection:'row', margin:10}}>

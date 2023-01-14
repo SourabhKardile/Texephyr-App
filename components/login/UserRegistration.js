@@ -42,6 +42,7 @@ const UserRegisteration = () => {
     const [password, setPassword] = useState('')
     const [verCode, setVerCode] = useState('');
     const [pickedImagePath, setPickedImagePath] = useState('');
+    const [showVerText,setShowVer] = useState(false);
 
     const showImagePicker = async () => {
         // Ask the user for the permission to access the media library 
@@ -133,6 +134,7 @@ const UserRegisteration = () => {
             </View>
             <View>
             <TouchableOpacity style = {styles.modalButton} onPress={() => {
+              setShowVer(!showVerText);
                     
                 }}>
                    <Text style = {styles.Text}>Send Verification code</Text>
@@ -141,12 +143,16 @@ const UserRegisteration = () => {
             <View style={[styles.container, {
             flexDirection: "row"
           }]}>
-            <TextInput
-                placeholder="Verification Code"
-                onChangeText={text =>setVerCode(text)}
-                style={styles.input}
-                secureTextEntry
-                />
+            {
+              showVerText == true ?
+              <TextInput
+              placeholder="Verification Code"
+              onChangeText={text =>setVerCode(text)}
+              style={styles.input}
+              secureTextEntry
+              />
+              :null
+            }
           </View>
           <View>
           <TouchableOpacity style = {styles.modalButton} onPress={() => {
