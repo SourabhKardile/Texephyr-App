@@ -3,10 +3,18 @@ import React, {useState} from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { DataTable } from 'react-native-paper';
 import { Table, TableWrapper, Row, Cell } from 'react-native-table-component';
+import * as Font from 'expo-font';
 
 const Tab = createMaterialTopTabNavigator();
 
+async function loadFonts() {
+  await Font.loadAsync({
+    'ChakraPetch-Bold': require('../.././assets/fonts/ChakraPetch-Bold.ttf'),
+  });
+  this.setState({ fontsLoaded: true });
+}
 
+loadFonts();
 
 const UpdateRecord = ({navigation}) =>{ 
     return(
@@ -30,7 +38,7 @@ function All(){
         ['103', 'Aditya Inamdar', '400', '4'],
         ['104', 'Sourabh Kardile', '300', 'd']
       ])
-
+    
       const element = (data, index) => (
         <TouchableOpacity onPress={() => Alert.alert(`This is row ${index + 1}`)}>
           <View style={styles.btn1}>
@@ -38,6 +46,7 @@ function All(){
           </View>
         </TouchableOpacity>
       );
+
       return(
         <View style={[styles.container1]}>
     <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
@@ -47,7 +56,7 @@ function All(){
           <TableWrapper key={index} style={styles.row1}>
             {
               rowData.map((cellData, cellIndex) => (
-                <Cell key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData}/>
+                <Cell textStyle={styles.text1} key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData}/>
               ))
             }
           </TableWrapper>
@@ -222,8 +231,8 @@ const styles = StyleSheet.create({
   },
   container1: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#171717' },
     head1: { height: 40, backgroundColor: '#808B97', color:'#fff' },
-    text1: { margin: 6 , color:'#fff'},
+    text1: { margin: 6 , color:'#fff', fontFamily: 'ChakraPetch-Bold'},
     row1: { flexDirection: 'row', height: 'auto', minHeight:40, color:'#fff'},
     btn1: { marginLeft:6 , width: 80, height: 25, backgroundColor: '#b24bf3',  borderRadius: 5, justifyContent: 'center' },
-    btnText1: { textAlign: 'center', color: '#fff' }
+    btnText1: { textAlign: 'center', color: '#fff', fontFamily: 'ChakraPetch-Bold'}
 });

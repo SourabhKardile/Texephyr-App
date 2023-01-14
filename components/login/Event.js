@@ -9,6 +9,16 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import styles from './LoginStyle'
 import { Card } from 'react-native-paper';
+import * as Font from 'expo-font';
+
+async function loadFonts() {
+  await Font.loadAsync({
+    'ChakraPetch-Bold': require('../.././assets/fonts/ChakraPetch-Bold.ttf'),
+  });
+  this.setState({ fontsLoaded: true });
+}
+
+loadFonts();
 
 const Tab = createMaterialTopTabNavigator();
 const events = [
@@ -29,7 +39,7 @@ const EventListItem = ({ name }) => (
      }}
      source={require('../../assets/card.jpg')}
      /> */}
-     <View style={{flex:1, height:100, width:windowWidth}}><Text style={{color:'#fff', fontWeight:'bold', fontSize:30, textTransform:'uppercase', marginLeft:30, marginTop:30}}>{name}</Text></View>
+     <View style={{flex:1, height:100, width:windowWidth}}><Text style={styles.eventName}>{name}</Text></View>
       
     </View>
 );

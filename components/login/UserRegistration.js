@@ -13,7 +13,7 @@ const countries = ["MITWPU", "Harvard", "Yale", "Oxford"]
 
 const CollegeSelect = () => {
     return(
-        <View style={{alignSelf:'center',backgroundColor:'white', padding:10,}}>
+        <View style={{alignSelf:'center',backgroundColor:'white', borderRadius: 20}}>
             <SelectDropdown
 	        data={countries}
             defaultValue={countries[0]}
@@ -125,7 +125,7 @@ const UserRegisteration = () => {
             {
                 pickedImagePath !== '' ?
                 <Text style = {{color : 'white'}}>Image Picked successfully</Text>
-                :null
+                :<Text style = {{color : 'white'}}>Please select an image</Text>
                 }
             </View>
             <View>

@@ -1,3 +1,14 @@
+import * as Font from 'expo-font';
+
+async function loadFonts() {
+    await Font.loadAsync({
+      'ChakraPetch-Bold': require('../.././assets/fonts/ChakraPetch-Bold.ttf'),
+    });
+    this.setState({ fontsLoaded: true });
+  }
+  
+  loadFonts();
+
 module.exports =
 
 {
@@ -7,6 +18,7 @@ module.exports =
         alignItems: 'center',
     },
     title: {
+
         fontSize: 32,
         marginBottom: 16,
     },
@@ -24,15 +36,18 @@ module.exports =
         marginHorizontal: 30,
         borderRadius: 7,
         width: '70%',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     eventName: {
-        fontSize: 32,
-        color: '#0782F9'
+        padding: 25,
+        fontSize: 35,
+        color: 'white',
+        fontFamily: 'ChakraPetch-Bold'
     },
     branchname: {
         fontSize: 25,
-        color: 'white'
+        color: 'white',
+        fontFamily: 'ChakraPetch-Bold'
     },
     eventModalView: {
         width: '70%',
@@ -115,7 +130,8 @@ module.exports =
     buttonText: {
         color: 'white',
         fontWeight: '700',
-        fontSize: 16
+        fontSize: 16,
+        fontFamily: 'ChakraPetch-Bold'
     },
 
     buttonOutlineText: {
@@ -177,7 +193,8 @@ module.exports =
         color: "#fff",
         fontWeight: "bold",
         alignSelf: "center",
-        textTransform: "uppercase"
+        textTransform: "uppercase",
+        fontFamily: 'ChakraPetch-Bold'
     },
 
     item: {
@@ -189,7 +206,8 @@ module.exports =
     },
     name: {
         fontSize: 32,
-        color: '#0782F9'
+        color: '#0782F9',
+        fontFamily: 'ChakraPetch-Bold'
     },
     finalPrice: {
         fontSize: 32,
