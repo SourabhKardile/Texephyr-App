@@ -22,6 +22,16 @@ import { useState } from "react";
 import Event from "./login/Event";
 import { Entypo, MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { TouchableOpacity } from "react-native-gesture-handler";
+import * as Font from 'expo-font';
+
+async function loadFonts() {
+    await Font.loadAsync({
+      'ChakraPetch-Bold': require('.././assets/fonts/ChakraPetch-Bold.ttf'),
+    });
+    this.setState({ fontsLoaded: true });
+  }
+  
+  loadFonts();
 
 const Drawer = createDrawerNavigator();
 
@@ -85,7 +95,8 @@ export function MyDrawer() {
           },
           headerTintColor: "#fff",
           headerTitleStyle: {
-            fontWeight: "bold",
+            fontFamily: 'ChakraPetch-Bold',
+            fontSize: 25
           },
         }}
       />
@@ -100,7 +111,7 @@ export function MyDrawer() {
           drawerActiveTintColor: "#fff",
           drawerInactiveTintColor: "grey",
           headerTitle: "Texephyr",
-          headerTitleStyle: { color: "#0782F9" },
+          headerTitleStyle: { color: "#0782F9" , fontFamily: 'ChakraPetch-Bold'},
         }}
       />
     </Drawer.Navigator>
