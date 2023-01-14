@@ -388,7 +388,7 @@ const EventRegisteration = ({navigation}) => {
                       <MaterialCommunityIcons
                           name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={30} color="#079779" />
                   </TouchableWithoutFeedback>
-                  <Text style={{fontSize:18, textTransform:'uppercase'}}>{item.name}</Text>
+                  <Text style={{fontSize:18, textTransform:'uppercase', color:'#fff'}}>{item.name}</Text>
               </View>
           </View>
           </Card>
