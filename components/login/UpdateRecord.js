@@ -69,7 +69,8 @@ function All(){
 function Individual(){
     const [modalVisible, setModalVisible] = useState(false);
     const [blur,setBlur] = useState('');
-    const [showGetDet, setShowGet] = useState(false);
+    const [textId, setTexId] = useState('');
+    const [getDetPressed, pressGetDet]  = useState(false);
     return(
 <View style={[blur,{flex:1, backgroundColor:'#171717'}]}>
         <View style={{alignItems:'center', marginTop:10}}>
@@ -77,28 +78,56 @@ function Individual(){
                 placeholder='TEX ID'
                 placeholderTextColor="#D9D9D9"
                 style={[styles.input,{fontSize:20}]}
+                onChangeText={text =>{setTexId(text)
+                  if(text.length != textId.length){
+                    pressGetDet(false);
+                  }
+                }}
             />
             {
-              showGetDet == true ?
-              <Pressable style={[blur,styles.button]}>
+              textId.length >= 1 ?
+              <Pressable style={[blur,styles.button]} onPress={() => {
+                pressGetDet(!getDetPressed);
+            }
+             }>
               <Text style={styles.text}>Get Details</Text>
               </Pressable>
               :null
             }
         </View>
-        <Text style={{marginTop:50, marginLeft:30, fontSize:25, color:'#fff'}}>Name: Sourabh Kardile</Text>
-        <View style={{backgroundColor:'#5f5f5f', height:70, flexDirection:'row', margin:10}}>
+        {
+          getDetPressed == true ?
+          <View>
+            <Text style={{marginTop:50, marginLeft:30, fontSize:25, color:'#fff'}}>Name: Sourabh Kardile</Text>
+            <View style={{backgroundColor:'#5f5f5f', height:70, flexDirection:'row', margin:10}}>
             <Text style={styles.amtText}>Amount Holding: </Text>
             <Text style={styles.amtText}>{'\u20B9'}500.00</Text>
-        </View>
-        <View style={{alignItems:'center',height:100, flexDirection:'row'}}>
-        <Text style={{marginLeft:50, fontSize:20, color:'#fff'}}>Deduct:</Text>
-        <TextInput 
+            </View>
+            <View style={{alignItems:'center',height:100, flexDirection:'row'}}>
+            <Text style={{marginLeft:50, fontSize:20, color:'#fff'}}>Deduct:</Text>
+            <TextInput 
                 placeholderTextColor="#D9D9D9"
                 placeholder='Enter Amount'
                 style={[styles.input,{width:'50%',height:50,marginLeft:20, fontSize:20}]}
             />
-        </View>
+          </View>
+          <View style={{alignItems:'center'}}>
+          <Pressable style={[blur,styles.button,{width:'40%'}]}
+        onPress={() => {
+            setModalVisible(true)
+            setBlur(styles.blur)
+        }
+         }
+        
+      >
+                    <Text style={[blur,styles.text]}>Submit</Text>
+            </Pressable>
+          </View>
+          </View>
+
+          :null
+        }
+        
         <View style={{alignItems:'center'}}>
             
             <Modal
@@ -129,16 +158,6 @@ function Individual(){
         </View>
         {/* </BlurView> */}
       </Modal>
-      <Pressable style={[blur,styles.button,{width:'40%'}]}
-        onPress={() => {
-            setModalVisible(true)
-            setBlur(styles.blur)
-        }
-         }
-        
-      >
-                    <Text style={[blur,styles.text]}>Submit</Text>
-            </Pressable>
         </View>
         </View>
     )

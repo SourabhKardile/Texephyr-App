@@ -165,21 +165,23 @@ const UserRegisteration = () => {
           }]}>
             {
               showVerText == true ?
+              <View>
               <TextInput
               placeholder="Verification Code"
               onChangeText={text =>setVerCode(text)}
               style={styles.input}
               secureTextEntry
               />
-              :null
-            }
-          </View>
-          <View>
+              <View>
           <TouchableOpacity style = {styles.modalButton} onPress={() => {
                     
                 }}>
                    <Text style = {styles.Text}>Create</Text>
                </TouchableOpacity>
+          </View>
+          </View>
+              :null
+            }
           </View>
         </View>
     )
