@@ -72,7 +72,10 @@ const UserRegisteration = () => {
           return;
         }
     
-        const result = await ImagePicker.launchCameraAsync();
+        const result = await ImagePicker.launchCameraAsync({ mediaTypes: ImagePicker.MediaTypeOptions.All,
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1,});
     
         console.log(result);
     
