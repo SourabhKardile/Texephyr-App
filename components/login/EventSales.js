@@ -2,6 +2,17 @@ import { StyleSheet, View, Text, TouchableOpacity, Alert, ScrollView } from 'rea
 import { Table, TableWrapper, Row, Cell, Col, Rows } from 'react-native-table-component';
 import React , {useState} from 'react'
 
+
+async function loadFonts() {
+    await Font.loadAsync({
+      'ChakraPetch-Bold': require('../.././assets/fonts/ChakraPetch-Bold.ttf'),
+    });
+    
+  }
+  
+  loadFonts();
+
+
 export default function EventSales() {
     const [tableHead, setTableHead] = useState( ['Event Name', 'Online', 'Offline', 'Total Sales'])
   const [tableData, setTableData]= useState( [
@@ -32,5 +43,5 @@ const styles = StyleSheet.create({
   wrapper: { flexDirection: 'row' },
   title: { flex: 1, backgroundColor: '#f6f8fa' },
   row: {  height: 28  },
-  text: { textAlign: 'center', color:'#fff' }
+  text: { textAlign: 'center', color:'#fff', fontFamily: 'ChakraPetch-Bold' }
   });

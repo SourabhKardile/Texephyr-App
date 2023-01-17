@@ -8,7 +8,7 @@ import EventRegisteration from './EventRegisteration';
 import { element } from 'prop-types';
 import EventList from './Event';
 import Records from './Records';
-
+import styles from './LoginStyle'
 const Item = ({ name }) => (
     <View style={styles.item}>
       <Text style={styles.name}>{name}</Text>
@@ -21,9 +21,9 @@ const Item = ({ name }) => (
 
 const MyStatus = () =>{
     return(
-        <View style={[styles.container]}>
-        <ImageBackground source={require('../../assets/backDark.jpg')} resizeMode="cover" style={styles.image}>
-        <Text style={{fontSize:20, marginTop:'30%', marginLeft:40, color:'#fff'}}>Money To be {"\n"}Submitted</Text>
+        <View style={[styles.containerMyStatus]}>
+        <ImageBackground source={require('../../assets/backDark.jpg')} resizeMode="cover" style={styles.imageMyStatus}>
+        <Text style={styles.textMyStatusMoney}>Money To be {"\n"}Submitted</Text>
         <Text style={{fontSize:30, marginLeft:40, fontWeight:'bold', color:'#fff'}}>{'\u20B9'}500</Text>
            
            
@@ -34,13 +34,3 @@ const MyStatus = () =>{
 
 export default MyStatus
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  image: {
-    
-    flex: 1,
-    justifyContent:'flex-start'
-  },
-})

@@ -10,7 +10,7 @@ import { Card } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import PaymentPage from './PaymentPage';
-import { FontAwesome } from '@expo/vector-icons'; 
+import { FontAwesome, Entypo } from '@expo/vector-icons'; 
 
 const Stack = createStackNavigator();
 
@@ -23,13 +23,14 @@ const TexId = () =>{
     const [modalRegistrationVisible, setRegistrationtModalVisible] = useState(false);
 
     const CancelBTN = ({ onPress, title }) => (
-      <TouchableOpacity onPress={()=>
+      
+      <TouchableOpacity  onPress={()=>
       {
         setBlur(styles.normal)
         setRegistrationtModalVisible(!modalRegistrationVisible)}
        }
-        style={styles.cancelBtnContainer}>
-        <Text style={styles.appButtonText}>X</Text>
+        style={[styles.cancelBtnContainer,{alignSelf:'flex-end'}]}>
+        <Text style={styles.appButtonText}><Entypo name="cross" size={24} color="black" /></Text>
       </TouchableOpacity>
     );
 
@@ -38,7 +39,7 @@ const TexId = () =>{
             flexDirection: "row", justifyContent:'space-around',backgroundColor:'#171717'
           }]}>
           <View>
-        
+          
           <TextInput
             value={texId}
             placeholder="TEXID"
@@ -52,7 +53,7 @@ const TexId = () =>{
               setRegistrationtModalVisible(!modalRegistrationVisible);
               setBlur(styles.normal)
             }}>
-            <View style={[{alignItems:'center', justifyContent:'center', backgroundColor:'#b24bf3', height:40, width:60},styles.register]}>
+            <View style={[{alignItems:'center', justifyContent:'center', backgroundColor:'#079779', height:40, width:60},styles.register]}>
                 <FontAwesome name="pencil-square-o" size={25} color='#fff' />
             </View>
         </TouchableWithoutFeedback>
@@ -84,7 +85,7 @@ const TexId = () =>{
 }
 
 const events = [
-    {id:1, name: 'codestorm', description: 'For all the codeers Texephyr brings code storm. Write out the optimized and most efficient code to prove your coding prowess. This event will not only test your coding but also evaluate your debugging. Event format: 1) Minor (Diploma and FE and SE), 2) Major (TE and BE), Prizes for both tracks are different', isChecked: false, noOfEntries: 4, branch: 0},
+    {id:1, name: 'CODESTROM', description: 'For all the codeers Texephyr brings code storm. Write out the optimized and most efficient code to prove your coding prowess. This event will not only test your coding but also evaluate your debugging. Event format: 1) Minor (Diploma and FE and SE), 2) Major (TE and BE), Prizes for both tracks are different', isChecked: false, noOfEntries: 4, branch: 0},
     {id:2, name: 'algoholics', description: 'Algoholics, as the name suggests, is an algorithm-based event which tests your logical thinking rather than testing your coding abilities. The motto of the event is Think efficient, build efficient.', isChecked: false, noOfEntries: 4, branch: 0},
     {id:3, name: 'catch the muderer', description: 'catch the murder', isChecked: false, noOfEntries: 2, branch: 1},
     {id:4, name: 'hackathon', description: 'college level hackathon', isChecked: false, noOfEntries: 4, branch: 2}
@@ -105,8 +106,15 @@ const EventRegisteration = ({navigation}) => {
 
 
     const GetBTN = ({ onPress, title }) => (
-      <TouchableOpacity onPress={onPress} style={styles.getBtnContainer}>
-        <Text style={styles.appButtonText}>{title}</Text>
+      <TouchableOpacity onPress={onPress} style={{marginTop:20,
+        alignItems: "center",
+        justifyContent: "center",
+        paddingVertical: 12,
+        paddingHorizontal: 32,
+        borderRadius: 7,
+        elevation: 3,
+        backgroundColor: "#079779"}}>
+        <Text style={{color:'#fff'}}>{title}</Text>
       </TouchableOpacity>
     );
  
@@ -114,8 +122,9 @@ const EventRegisteration = ({navigation}) => {
       <TouchableOpacity onPress={()=>{
         setGroupVisible(!groupVisible);
         registerConfirmed(eventId);
-      }} style={styles.getBtnContainer}>
-        <Text style={styles.appButtonText}>{title}</Text>
+      }}
+       style={styles.getBtnContainer}>
+        <Text style={styles.appButtonText}><FontAwesome name="check" size={24} color="#fff" /></Text>
       </TouchableOpacity>
     );
     
@@ -125,14 +134,14 @@ const EventRegisteration = ({navigation}) => {
         setBlur(styles.normal)
         setAccountModalVisible(!modalAccountVisible)}
        }
-        style={styles.cancelBtnContainer}>
-        <Text style={styles.appButtonText}>X</Text>
+        style={[styles.cancelBtnContainer,{alignSelf:'flex-end'}]}>
+        <Text style={styles.appButtonText}><Entypo name="cross" size={24} color="#fff" /></Text>
       </TouchableOpacity>
     );
 
     const CancelGroupBTN = ({ onPress, title }) => (
       <TouchableOpacity onPress={()=>setGroupVisible(!groupVisible)} style={styles.cancelBtnContainer}>
-        <Text style={styles.appButtonText}>X</Text>
+        <Text style={styles.appButtonText}><Entypo name="cross" size={24} color="white" /></Text>
       </TouchableOpacity>
     );
     
@@ -182,12 +191,13 @@ const EventRegisteration = ({navigation}) => {
                       flexDirection: 'row',
                       flex: 1,
                       justifyContent: 'space-between',
+                      alignItems:'center'
                   }}>
                   <TouchableWithoutFeedback onPress={() => handleChange(item.id)} >
                       <MaterialCommunityIcons
-                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
+                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#079779" />
                   </TouchableWithoutFeedback>
-                  <Text style={{fontSize:18}}>{item.name}</Text>
+                  <Text style={styles.EventRegistername}>{item.name}</Text>
               </View>
           </View>
           </Card>
@@ -222,12 +232,13 @@ const EventRegisteration = ({navigation}) => {
                       flexDirection: 'row',
                       flex: 1,
                       justifyContent: 'space-between',
+                      alignItems:'center'
                   }}>
                   <TouchableWithoutFeedback onPress={() => handleChange(item.id)} >
                       <MaterialCommunityIcons
-                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
+                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#079779" />
                   </TouchableWithoutFeedback>
-                  <Text style={{fontSize:18}}>{item.name}</Text>
+                  <Text style={styles.EventRegistername}>{item.name}</Text>
               </View>
           </View>
           </Card>
@@ -262,12 +273,15 @@ const EventRegisteration = ({navigation}) => {
                       flexDirection: 'row',
                       flex: 1,
                       justifyContent: 'space-between',
+                      alignItems:'center'
+                  
+                      
                   }}>
-                  <TouchableWithoutFeedback onPress={() => handleChange(item.id)} >
+                  <TouchableWithoutFeedback onPress={() => handleChange(item.id)}>
                       <MaterialCommunityIcons
-                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#0782F9" />
+                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={35} color="#079779" />
                   </TouchableWithoutFeedback>
-                  <Text style={{fontSize:18}}>{item.name}</Text>
+                  <Text style={styles.EventRegistername}>{item.name}</Text>
               </View>
           </View>
           </Card>
@@ -289,19 +303,26 @@ const EventRegisteration = ({navigation}) => {
   const GroupRegisterForm = () =>{
     return(
       <View style = {styles.item}>
-        <CancelGroupBTN title="X" size="sm" backgroundColor="#007bff" />
-            <Text>Group member 2</Text>
+        
+            <Text style={styles.grpTextMember}>Group member 2</Text>
             <TexId/>
-            <Text>Group member 3</Text>
+            <Text style={[styles.grpText, {marginTop:10}]}>Already have an account?</Text>
+            <Text style={styles.grpTextMember}>Group member 3</Text>
             <TexId/>
-            <Text>Group member 4</Text>
+            <Text style={[styles.grpText, {marginTop:10}]}>Already have an account?</Text>
+            <Text style={styles.grpTextMember}>Group member 4</Text>
             <TexId/>
+            
             <TouchableWithoutFeedback onPress={() => {
                 setAccountModalVisible(!modalAccountVisible);
               }}>
-            <Text>Already have an account?</Text>
+            <Text style={[styles.grpText, {marginTop:10}]}>Already have an account?</Text>
             </TouchableWithoutFeedback>
-            <RegisterGroupBTN title="Register group" size="sm" backgroundColor="#007bff" />
+            <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-evenly', marginTop:15}}>
+            <CancelGroupBTN title="X" size="sm" backgroundColor="#007bff" />
+            <RegisterGroupBTN title="V" size="sm" backgroundColor="#007bff" />
+            
+            </View>
       </View>
     )
   }
@@ -312,9 +333,9 @@ const EventRegisteration = ({navigation}) => {
         <View style ={{padding:10, marginLeft:20, backgroundColor:'#171717'}}>
         <TouchableWithoutFeedback onPress={() => {
             setAccountModalVisible(!modalAccountVisible);
-            setBlur(styles.blur)
+            
             }}>
-            <Text style={{color:'#007bff'}}>Already have an account?</Text>
+            <Text style={{color:'#079779'}}>Already have an account?</Text>
         </TouchableWithoutFeedback>
         </View>
 
@@ -336,18 +357,15 @@ const EventRegisteration = ({navigation}) => {
 
         >
             <View style={styles.centeredView}>
-            <View style={styles.modalAccountView}>
+            <View style={[styles.modalView,{backgroundColor:'#171717'}]}>
             <CancelBTN title="X" size="sm" backgroundColor="#007bff" />
-            <View style={[styles.eventRegContainer, {
-                flexDirection: "row"
-            }]}>
+            <View>
               
-                {/* <Text>Email</Text> */}
+              <Text style={{color:'#fff', marginLeft:5, opacity:0.79, width:200}}>TEX ID</Text>
                 <TextInput 
-                placeholder="Your email"
+                
                 onChangeText={text =>setVerCode(text)}
-                style={styles.eventInput}
-                secureTextEntry
+                style={styles.input}
                 />
 
 
@@ -360,7 +378,7 @@ const EventRegisteration = ({navigation}) => {
             </View>
         </Modal>
         <View style={styles.item}>
-          <Text style={{color:'white'}}>CART</Text>
+          <Text style={styles.cartText}>CART</Text>
           <FlatList
         data={selected}
         renderItem={({ item }) => (
@@ -372,12 +390,13 @@ const EventRegisteration = ({navigation}) => {
                       flexDirection: 'row',
                       flex: 1,
                       justifyContent: 'space-between',
+                      alignItems:'center'
                   }}>
                   <TouchableWithoutFeedback onPress={() => handleChange(item.id)} >
                       <MaterialCommunityIcons
-                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={30} color="#0782F9" />
+                          name={item.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline'} size={30} color="#079779" />
                   </TouchableWithoutFeedback>
-                  <Text>{item.name}</Text>
+                  <Text style={styles.cartNames}>{item.name}</Text>
               </View>
           </View>
           </Card>
@@ -386,9 +405,11 @@ const EventRegisteration = ({navigation}) => {
         keyExtractor={item => item.id}
       />
         </View>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NEXT')}>
-          <Text>NEXT</Text>
+        <View style={{alignItems:'center'}}>
+        <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('NEXT')}>
+          <Text style={styles.nextBtn}>NEXT</Text>
         </TouchableOpacity>
+        </View>
         </View>
        
        

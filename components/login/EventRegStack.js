@@ -6,6 +6,7 @@ import PaymentPage from './PaymentPage';
 import Modal from "react-native-modal";
 import styles from './LoginStyle'
 import EventRegisteration from './EventRegisteration';
+import {  Entypo } from '@expo/vector-icons'; 
 
 const Stack = createStackNavigator();
 
@@ -13,27 +14,31 @@ function Next({navigation}){
     const [confirmVisible, setConfirmVisible] = useState(false);
 
     const CancelBTN = ({ onPress, title }) => (
+        <View style={{flexDirection:'row', justifyContent:'flex-start'}}>
         <TouchableOpacity onPress={()=>
         {
           setConfirmVisible(!confirmVisible)}
          }
-          style={styles.cancelBtnContainer}>
-          <Text style={styles.appButtonText}>X</Text>
+          style={[styles.cancelBtnContainer,{marginLeft:180, margin:0}]}>
+          <Text style={[styles.appButtonText]}><Entypo name="cross" size={24} color="#fff" /></Text>
         </TouchableOpacity>
+        </View>
       );
     return(
         <View style={[{backgroundColor:'#171717', flex: 1}]}>
+        <Text style={styles.paymentText}>Mode Of Payment</Text>
         <PaymentPage/>
         <TouchableOpacity
         onPress={() =>{
             setConfirmVisible(!confirmVisible);
         }}
-        style={[{marginTop:40},styles.button]}
+        style={[styles.nextButton,{alignSelf:'center',width:'85%'}]}
         >
-            <Text style={styles.buttonText}>
+            <Text style={styles.nextBtn}>
                 Purchase
             </Text>
         </TouchableOpacity>
+        
         <Modal
         animationType="slide"
         transparent={true}
@@ -44,29 +49,27 @@ function Next({navigation}){
         }}
 
         >
-            <View style={styles.centeredView}>
-            <View style={styles.modalAccountView}>
+        <View style={styles.centeredView}>
+            <View style={[styles.modalView,{width:'70%'}]}>
             <CancelBTN title="X" size="sm" backgroundColor="#007bff" />
-            <View style={[styles.eventRegContainer, {
-                flexDirection: "row"
-            }]}>
-              
-              <TouchableOpacity
+            <Text style={{color:'#fff', fontSize:16}}> TEXID : TEX103 {"\n\n"} Cart items: {"\n"}{"\t\t"}CodeStorm {"\n"}{"\t\t"}Algoholics{"\n\n"} Team Members if Any: {"\n\n"} Total: 500</Text>
+            
+            <TouchableOpacity
                 onPress={() =>{
                     navigation.navigate('EventRegisteration');
                     setConfirmVisible(!confirmVisible);
                 }}
-                style={[{marginTop:40},styles.button]}
+                style={[styles.button,{marginTop:40, backgroundColor:'#079779', width:200}]}
                 >
-                    <Text style={styles.buttonText}>
+                    <Text style={[styles.buttonText,{textTransform:'uppercase'}]}>
                         Confirm
                     </Text>
-                </TouchableOpacity>    
-            </View>
-                {/* <Button title='Get Id' onPress={()=>setAccountModalVisible(!modalAccountVisible)}></Button>
-                <Button title='close' onPress={()=>setAccountModalVisible(!modalAccountVisible)}></Button> */}
+                </TouchableOpacity>
             </View>
             </View>
+            
+           
+            
         </Modal>
         </View>
     )

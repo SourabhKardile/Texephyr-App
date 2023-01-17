@@ -11,13 +11,24 @@ import 'react-native-gesture-handler';
 import DrawerNav from './components/Drawer_navigation'
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
+import * as Font from 'expo-font';
+
 const Stack = createNativeStackNavigator();
 
 
 
 export default function App() {
+  async function loadFonts() {
+    await Font.loadAsync({
+      'Yatra-One': require('./assets/fonts/ChakraPetch-Bold.ttf'),
+    });
+    this.setState({ fontsLoaded: true });
+  }
+
   const [align, setAlign] = useState('center');
   const [alignsecond, setAlignsecond] = useState(false);
+  
+  loadFonts();
 
   setTimeout(() => {
     setAlign('flex-start'), setAlignsecond(true);

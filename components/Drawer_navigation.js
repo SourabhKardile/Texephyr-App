@@ -22,6 +22,16 @@ import { useState } from "react";
 import Event from "./login/Event";
 import { Entypo, MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { TouchableOpacity } from "react-native-gesture-handler";
+import * as Font from 'expo-font';
+
+async function loadFonts() {
+    await Font.loadAsync({
+      'ChakraPetch-Bold': require('.././assets/fonts/ChakraPetch-Bold.ttf'),
+    });
+    this.setState({ fontsLoaded: true });
+  }
+  
+  loadFonts();
 
 const Drawer = createDrawerNavigator();
 
@@ -38,7 +48,7 @@ const CustomerDrawer = (props) => {
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <DrawerContentScrollView {...props}>
         <ImageBackground>
-          <Text style={{ color: "#fff", fontSize: 25 }}>Aditya Patil</Text>
+          <Text style={{ color: "#fff", fontSize: 25 }}>ABC XYZ</Text>
           <Text style={{ color: "#fff" }}>
             ----------------------------------------------
           </Text>
@@ -47,11 +57,12 @@ const CustomerDrawer = (props) => {
 
         <TouchableOpacity
           onPress={() => Alert.alert("Simple Button pressed")}
-          style={styles.button}
+          style={[styles.button,{marginTop:20}]}
         >
           <Text style={styles.text}>LOGOUT</Text>
         </TouchableOpacity>
       </DrawerContentScrollView>
+      <View style={{flex:1, justifyContent:"flex-end", marginBottom:10}}><Text style={styles.text1}> © TECH TEAM TEX 2023</Text></View>
     </View>
   );
 };
@@ -77,14 +88,16 @@ export function MyDrawer() {
           ),
           drawerActiveTintColor: "#fff",
           drawerInactiveTintColor: "grey",
-          headerTitle: (props) => <LogoTitle />,
-          headerTitleStyle: { backgroundColor: "#0782F9" },
+          headerTitle:"TEXEPHYR",
+          // headerTitle: (props) => <LogoTitle />,
+          // headerTitleStyle: { backgroundColor: "#0782F9" },
           headerStyle: {
-            backgroundColor: "#f4511e",
+            backgroundColor: "#079779",
           },
           headerTintColor: "#fff",
           headerTitleStyle: {
-            fontWeight: "bold",
+            fontFamily: 'ChakraPetch-Bold',
+            fontSize: 25
           },
         }}
       />
@@ -94,12 +107,21 @@ export function MyDrawer() {
         component={Reset}
         options={{
           drawerIcon: ({ focused, size, color }) => (
-            <MaterialCommunityIcons name="lock-reset" size={24} color={color} />
+            <Entypo name="lock-open" size={20} color={color} />
           ),
           drawerActiveTintColor: "#fff",
           drawerInactiveTintColor: "grey",
-          headerTitle: "Texephyr",
-          headerTitleStyle: { color: "#0782F9" },
+          headerTitle:"TEXEPHYR",
+          // headerTitle: (props) => <LogoTitle />,
+          // headerTitleStyle: { backgroundColor: "#0782F9" },
+          headerStyle: {
+            backgroundColor: "#079779",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontFamily: 'ChakraPetch-Bold',
+            fontSize: 25
+          },
         }}
       />
     </Drawer.Navigator>
@@ -120,7 +142,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     borderRadius: 7,
     elevation: 3,
-    backgroundColor: "#6c6c6c",
+    backgroundColor: "#079779",
     width: "90%",
     marginLeft: 10,
   },
@@ -131,4 +153,12 @@ const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: "white",
   },
+  text1: {
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: "bold",
+    letterSpacing: 0.25,
+    color: "grey",
+    justifyContent:'flex-end'
+  }
 });

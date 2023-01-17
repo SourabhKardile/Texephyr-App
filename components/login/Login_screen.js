@@ -4,7 +4,16 @@ import { Component } from 'react/cjs/react.production.min'
 import Home_screen from './Home_screen'
 import { useNavigation } from '@react-navigation/native';
 import styles from './LoginStyle'
+import * as Font from 'expo-font';
 
+async function loadFonts() {
+    await Font.loadAsync({
+      'ChakraPetch-Bold': require('../.././assets/fonts/ChakraPetch-Bold.ttf'),
+    });
+    this.setState({ fontsLoaded: true });
+  }
+  
+  loadFonts();
 
 
 
@@ -48,8 +57,8 @@ React.useEffect(
     style={[styles.container,{justifyContent:'space-evenly', alignItems:'center' }]} behavior="padding"
     >
     <View style={{alignItems:'center'}}>
-    <Text style={{color:'#fff',fontSize: 35,lineHeight: 47, alignItems:'center', justifyContent:'center'}}>WELCOME</Text>
-    <Text style={{color:'#fff',fontSize: 35,lineHeight: 47, alignItems:'center', justifyContent:'center'}}>TEAM TEXEPHYR</Text>
+    <Text style={{color:'#fff',fontSize: 35,lineHeight: 47, alignItems:'center', justifyContent:'center', fontFamily: 'ChakraPetch-Bold'}}>WELCOME</Text>
+    <Text style={{color:'#fff',fontSize: 35,lineHeight: 47, alignItems:'center', justifyContent:'center', fontFamily: 'ChakraPetch-Bold'}}>TEAM TEXEPHYR</Text>
     </View>
       
      <View style={styles.inputContainer}>

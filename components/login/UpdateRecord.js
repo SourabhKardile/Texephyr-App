@@ -3,8 +3,20 @@ import React, {useState} from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { DataTable } from 'react-native-paper';
 import { Table, TableWrapper, Row, Cell } from 'react-native-table-component';
+import * as Font from 'expo-font';
+
+async function loadFonts() {
+  await Font.loadAsync({
+    'ChakraPetch-Bold': require('../.././assets/fonts/ChakraPetch-Bold.ttf'),
+  });
+  
+}
+
+loadFonts();
 
 const Tab = createMaterialTopTabNavigator();
+
+
 
 
 
@@ -30,7 +42,7 @@ function All(){
         ['103', 'Aditya Inamdar', '400', '4'],
         ['104', 'Sourabh Kardile', '300', 'd']
       ])
-
+    
       const element = (data, index) => (
         <TouchableOpacity onPress={() => Alert.alert(`This is row ${index + 1}`)}>
           <View style={styles.btn1}>
@@ -38,6 +50,7 @@ function All(){
           </View>
         </TouchableOpacity>
       );
+
       return(
         <View style={[styles.container1]}>
     <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
@@ -47,7 +60,7 @@ function All(){
           <TableWrapper key={index} style={styles.row1}>
             {
               rowData.map((cellData, cellIndex) => (
-                <Cell key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData}/>
+                <Cell textStyle={styles.text1} key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData}/>
               ))
             }
           </TableWrapper>
@@ -60,6 +73,8 @@ function All(){
 function Individual(){
     const [modalVisible, setModalVisible] = useState(false);
     const [blur,setBlur] = useState('');
+    const [textId, setTexId] = useState('');
+    const [getDetPressed, pressGetDet]  = useState(false);
     return(
 <View style={[blur,{flex:1, backgroundColor:'#171717'}]}>
         <View style={{alignItems:'center', marginTop:10}}>
@@ -67,24 +82,56 @@ function Individual(){
                 placeholder='TEX ID'
                 placeholderTextColor="#D9D9D9"
                 style={[styles.input,{fontSize:20}]}
+                onChangeText={text =>{setTexId(text)
+                  if(text.length != textId.length){
+                    pressGetDet(false);
+                  }
+                }}
             />
-            <Pressable style={[blur,styles.button]}>
-                 <Text style={styles.text}>Get Details</Text>
-            </Pressable>
+            {
+              textId.length >= 1 ?
+              <Pressable style={[blur,styles.button]} onPress={() => {
+                pressGetDet(!getDetPressed);
+            }
+             }>
+              <Text style={styles.text}>GET DETAILS</Text>
+              </Pressable>
+              :null
+            }
         </View>
-        <Text style={{marginTop:50, marginLeft:30, fontSize:25, color:'#fff'}}>Name: Sourabh Kardile</Text>
-        <View style={{backgroundColor:'#5f5f5f', height:70, flexDirection:'row', margin:10}}>
+        {
+          getDetPressed == true ?
+          <View>
+            <Text style={{marginTop:50, marginLeft:30, fontSize:25, color:'#fff'}}>Name: Sourabh Kardile</Text>
+            <View style={{backgroundColor:'#5f5f5f', height:70, flexDirection:'row', margin:10}}>
             <Text style={styles.amtText}>Amount Holding: </Text>
             <Text style={styles.amtText}>{'\u20B9'}500.00</Text>
-        </View>
-        <View style={{alignItems:'center',height:100, flexDirection:'row'}}>
-        <Text style={{marginLeft:50, fontSize:20, color:'#fff'}}>Deduct:</Text>
-        <TextInput 
+            </View>
+            <View style={{alignItems:'center',height:100, flexDirection:'row'}}>
+            <Text style={{marginLeft:50, fontSize:20, color:'#fff'}}>Deduct:</Text>
+            <TextInput 
                 placeholderTextColor="#D9D9D9"
                 placeholder='Enter Amount'
                 style={[styles.input,{width:'50%',height:50,marginLeft:20, fontSize:20}]}
             />
-        </View>
+          </View>
+          <View style={{alignItems:'center'}}>
+          <Pressable style={[blur,styles.button,{width:'40%'}]}
+        onPress={() => {
+            setModalVisible(true)
+            setBlur(styles.blur)
+        }
+         }
+        
+      >
+                    <Text style={[blur,styles.text]}>SUBMIT</Text>
+            </Pressable>
+          </View>
+          </View>
+
+          :null
+        }
+        
         <View style={{alignItems:'center'}}>
             
             <Modal
@@ -99,8 +146,8 @@ function Individual(){
         }}
       >
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={[styles.modalText,{marginBottom:15}]}>Deduct Amount : 500</Text>
+          <View style={[styles.modalView,{backgroundColor:'#232323'}]}>
+            <Text style={[styles.modalText,{marginBottom:15,color:'#fff'}]}>Deduct Amount : 500</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => {
@@ -115,16 +162,6 @@ function Individual(){
         </View>
         {/* </BlurView> */}
       </Modal>
-      <Pressable style={[blur,styles.button,{width:'40%'}]}
-        onPress={() => {
-            setModalVisible(true)
-            setBlur(styles.blur)
-        }
-         }
-        
-      >
-                    <Text style={[blur,styles.text]}>Submit</Text>
-            </Pressable>
         </View>
         </View>
     )
@@ -173,7 +210,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 7,
     elevation: 3,
-    backgroundColor: "#2196F3",
+    backgroundColor: "#079779",
   },
   text: {
     fontSize: 16,
@@ -222,8 +259,8 @@ const styles = StyleSheet.create({
   },
   container1: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#171717' },
     head1: { height: 40, backgroundColor: '#808B97', color:'#fff' },
-    text1: { margin: 6 , color:'#fff'},
+    text1: { margin: 6 , color:'#fff', fontFamily: "ChakraPetch-Bold",},
     row1: { flexDirection: 'row', height: 'auto', minHeight:40, color:'#fff'},
-    btn1: { marginLeft:6 , width: 80, height: 25, backgroundColor: '#b24bf3',  borderRadius: 5, justifyContent: 'center' },
-    btnText1: { textAlign: 'center', color: '#fff' }
+    btn1: { marginLeft:6 , width: 80, height: 25, backgroundColor: '#079779',  borderRadius: 5, justifyContent: 'center' },
+    btnText1: { textAlign: 'center', color: '#fff', fontFamily: "ChakraPetch-Bold",}
 });
