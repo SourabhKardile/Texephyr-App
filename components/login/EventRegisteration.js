@@ -339,10 +339,17 @@ const EventRegisteration = ({navigation}) => {
         </TouchableWithoutFeedback>
         </View>
 
-          <Tab.Navigator>
-          <Tab.Screen name="CSE" component={CseEvent}/>
-          <Tab.Screen name="MECH & ROBO" component={MechEvent}/>
-          <Tab.Screen name="ENTC" component={EntcEvent}/>
+          <Tab.Navigator
+          screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#171717',
+          
+        },
+      }}
+          >
+          <Tab.Screen name="CSE" component={CseEvent} options={{tabBarActiveTintColor: '#fff',tabBarInactiveTintColor: 'gray'}}/>
+          <Tab.Screen name="MECH & ROBO" component={MechEvent} options={{tabBarActiveTintColor: '#fff',tabBarInactiveTintColor: 'gray'}}/>
+          <Tab.Screen name="ENTC" component={EntcEvent} options={{tabBarActiveTintColor: '#fff',tabBarInactiveTintColor: 'gray'}}/>
           </Tab.Navigator>
 
         <Modal
